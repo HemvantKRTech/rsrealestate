@@ -51,27 +51,37 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <li><a class="dropdown-item" href="{{route('addservice')}}">Add Service</a></li>
                 <li><a class="dropdown-item" href="{{route('allservice')}}">All Services</a></li>
-                <li><a class="dropdown-item" href="#">Action 3</a></li>
             </ul>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="bi bi-person"></i> Profile
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="bi bi-gear"></i> Settings
-            </a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-folder"></i> More
+                <i class="bi bi-folder"></i> City Details
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Action 1</a></li>
-                <li><a class="dropdown-item" href="#">Action 2</a></li>
-                <li><a class="dropdown-item" href="#">Action 3</a></li>
+                <li><a class="dropdown-item" href="{{route('cities.create')}}">Add City</a></li>
+                <li><a class="dropdown-item" href="{{route('cities.all')}}">All City</a></li>
+                <li><a class="dropdown-item" href="{{route('sectore.form')}}">Add Sector</a></li>
+                <li><a class="dropdown-item" href="{{route('sector.all')}}">All Sector</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-folder"></i> Property Type
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="{{route('propertytype.create')}}">Add property Type</a></li>
+                <li><a class="dropdown-item" href="{{route('propertytype.all')}}">All property Type</a></li>
+                
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-folder"></i> Properties
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="{{route('newproperty.create')}}">Add New Property</a></li>
+                <li><a class="dropdown-item" href="#">All Property</a></li>
+                
             </ul>
         </li>
     </ul>

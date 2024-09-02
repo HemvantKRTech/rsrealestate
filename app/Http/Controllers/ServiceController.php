@@ -15,7 +15,7 @@ class ServiceController extends Controller
     public function deleteservice($id){
         $services = Service::find($id);
         $services->delete();
-        return response()->json(['success' => true, 'message' => 'Comment deleted successfully.']);
+        return redirect()->back()->with(['success' , 'Comment deleted successfully.']);
     }
     private function handleContentImages($content)
     {
@@ -67,7 +67,7 @@ class ServiceController extends Controller
         ]);
        
        if ($service){
-        return redirect()->route('services')->with('success', 'Service created successfully.');
+        return redirect()->route('allservice')->with('success', 'Service created successfully.');
        }else{
         return redirect()->back()->with('error','Service is not created.');
        }
@@ -78,4 +78,46 @@ class ServiceController extends Controller
         $services = Service::all();
         return view('Admin.Services.AllServices', compact('services'));
     }
+    public function edit( $id){
+        $service = Service::find($id);
+        return view('Admin.Services.Edit', compact('service'));
+    }
+    public function updateservice(Request $request, $id)
+    {
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'service_name' => 'required|string|max:255',
+            'slug' => 'required|string|unique:services,slug,' . $id . '|max:255',
+            'feature_image' => 'nullable|file|mimes:jpg,png,svg,gif|max:2048',
+            'service_content' => 'nullable|string',
+        ]);
+
+        $service = Service::findOrFail($id);
+
+        // Handle file uploads for feature image
+        if ($request->hasFile('feature_image')) {
+            // Delete the old image if it exists
+            if ($service->feature_image) {
+                \Storage::disk('public')->delete($service->feature_image);
+            }
+            $featureImagePath = $request->file('feature_image')->store('images', 'public');
+        } else {
+            $featureImagePath = $service->feature_image;
+        }
+
+        // Handle content and extract images from it
+        $content = $request->input('service_content');
+        $service_content = $this->handleContentImages($content);
+
+        // Update the service record in the database
+        $service->update([
+            'service_name' => $validatedData['service_name'],
+            'slug' => Str::slug($validatedData['slug']),
+            'feature_image' => $featureImagePath,
+            'service_content' => $service_content,
+        ]);
+
+        return redirect()->route('allservice')->with('success', 'Service updated successfully.');
+    }
+   
 }

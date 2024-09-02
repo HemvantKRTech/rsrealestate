@@ -1,5 +1,3 @@
-<!-- resources/views/admin/services/index.blade.php -->
-
 @extends('Admin.dashboard')
 
 @section('maincontent')
@@ -16,6 +14,11 @@
                 </div>
             @endif
 
+            <!-- Add Service Button -->
+            <div class="mb-3">
+                <a href="{{ route('addservice') }}" class="btn btn-primary">Add New Service</a>
+            </div>
+
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -27,9 +30,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($services as $service)
+                    @foreach($services as $index=> $service)
                         <tr>
-                            <td>{{ $service->id }}</td>
+                            <td>{{ $index +1 }}</td>
                             <td>{{ $service->service_name }}</td>
                             <td>{{ $service->slug }}</td>
                             <td>
@@ -40,11 +43,10 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="" class="btn btn-sm btn-warning">Edit</a>
-                                {{-- {{ route('admin.services.edit', $service->id) }} --}}
+                                <a href="{{ route('services.edit', $service->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                {{-- {{ route('services.edit', $service->id) }} --}}
                                 <!-- Delete Button -->
-                                <form action="" method="POST" style="display:inline-block;">
-                                    {{-- {{ route('admin.services.destroy', $service->id) }} --}}
+                                <form action="{{ route('services.destroy', $service->id) }}" method="POST" style="display:inline-block;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this service?')">Delete</button>
