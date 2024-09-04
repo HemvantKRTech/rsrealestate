@@ -5,16 +5,17 @@
          <div class="banner_area f6 pr">
             <div class="fluid_container">
                <div class="fluid_dg_wrap fluid_dg_charcoal_skin fluid_container" id="fluid_dg_slider">
-                  <div data-src="https://catalog.wlimg.com/3/88260/other-images/333812.jpg" data-alt="R S Real Estate" ></div>
-                  <div data-src="https://catalog.wlimg.com/3/88260/other-images/333813.jpg" data-alt="R S Real Estate" ></div>
-                  <div data-src="https://catalog.wlimg.com/3/88260/other-images/333814.jpg" data-alt="R S Real Estate" ></div>
-                  <div data-src="https://catalog.wlimg.com/3/88260/other-images/333815.jpg" data-alt="R S Real Estate" ></div>
-                  <div data-src="https://catalog.wlimg.com/3/88260/other-images/333816.jpg" data-alt="R S Real Estate" ></div>
+                  <!-- <img src="{{asset('assets/image/banner-1.jpg')}}" alt=""> -->
+                  <div data-src="{{asset('assets/image/banner-1.jpg')}}" data-alt="R S Real Estate" ></div>
+                  <div data-src="{{asset('assets/image/banner-1.jpg')}}" data-alt="R S Real Estate" ></div>
+                  <div data-src="{{asset('assets/image/banner-1.jpg')}}" data-alt="R S Real Estate" ></div>
+                  <div data-src="{{asset('assets/image/banner-1.jpg')}}" data-alt="R S Real Estate" ></div>
                </div>
             </div>
          </div>
+       
          <script>jQuery(window).load(function() {
-            jQuery('#fluid_dg_slider').fluid_dg({thumbnails: false,height:'30%',navigationHover:true,fx:"mosaicRandom",loader:'none',minHeight:'100',hover:'false',playPause:'false',pagination:false,time:4000});});
+            jQuery('#fluid_dg_slider').fluid_dg({thumbnails: false,height:'40%',navigationHover:true,loader:'none',minHeight:'100',hover:'false',playPause:'false',pagination:false,time:4000});});
          </script> 
          @include('component.search_form')
       </div>
