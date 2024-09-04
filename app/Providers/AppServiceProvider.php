@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Providers;
-
+use Illuminate\Support\Facades\View;
+use App\Models\Service;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        View::composer('FrontendPages.partials.header', function ($view) {
+            $services = Service::all(); // Fetch all services from the database
+            $view->with('services', $services); // Pass the services data to the view
+        });
     }
 }

@@ -119,5 +119,10 @@ class ServiceController extends Controller
 
         return redirect()->route('allservice')->with('success', 'Service updated successfully.');
     }
+    public function show($slug){
+        $service = Service::where('slug', $slug)->firstOrFail();
+        return view('FrontendPages.servicedetail', compact('service'));
+    }
+
    
 }

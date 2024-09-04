@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('FrontendPages.Home');
+    $services=Service::all();
+    return view('FrontendPages.Home',compact('services'));
 });

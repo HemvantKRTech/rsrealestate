@@ -160,6 +160,9 @@ class AdminController extends Controller
     public function newpropertylist(){
         return view('Admin.PropertyList.create');
     }
+    public function addnewproject(){
+        return view('Admin.Projects.create');
+    }
 
     
        

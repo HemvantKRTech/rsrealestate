@@ -4,15 +4,23 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\PropertyController;
 
 Route::get('/', function () {
     return view('FrontendPages.Home');
 });
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
 Route::post('adminlogin', [LoginController::class, 'login'])->name('adminlogin');
-Route::middleware('auth')->group(function () {
+Route::get('service/{slug}', [ServiceController::class, 'show'])->name('service.show');
+Route::post('inquiries', [InquiryController::class, 'store'])->name('inquiries.store');
+Route::get('contact-us', [InquiryController::class, 'create'])->name('contact.us');
+Route::post('contacts', [InquiryController::class, 'contactstore'])->name('contacts.store');
+Route::get('post-property', [PropertyController::class, 'create'])->name('property.create');
+Route::post('post-property', [PropertyController::class, 'store'])->name('property.store');
+Route::middleware('auth:admin')->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('dasboard', [AdminController::class, 'index'])->name('dashboard');
         Route::get('service', [ServiceController::class, 'index'])->name('addservice');
@@ -40,8 +48,8 @@ Route::middleware('auth')->group(function () {
         Route::get('propertytype/{id}/edit', [AdminController::class, 'propertyedit'])->name('propertytype.edit');
         Route::put('propertytype/{id}', [AdminController::class, 'propertyupdate'])->name('propertytype.update');
         Route::get('newpropertylist', [AdminController::class, 'newpropertylist'])->name('newproperty.create');
-
-        
+        Route::get('addnewproject', [AdminController::class, 'addnewproject'])->name('newproject.create');
+        Route::get('inquiries', [InquiryController::class, 'index'])->name('admin.inquiries');
     });
 });
 

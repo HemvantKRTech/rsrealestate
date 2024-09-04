@@ -44,7 +44,7 @@
                         <p class="l"><b class="b"></b><a href="our-projects.html" title="Our Projects" >Our Projects</a></p>
                      </div>
                      <div class="w">
-                        <p class="l"><b class="b"></b><a href="post-property.html" title="Post Property" >Post Property</a></p>
+                        <p class="l"><b class="b"></b><a href="{{route('property.create')}}" title="Post Property" >Post Property</a></p>
                      </div>
                      <div class="w">
                         <p class="l"><b class="b"></b><a href="testimonials.html" title="What clients say" >What clients say</a></p>

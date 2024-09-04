@@ -84,6 +84,21 @@
                 
             </ul>
         </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-folder"></i> Projects
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="{{route('newproject.create')}}">Add New Project</a></li>
+                <li><a class="dropdown-item" href="#">All Project</a></li>
+                
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{{route('admin.inquiries')}}">
+                <i class="bi bi-house"></i> New Enquiry
+            </a>
+        </li>
     </ul>
 </div>
 
