@@ -136,7 +136,7 @@
                                  <div style="display:none" id="rent"><input class="vam input w33 p5px" type="text" name="rent_price_from" placeholder="Min (K)" maxlength="3"> to <input class="w33 vam input p5px" type="text" name="rent_price_to" placeholder="Max (K)" maxlength="3"></div>
                               </div>
                            </div>
-                           <p class="fl w50px mt20px"><input class="button p5px10px b large" type="submit" value="SEARCH"></p>
+                           <p class="fl w50px mt20px"><input class="button-search p5px10px b large" type="submit" value="SEARCH"></p>
                            <p class="cb"></p>
                         </div>
                      </div>

@@ -35,6 +35,64 @@ body.boxed {
 .ddsmoothmenu ul li.on:hover{
     background-color: #ceb695!important;
 }
+input.button-search{
+    background-color: #ceb695!important;
+    border: none;
+    color: #fff;
+}
+input.button-search:hover{
+    background-color: #fff!important;
+    color: #ceb695!important;
+}
+.slider-content2 {
+    color: #fff;
+    background: rgb(234 224 206 / 26%)!important;
+}
+.wrap {
+    width: 1165px!important;
+    margin: 0 auto;
+}
+.dt, .ac-dt > *, .acac-dt > * > * {
+    display: table;
+    text-align: center;
+}
+.dif{
+    color: #bfa37c!important;
+}
+.large a:hover{
+    color: #ceb695!important;
+}
+.locality-Container.bg::before {
+    /* background-color: #eae0ce8c; */
+    /* opacity: 0.6; */
+    background: rgb(234 224 206 / 26%) !important;
+}
+a .dif{
+    color: #000!important;
+}
+.head-c1 {
+    color: #ceb695!important;
+}
+.head-c2 {
+    color: #ceb695!important;
+}
+.head-bdrb::before{
+    display: none!important;
+}
+.head-bdrb::after{
+    display: none!important;
+}
+.contact-icon{
+    background-color: #ceb695!important;
+}
+.dif a{
+    color: #000!important;
+}
+input.button:hover{
+    background-color: #ceb695!important;
+    border: none;
+    color: #fff;
+}
 input.button{
     background-color: #ceb695!important;
 }
