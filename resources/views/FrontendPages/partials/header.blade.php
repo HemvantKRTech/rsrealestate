@@ -745,16 +745,20 @@
                                        <a href="javascript:;" title="Our Services" >Our Services</a>
                                        <ul class="menu_style">
                                           <li class="menu-arrow menu-arrow-top ac cp bdr0"></li>
-                                          <li class="liH" ><a href="buying-property-in-mohali.html" title="Buying Property in Mohali" >Buying Property</a></li>
-                                          <li class="liH" ><a href="selling-property-in-mohali.html" title="Selling Property in Mohali" >Selling Property</a></li>
+                                          @foreach ($services as $item)
+                                          <li class="liH" ><a href="{{ route('service.show', $item->slug) }}" title="Buying Property in Mohali" >{{$item->service_name}}</a></li>  
+                                          @endforeach
+                                          
+                                          
+                                          {{-- <li class="liH" ><a href="selling-property-in-mohali.html" title="Selling Property in Mohali" >Selling Property</a></li>
                                           <li class="liH" ><a href="renting-property-in-mohali.html" title="Renting property in Mohali" >Renting property</a></li>
                                           <li class="liH" ><a href="leasing-property-in-mohali.html" title="Leasing Property in Mohali" >Leasing Property</a></li>
                                           <li class="liH" ><a href="building-construction-in-mohali.html" title="Building Construction in Mohali" >Building Construction</a></li>
-                                          <li class="liH" ><a href="property-legal-adviser-in-mohali.html" title="Property Legal Adviser in Mohali" >Property Legal Adviser</a></li>
+                                          <li class="liH" ><a href="property-legal-adviser-in-mohali.html" title="Property Legal Adviser in Mohali" >Property Legal Adviser</a></li> --}}
                                           <li class="menu-arrow menu-arrow-down ac cp bdr0"></li>
                                        </ul>
                                     </li>
-                                    <li ><a href="contact-us.html" title="Contact Us" >Contact Us</a></li>
+                                    <li ><a href="{{route('contact.us')}}" title="Contact Us" >Contact Us</a></li>
                                  </ul>
                                  <p class="cb"></p>
                               </div>

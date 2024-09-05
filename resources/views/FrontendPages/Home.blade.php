@@ -754,76 +754,27 @@
                   <div class="ic" id="1102_3-1">
                      <div class="slider">
                         <ul class=" bxslider180293 no-scroll180293 floatNone ">
+                          
+                           @foreach ($services as $item)
                            <li class="ac">
-                              <div class="pr cp" onclick="location.href='buying-property-in-mohali.html';">
+                              <div class="pr cp" onclick="location.href='{{ route('service.show', $item->slug) }}';">
                                  <div class="dib">
                                     <div class="imgFrame m0a dib ">
                                        <div class="imgFrame picBg df-dtc ac vam lh0">
-                                          <a href="buying-property-in-mohali.html" title="Buying Property" >
-                                             <div class="imgWidth" style="background-image:url(https://catalog.wlimg.com/3/88260/small-images/buying-property-23815.jpg);background-size:cover;background-position:center;"><img loading="lazy" src="https://catalog.wlimg.com/3/88260/small-images/buying-property-23815.jpg" alt="Buying Property in Mohali" title="Buying Property in Mohali" ></div>
+                                          <a href="{{ route('service.show', $item->slug) }}" title="Selling Property" >
+                                             <div class="imgWidth" style="background-image:url('{{ asset('storage/' . $item->feature_image) }}');background-size:cover;background-position:center;">
+                                                <img loading="lazy" src="{{ asset('storage/' . $item->feature_image) }}" alt="{{ $item->name }}" title="{{ $item->name }}">
+                                             </div>
+                                             
                                           </a>
                                        </div>
                                     </div>
                                  </div>
-                                 <div class="dif b h large pl5px pr5px lh12em mt5px"><a href="buying-property-in-mohali.html" title="Buying Property in Mohali" >Buying Property</a></div>
+                                 <div class="dif b h large pl5px pr5px lh12em mt5px"><a href="{{ route('service.show', $item->slug) }}" title="Selling Property in Mohali" >{{$item->service_name}}</a></div>
                               </div>
                            </li>
-                           <li class="ac">
-                              <div class="pr cp" onclick="location.href='selling-property-in-mohali.html';">
-                                 <div class="dib">
-                                    <div class="imgFrame m0a dib ">
-                                       <div class="imgFrame picBg df-dtc ac vam lh0">
-                                          <a href="selling-property-in-mohali.html" title="Selling Property" >
-                                             <div class="imgWidth" style="background-image:url(https://catalog.wlimg.com/3/88260/small-images/selling-property-23816.jpg);background-size:cover;background-position:center;"><img loading="lazy" src="https://catalog.wlimg.com/3/88260/small-images/selling-property-23816.jpg" alt="Selling Property in Mohali" title="Selling Property in Mohali" ></div>
-                                          </a>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="dif b h large pl5px pr5px lh12em mt5px"><a href="selling-property-in-mohali.html" title="Selling Property in Mohali" >Selling Property</a></div>
-                              </div>
-                           </li>
-                           <li class="ac">
-                              <div class="pr cp" onclick="location.href='renting-property-in-mohali.html';">
-                                 <div class="dib">
-                                    <div class="imgFrame m0a dib ">
-                                       <div class="imgFrame picBg df-dtc ac vam lh0">
-                                          <a href="renting-property-in-mohali.html" title="Renting property" >
-                                             <div class="imgWidth" style="background-image:url(https://catalog.wlimg.com/3/88260/small-images/renting-property-23818.jpg);background-size:cover;background-position:center;"><img loading="lazy" src="https://catalog.wlimg.com/3/88260/small-images/renting-property-23818.jpg" alt="Renting property in Mohali" title="Renting property in Mohali" ></div>
-                                          </a>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="dif b h large pl5px pr5px lh12em mt5px"><a href="renting-property-in-mohali.html" title="Renting property in Mohali" >Renting property</a></div>
-                              </div>
-                           </li>
-                           <li class="ac">
-                              <div class="pr cp" onclick="location.href='leasing-property-in-mohali.html';">
-                                 <div class="dib">
-                                    <div class="imgFrame m0a dib ">
-                                       <div class="imgFrame picBg df-dtc ac vam lh0">
-                                          <a href="leasing-property-in-mohali.html" title="Leasing Property" >
-                                             <div class="imgWidth" style="background-image:url(https://catalog.wlimg.com/3/88260/small-images/leasing-property-23819.jpg);background-size:cover;background-position:center;"><img loading="lazy" src="https://catalog.wlimg.com/3/88260/small-images/leasing-property-23819.jpg" alt="Leasing Property in Mohali" title="Leasing Property in Mohali" ></div>
-                                          </a>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="dif b h large pl5px pr5px lh12em mt5px"><a href="leasing-property-in-mohali.html" title="Leasing Property in Mohali" >Leasing Property</a></div>
-                              </div>
-                           </li>
-                           <li class="ac">
-                              <div class="pr cp" onclick="location.href='building-construction-in-mohali.html';">
-                                 <div class="dib">
-                                    <div class="imgFrame m0a dib ">
-                                       <div class="imgFrame picBg df-dtc ac vam lh0">
-                                          <a href="building-construction-in-mohali.html" title="Building Construction" >
-                                             <div class="imgWidth" style="background-image:url(https://catalog.wlimg.com/3/88260/small-images/building-construction-23820.jpg);background-size:cover;background-position:center;"><img loading="lazy" src="https://catalog.wlimg.com/3/88260/small-images/building-construction-23820.jpg" alt="Building Construction in Mohali" title="Building Construction in Mohali" ></div>
-                                          </a>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="dif b h large pl5px pr5px lh12em mt5px"><a href="building-construction-in-mohali.html" title="Building Construction in Mohali" >Building Construction</a></div>
-                              </div>
-                           </li>
+                           @endforeach
+                         
                         </ul>
                      </div>
                   </div>
