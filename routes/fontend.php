@@ -13,3 +13,6 @@ Route::get('/about-us', function () {
     return view('FrontendPages.about-us');
 })->name('about-us');
 
+Route::get('/property_details', function () {
+    return view('FrontendPages.property_details');
+})->name('property_details');
