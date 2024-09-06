@@ -8,24 +8,36 @@ use Illuminate\Database\Eloquent\Model;
 class Property extends Model
 {
     use HasFactory;
+    protected $table = 'properties';
     protected $fillable = [
-        'dynFrm_property_for',
-        'dynFrm_property_category',
-        'dynFrm_area',
-        'dynFrm_unit_measure',
-        'dynFrm_price',
-        'dynFrm_price_measure',
-        'dynFrm_property_facing',
-        'dynFrm_property_image_file',
-        'dynFrm_property_description',
-        'property_dynFrm_address',
-        'property_dynFrm_city',
-        'property_dynFrm_city_state_2',
-        'dynFrm_your_name',
-        'personal_dynFrm_email_id',
-        'personal_dynFrm_address',
-        'personal_dynFrm_city_state',
-        'personal_dynFrm_country_2',
-        'personal_dynFrm_phone_mobile',
+        'type',
+        'bedrooms',
+        'bathrooms',
+        'furnishing',
+        'construction_status',
+        'listed_by',
+        'super_builtup_area',
+        'carpet_area',
+        'maintenance',
+        'total_floors',
+        'floor_no',
+        'car_parking',
+        'facing',
+        'project_name',
+        'ad_title',
+        'description',
+        'address',
+        'price',
+        'status',
+        'added_by',
     ];
+    public function propertyType()
+    {
+        return $this->belongsTo(PropertyType::class, 'type');
+    }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+    
 }

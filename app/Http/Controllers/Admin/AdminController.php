@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\City;
 use App\Models\Sector;
 use App\Models\PropertyType;
+use App\Models\Banner;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Property;
 class AdminController extends Controller
 {
     public function index(){
@@ -65,7 +69,7 @@ class AdminController extends Controller
             'city' => 'required|exists:cities,id',
             'name' => [
                 'required',
-                'string',
+                
                 'max:255',
                 // Check for unique sector name within the specified city
                 \Illuminate\Validation\Rule::unique('sectors')->where(function ($query) use ($request) {
@@ -76,7 +80,7 @@ class AdminController extends Controller
         ]);
         Sector::create([
             'city_id' => $validatedData['city'],
-            'name' => $validatedData['sectorname'],
+            'name' => $validatedData['name'],
             'status' => $validatedData['status'], 
         ]);
         return redirect()->route('sectore.form')->with('success', 'Sector created successfully.');
@@ -158,12 +162,119 @@ class AdminController extends Controller
         return redirect()->back()->with('success','Property type Updated.');
     }
     public function newpropertylist(){
-        return view('Admin.PropertyList.create');
+        $type=PropertyType::all();
+        $categories=Category::all();
+        return view('Admin.PropertyList.create',compact('type','categories'));
+    }
+    public function allpropertylist(){
+        $properties=Property::with('propertyType')->paginate(10);
+        // dd($property);
+        return view('Admin.PropertyList.all',compact('properties'));
+    }
+
+    public function propertydestroy($id){
+        $property = Property::findOrFail($id);
+    $property->delete(); // Delete the property
+
+    return redirect()->route('newproperty.all')->with('success', 'Property deleted successfully.');
+    }
+    public function edit($id)
+    {
+        $property = Property::findOrFail($id);
+        $types = PropertyType::where('status', 'active')->get();
+
+        // Get all active categories
+        $categories = Category::where('status', true)->get();
+
+        return view('Admin.PropertyList.edit', compact('property', 'types','categories'));
+    }
+    public function update(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'category'=>'required',
+            'type' => 'required|exists:property_types,id',
+            'bedrooms' => 'required|integer',
+            'bathrooms' => 'required|integer',
+            'furnishing' => 'required|string',
+            'construction_status' => 'required|string',
+            'listed_by' => 'required|string',
+            'super_builtup_area' => 'required|numeric',
+            'carpet_area' => 'required|numeric',
+            'maintenance' => 'nullable|numeric',
+            'total_floors' => 'required|integer',
+            'floor_no' => 'required|integer',
+            'car_parking' => 'required|string',
+            'facing' => 'nullable|string',
+            'project_name' => 'required|string|max:70',
+            'ad_title' => 'required|string|max:70',
+            'price' => 'required|numeric',
+            'address' => 'required|string|max:255',
+            'description' => 'required|string|max:4096',
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate images
+        ]);
+
+        $property = Property::findOrFail($id);
+        $property->update($validated);
+
+        // Handle image uploads if any
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $path = $image->store('property_images', 'public');
+                $property->images()->create(['path' => $path]);
+            }
+        }
+
+        return redirect()->route('newproperty.all')->with('success', 'Property updated successfully.');
     }
     public function addnewproject(){
         return view('Admin.Projects.create');
     }
+    public function bannerindex()
+    {
+        $banners = Banner::orderBy('created_at', 'desc')->paginate(10);
+        return view('Admin.banner.create', compact('banners'));
+    }
 
+    public function store(Request $request)
+    {
+        // Validate the request
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'images' => 'required',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validate each image
+        ]);
+
+        // Handle the file uploads
+        $imagePaths = [];
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                // Store each image
+                $path = $image->store('banner_images', 'public');
+                $imagePaths[] = $path;
+            }
+        }
+
+        // Create the banner
+        Banner::create([
+            'name' => $request->name,
+            'images' => json_encode($imagePaths),
+        ]);
+
+        return redirect()->back()->with('success', 'Banner created successfully.');
+    }
+
+    public function destroy(Banner $banner)
+    {
+        // Delete images from storage
+        foreach (json_decode($banner->images) as $image) {
+            Storage::disk('public')->delete($image);
+        }
+
+        // Delete the banner
+        $banner->delete();
+
+        return redirect()->back()->with('success', 'Banner deleted successfully.');
+    }
     
        
 }

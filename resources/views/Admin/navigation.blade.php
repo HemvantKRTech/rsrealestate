@@ -46,11 +46,28 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-folder"></i> Banner
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="{{route('banners.index')}}">Add Banner</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-folder"></i> Services
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <li><a class="dropdown-item" href="{{route('addservice')}}">Add Service</a></li>
                 <li><a class="dropdown-item" href="{{route('allservice')}}">All Services</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-folder"></i> Category
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="{{route('category.create')}}"> Category</a></li>
+                {{-- <li><a class="dropdown-item" href="{{route('allservice')}}">All Category</a></li> --}}
             </ul>
         </li>
         <li class="nav-item dropdown">
@@ -80,7 +97,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <li><a class="dropdown-item" href="{{route('newproperty.create')}}">Add New Property</a></li>
-                <li><a class="dropdown-item" href="#">All Property</a></li>
+                <li><a class="dropdown-item" href="{{route('newproperty.all')}}">All Property</a></li>
                 
             </ul>
         </li>

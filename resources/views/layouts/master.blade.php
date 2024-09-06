@@ -20,9 +20,9 @@
     @stack('styles')
 </head>
 <body>
-    @yield('header')
+    @include('Admin.navigation')
     @yield('content')
-    @yield('footer')
+    {{-- @yield('footer') --}}
     @stack('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.bundle.min.js"></script>
 </body>

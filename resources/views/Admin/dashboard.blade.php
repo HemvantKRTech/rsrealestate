@@ -1,5 +1,8 @@
 @extends('layouts.master')
-@include('Admin.navigation')
+{{-- @section('header')
+  
+@endsection --}}
+
 @section('content')
     <!-- Page Content -->
 <div class="content">

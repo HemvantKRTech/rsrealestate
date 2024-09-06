@@ -5,15 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PropertyType extends Model
+class Category extends Model
 {
     use HasFactory;
+    protected $table = 'categories';
+
+    // The attributes that are mass assignable
     protected $fillable = [
         'name',
         'status',
     ];
-    public function properties()
+    public function property()
     {
-        return $this->hasMany(Property::class, 'type');
+        return $this->hasOne(Property::class);
     }
 }

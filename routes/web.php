@@ -19,7 +19,7 @@ Route::post('inquiries', [InquiryController::class, 'store'])->name('inquiries.s
 Route::get('contact-us', [InquiryController::class, 'create'])->name('contact.us');
 Route::post('contacts', [InquiryController::class, 'contactstore'])->name('contacts.store');
 Route::get('post-property', [PropertyController::class, 'create'])->name('property.create');
-Route::post('post-property', [PropertyController::class, 'store'])->name('property.store');
+
 Route::middleware('auth:admin')->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('dasboard', [AdminController::class, 'index'])->name('dashboard');
@@ -48,8 +48,21 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('propertytype/{id}/edit', [AdminController::class, 'propertyedit'])->name('propertytype.edit');
         Route::put('propertytype/{id}', [AdminController::class, 'propertyupdate'])->name('propertytype.update');
         Route::get('newpropertylist', [AdminController::class, 'newpropertylist'])->name('newproperty.create');
+        Route::get('allpropertylist', [AdminController::class, 'allpropertylist'])->name('newproperty.all');
+        Route::get('/properties/{id}/show', [AdminController::class, 'show'])->name('property.show');
+Route::get('/properties/{id}/edit', [AdminController::class, 'edit'])->name('property.edit');
+Route::put('/properties/{id}', [AdminController::class, 'update'])->name('property.update');
+Route::delete('/properties/{id}', [AdminController::class, 'propertydestroy'])->name('property.destroy');
         Route::get('addnewproject', [AdminController::class, 'addnewproject'])->name('newproject.create');
         Route::get('inquiries', [InquiryController::class, 'index'])->name('admin.inquiries');
+        Route::post('post-property', [PropertyController::class, 'store'])->name('property.store');
+        Route::get('category', [PropertyController::class, 'categorycreate'])->name('category.create');
+        Route::post('post-category', [PropertyController::class, 'categorystore'])->name('categories.store');
+        Route::put('category/{category}', [PropertyController::class, 'categoryupdate'])->name('categories.update');
+Route::delete('category/{category}', [PropertyController::class, 'categorydestroy'])->name('categories.destroy');
+Route::get('banners', [AdminController::class, 'bannerindex'])->name('banners.index');
+Route::post('banners', [AdminController::class, 'store'])->name('banners.store');
+Route::delete('banners/{banner}', [AdminController::class, 'destroy'])->name('banners.destroy');
     });
 });
 

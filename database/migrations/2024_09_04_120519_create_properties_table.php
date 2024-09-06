@@ -13,24 +13,26 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
-            $table->string('dynFrm_property_for')->nullable();
-            $table->string('dynFrm_property_category')->nullable();
-            $table->string('dynFrm_area')->nullable();
-            $table->string('dynFrm_unit_measure')->nullable();
-            $table->decimal('dynFrm_price', 15, 2)->nullable();
-            $table->string('dynFrm_price_measure')->default('INR');
-            $table->string('dynFrm_property_facing')->nullable();
-            $table->string('dynFrm_property_image_file')->nullable();
-            $table->text('dynFrm_property_description')->nullable();
-            $table->text('property_dynFrm_address')->nullable();
-            $table->string('property_dynFrm_city')->nullable();
-            $table->string('property_dynFrm_city_state_2')->nullable();
-            $table->string('dynFrm_your_name')->nullable();
-            $table->string('personal_dynFrm_email_id')->nullable();
-            $table->string('personal_dynFrm_address')->nullable();
-            $table->string('personal_dynFrm_city_state')->nullable();
-            $table->string('personal_dynFrm_country_2')->nullable();
-            $table->string('personal_dynFrm_phone_mobile')->nullable();
+            $table->string('type');
+            $table->integer('bedrooms')->nullable();
+            $table->integer('bathrooms')->nullable();
+            $table->string('furnishing')->nullable();
+            $table->string('construction_status')->nullable();
+            $table->string('listed_by')->nullable();
+            $table->decimal('super_builtup_area', 10, 2);
+            $table->decimal('carpet_area', 10, 2);
+            $table->decimal('maintenance', 10, 2)->nullable();
+            $table->integer('total_floors')->nullable();
+            $table->integer('floor_no')->nullable();
+            $table->integer('car_parking')->nullable();
+            $table->string('facing')->nullable();
+            $table->string('project_name')->nullable();
+            $table->string('ad_title');
+            $table->text('description');
+            $table->text('address');
+            $table->decimal('price', 15, 2);
+            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->enum('added_by', ['admin', 'user'])->default('admin');
             $table->timestamps();
         });
     }

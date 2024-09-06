@@ -4,44 +4,134 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Property;
+use App\Models\Category;
 class PropertyController extends Controller
 {
     public function create()
     {
+        
         return view('FrontendPages.postproperty');
     }
 
     public function store(Request $request)
     {
-        $validateData=$request->validate([
-            'dynFrm_property_for' => 'required',
-            'dynFrm_property_category' => 'required',
-            'dynFrm_area' => 'required',
-            'dynFrm_unit_measure' => 'required',
-            'dynFrm_price' => 'required|numeric',
-            'dynFrm_property_description' => 'required',
-            'property_dynFrm_address' => 'required',
-            'property_dynFrm_city' => 'required',
-            'property_dynFrm_city_state_2' => 'required',
-            'dynFrm_your_name' => 'required',
-            'personal_dynFrm_email_id' => 'required|email',
-            'personal_dynFrm_address' => 'required',
-            'personal_dynFrm_city_state' => 'required',
-            'personal_dynFrm_country_2' => 'required',
-            'personal_dynFrm_phone_mobile' => 'required',
-            'dynFrm_property_image_file' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        // Validate the form inputs
+        $validatedData = $request->validate([
+            'category'=>'required',
+            'type' => 'required',
+            'bedrooms' => 'required',
+            'bathrooms' => 'required',
+            'furnishing' => 'required',
+            'construction_status' => 'required',
+            'listed_by' => 'required',
+            'super_builtup_area' => 'required|numeric|min:0',
+            'carpet_area' => 'required|numeric|min:0',
+            'maintenance' => 'required|numeric|min:0',
+            'total_floors' => 'required|numeric|min:0',
+            'floor_no' => 'required|numeric|min:0',
+            'car_parking' => 'required',
+            'facing' => 'required',
+            'project_name' => 'required|max:70',
+            'ad_title' => 'required|max:70',
+            'price' => 'required|numeric|min:0',
+            'address' => 'required|max:255',
+            'description' => 'required|max:4096',
+            'images' => 'required',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // Validate each image
+        ]);
+    
+        // Store the form data into the database
+        $property = new Property();
+        $property->category_id = $request->input('category');
+        $property->type = $request->input('type');
+        $property->bedrooms = $request->input('bedrooms');
+        $property->bathrooms = $request->input('bathrooms');
+        $property->furnishing = $request->input('furnishing');
+        $property->construction_status = $request->input('construction_status');
+        $property->listed_by = $request->input('listed_by');
+        $property->super_builtup_area = $request->input('super_builtup_area');
+        $property->carpet_area = $request->input('carpet_area');
+        $property->maintenance = $request->input('maintenance');
+        $property->total_floors = $request->input('total_floors');
+        $property->floor_no = $request->input('floor_no');
+        $property->car_parking = $request->input('car_parking');
+        $property->facing = $request->input('facing');
+        $property->project_name = $request->input('project_name');
+        $property->ad_title = $request->input('ad_title');
+        $property->price = $request->input('price');
+        $property->address = $request->input('address');
+        $property->description = $request->input('description');
+    
+        // Handle image uploads
+        if ($request->hasFile('images')) {
+            $imageFiles = $request->file('images');
+            $imagePaths = [];
+    
+            foreach ($imageFiles as $image) {
+                // Store each image in the property_images folder and get its path
+                $imagePath = $image->store('property_images', 'public');
+                $imagePaths[] = $imagePath;
+            }
+    
+            // Save the array of image paths as a JSON string in the 'images' column
+            $property->images = json_encode($imagePaths);
+        }
+    
+        $property->save();
+    
+        // Redirect or return a response
+        return redirect()->back()->with('success', 'Property listed successfully.');
+    }
+    
+    public function categorycreate( Request $request){
+        $categories = Category::orderBy('created_at', 'desc')->paginate(10);
+
+    // Check if 'edit' query parameter is present
+    $editCategory = null;
+    if ($request->has('edit')) {
+        $editCategory = Category::find($request->edit);
+    }
+
+    return view('Admin.category.create', compact('categories', 'editCategory'));
+    }
+    public function categorystore(Request $request){
+        {
+            // Validate the request data
+            $validated = $request->validate([
+                'name' => 'required|string|max:255|unique:categories,name',
+                'status' => 'required|boolean',
+            ]);
+    
+            // Create the category
+            Category::create($validated);
+    
+            // Redirect with success message
+            return redirect()->back()->with('success', 'Category created successfully.');
+        }
+    }
+    public function categoryupdate(Request $request, Category $category)
+    {
+        // Validate the request data
+        $validated = $request->validate([
+            'name' => 'required|string|max:255|unique:categories,name,' . $category->id,
+            'status' => 'required|boolean',
         ]);
 
-        dd($validateData);
+        // Update the category
+        $category->update($validated);
 
-        if ($request->hasFile('dynFrm_property_image_file')) {
-            $path = $request->file('dynFrm_property_image_file')->store('property_images');
-            $validateData['dynFrm_property_image_file']=$path;
-        }
-       
-
-        Property::create($validateData);
-
-        return redirect()->route('property.create')->with('success', 'Property posted successfully!');
+        // Redirect with success message
+        return redirect()->route('category.create')->with('success', 'Category updated successfully.');
     }
+
+    // Delete a category
+    public function categorydestroy(Category $category)
+    {
+        // Delete the category
+        $category->delete();
+
+        // Redirect with success message
+        return redirect()->back()->with('success', 'Category deleted successfully.');
+    }
+
 }
