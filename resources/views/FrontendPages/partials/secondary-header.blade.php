@@ -9,7 +9,7 @@
                         <table class="top-head tooltip callTip ttBtm">
                            <tr>
                               <td class=""><i style="font-size:1.6em;" class="fa vam fa-mobile mr10px"></i></td>
-                              <td class="large"><span class="di"><a href="tel:1234567890">1234567890</a></span><span class="tooltipVt"> </span></td>
+                              <td class="large"><span class="di">08048025143</span><span class="tooltipVt"> </span></td>
                            </tr>
                         </table>
                      </li>
@@ -615,7 +615,7 @@
                               <a class="animateddrawer" id="ddsmoothmenu-mobiletoggle" href="#"><span></span></a> 
                               <div id="smoothmenu1" class="ddsmoothmenu al" style="font-weight:normal;">
                                  <ul>
-                                    <li><a href="{{route('home')}}" title="Home" >Home</a></li>
+                                    <li><a href="index.html" title="Home" >Home</a></li>
                                     <li ><a href="{{route('about-us')}}" title="About Us" >About Us</a></li>
                                     <li >
                                        <a href="find-property.html" title="Find Property" >Find Property</a>
@@ -745,16 +745,16 @@
                                        <a href="javascript:;" title="Our Services" >Our Services</a>
                                        <ul class="menu_style">
                                           <li class="menu-arrow menu-arrow-top ac cp bdr0"></li>
-                                          @foreach ($services as $item)
-                                          <li class="liH" ><a href="{{ route('service.show', $item->slug) }}" title="Buying Property in Mohali" >{{$item->service_name}}</a></li>  
-                                          @endforeach
-                                          
-                                          
-                                         
+                                          <li class="liH" ><a href="buying-property-in-mohali.html" title="Buying Property in Mohali" >Buying Property</a></li>
+                                          <li class="liH" ><a href="selling-property-in-mohali.html" title="Selling Property in Mohali" >Selling Property</a></li>
+                                          <li class="liH" ><a href="renting-property-in-mohali.html" title="Renting property in Mohali" >Renting property</a></li>
+                                          <li class="liH" ><a href="leasing-property-in-mohali.html" title="Leasing Property in Mohali" >Leasing Property</a></li>
+                                          <li class="liH" ><a href="building-construction-in-mohali.html" title="Building Construction in Mohali" >Building Construction</a></li>
+                                          <li class="liH" ><a href="property-legal-adviser-in-mohali.html" title="Property Legal Adviser in Mohali" >Property Legal Adviser</a></li>
                                           <li class="menu-arrow menu-arrow-down ac cp bdr0"></li>
                                        </ul>
                                     </li>
-                                    <li ><a href="{{route('contact.us')}}" title="Contact Us" >Contact Us</a></li>
+                                    <li ><a href="contact-us.html" title="Contact Us" >Contact Us</a></li>
                                  </ul>
                                  <p class="cb"></p>
                               </div>
