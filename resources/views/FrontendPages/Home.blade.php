@@ -6,10 +6,18 @@
             <div class="fluid_container">
                <div class="fluid_dg_wrap fluid_dg_charcoal_skin fluid_container" id="fluid_dg_slider">
                   <!-- <img src="{{asset('assets/image/banner-1.jpg')}}" alt=""> -->
+                  @foreach ($images as $image)
+                
+                      <div data-src="{{ asset('storage/' . $image) }}" data-alt="R S Real Estate">
+                          {{-- <img src="{{ asset('storage/' . $image) }}" alt="R S Real Estate" class="img-fluid"> --}}
+                      </div>
+                 
+              @endforeach
+              
+                  {{-- <div data-src="{{asset('assets/image/banner-1.jpg')}}" data-alt="R S Real Estate" ></div>
                   <div data-src="{{asset('assets/image/banner-1.jpg')}}" data-alt="R S Real Estate" ></div>
                   <div data-src="{{asset('assets/image/banner-1.jpg')}}" data-alt="R S Real Estate" ></div>
-                  <div data-src="{{asset('assets/image/banner-1.jpg')}}" data-alt="R S Real Estate" ></div>
-                  <div data-src="{{asset('assets/image/banner-1.jpg')}}" data-alt="R S Real Estate" ></div>
+                  <div data-src="{{asset('assets/image/banner-1.jpg')}}" data-alt="R S Real Estate" ></div> --}}
                </div>
             </div>
          </div>
@@ -877,7 +885,11 @@
                      <p class="mt7px large"></p>
                   </div>
                   <div class="ic mt30px hp_full_inquiry enqView qi_float fo">
-                     <form name="static_form" method="post" action="http://catalog.realestateindia.com/catalog-enquiry.php" onsubmit="return static_inq_form_validate(10034);" enctype="multipart/form-data">
+                     @if (session('status'))
+                     <p>{{ session('status') }}</p>
+                 @endif
+                     <form name="static_form" method="post" action="{{ route('inquiries.store') }}" onsubmit="return static_inq_form_validate(10034);" enctype="multipart/form-data">
+                       @csrf
                         <input type="hidden" name="enquiry_submission_section" value="contact"><input type="hidden" name="subject" value="Quick Enquiry">	
                         <div class="qi_frm">
                            <div class="mb15px"><input type="text" name="dynFrm_contact_person" id="detail_contact_person" size="20" class="input w120px" placeholder="Your Name">

@@ -1,11 +1,15 @@
 <?php
 
+use App\Models\Banner;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/home', function () {
+Route::get('/', function () {
     $services=Service::all();
-    return view('FrontendPages.Home',compact('services'));
+    $banners=Banner::where('status','active')->first();
+    // dd($banners);
+    $images = json_decode($banners->images, true); 
+    return view('FrontendPages.Home',compact('services','images'));
 })->name('home');
 
 

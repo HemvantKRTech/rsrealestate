@@ -7,9 +7,9 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\PropertyController;
 
-Route::get('/', function () {
-    return view('FrontendPages.Home');
-});
+// Route::get('/', function () {
+//     return view('FrontendPages.Home');
+// });
 Route::get('/login', function () {
     return view('login');
 })->name('login');

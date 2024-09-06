@@ -258,6 +258,7 @@ class AdminController extends Controller
         Banner::create([
             'name' => $request->name,
             'images' => json_encode($imagePaths),
+            
         ]);
 
         return redirect()->back()->with('success', 'Banner created successfully.');
