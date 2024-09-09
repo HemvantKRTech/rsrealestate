@@ -35,7 +35,7 @@
                         <p class="l"><b class="b"></b><a href="index.html" title="Home" >Home</a></p>
                      </div>
                      <div class="w">
-                        <p class="l"><b class="b"></b><a href="blog/index.html" title="Blog" >Blog</a></p>
+                        <p class="l"><b class="b"></b><a href="{{route('blog')}}" title="Blog" >Blog</a></p>
                      </div>
                      <div class="w">
                         <p class="l"><b class="b"></b><a href="about-us.html" title="About Us" >About Us</a></p>
