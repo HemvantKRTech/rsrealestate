@@ -12,6 +12,15 @@ body.boxed {
 .dib .w250px{
     margin-top: 10px!important;
 }
+.di a{
+    color: #fff;
+}
+.fa-mobile{
+    color: #fff!important;
+}
+.fa-envelope{
+    color: #fff!important;
+}
 .banner_area.f6 {
     margin-top: 0px!important;
 }
@@ -22,6 +31,12 @@ body.boxed {
 .smsBtn:hover{
     color: #fb6a19!important;
     background-color: #fff;
+}
+.emailBtn{
+    background-color: #fff2e6!important;
+}
+.smsBtn{
+    background-color: #fff2e6!important;
 }
 .data{
     background-color: #fff!important;
@@ -73,15 +88,15 @@ input.button-search:hover{
     width: 1151px!important;
     margin: 0 auto;
 }
-.dt, .ac-dt > *, .acac-dt > * > * {
+/* .dt, .ac-dt > *, .acac-dt > * > * {
     display: table;
     text-align: center;
-}
+} */
 .dif{
     color: #fb6a19!important;
 }
 .large a:hover{
-    color: #fff!important;
+    color: #fb6a19!important;
 }
 .di a:hover{
     color: #fff!important;
@@ -138,9 +153,28 @@ a.buttonBig{
 #bodyFormatNT.evenOdd section:nth-child(even){
     background-color: #fff2e6!important;
 }
-.fo .data .al{
+/* .fo .data .al{
     background-color: #fb6a19!important;
-}
+} */
 footer{
     background-color: #000!important;
+}
+
+/* Property Details */
+
+.fw6 {
+    font-weight: 600;
+    color: #fb6a19;
+}
+.searchFilter{
+    margin-top: 6%;
+}
+.headVr {
+    background-color: #fff2e6!important;
+}
+.theme2{
+    background-color: #fb6a19!important;
+}
+.xxxlarge{
+    color: #fb6a19!important;
 }
