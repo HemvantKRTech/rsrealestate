@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Property;
 use App\Models\Category;
+use App\Models\City;
+use App\Models\Sector;
 class PropertyController extends Controller
 {
     public function create()
@@ -35,6 +37,8 @@ class PropertyController extends Controller
             'ad_title' => 'required|max:70',
             'price' => 'required|numeric|min:0',
             'address' => 'required|max:255',
+            'city' => 'required',
+            'sector' => 'required',
             'description' => 'required|max:4096',
             'images' => 'required',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // Validate each image
@@ -60,6 +64,8 @@ class PropertyController extends Controller
         $property->ad_title = $request->input('ad_title');
         $property->price = $request->input('price');
         $property->address = $request->input('address');
+        $property->city_id = $request->input('city');
+        $property->sector_id = $request->input('sector');
         $property->description = $request->input('description');
     
         // Handle image uploads
@@ -132,6 +138,52 @@ class PropertyController extends Controller
 
         // Redirect with success message
         return redirect()->back()->with('success', 'Category deleted successfully.');
+    }
+    public function getSectorsByCity(Request $request)
+    {
+        $city_id = $request->city_id;
+        $sectors = Sector::where('city_id', $city_id)->pluck('name', 'id');
+        return response()->json($sectors);
+    }
+    public function show($cityname)
+    {
+        // Fetch the city based on cityname
+        $city = City::where('name', $cityname)->firstOrFail();
+
+        // Get the city ID
+        $cityId = $city->id;
+
+        // Fetch properties based on the city ID
+        $properties = Property::where('city_id', $cityId)->get();
+        // dd($properties);
+        // Pass properties and city data to the view
+        return view('properties.index', [
+            'properties' => $properties,
+            'city' => $city
+        ]);
+    }
+    public function sectorshow($sectorname)
+    {
+        // Fetch the city based on cityname
+        $city = Sector::where('name', $sectorname)->firstOrFail();
+
+        // Get the city ID
+        $cityId = $city->id;
+
+        // Fetch properties based on the city ID
+        $properties = Property::where('sector_id', $cityId)->get();
+        dd($properties);
+        // Pass properties and city data to the view
+        return view('properties.index', [
+            'properties' => $properties,
+            'city' => $city
+        ]);
+    }
+    public function propertydetail($id){
+       $property= Property::where('id', $id)->with('city')->with('sector')->firstOrFail();
+       return view('FrontendPages.property_details', [
+        'property'=> $property
+        ]);
     }
 
 }

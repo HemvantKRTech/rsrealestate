@@ -621,115 +621,23 @@
                                        <a href="find-property.html" title="Find Property" >Find Property</a>
                                        <ul class="menu_style">
                                           <li class="menu-arrow menu-arrow-top ac cp bdr0"></li>
-                                          <li class="liH" >
-                                             <a href="property-in-mohali.html" title="Property for Sale in Mohali" >Mohali</a>
-                                             <ul>
-                                                <li >
-                                                   <a href="property-for-sale-in-sector-79-mohali.html" title="Property for Sale in Sector 79 Mohali" >Sector 79 Mohali</a>
-                                                   <ul>
-                                                      <li ><a href="2-bhk-individual-house-for-sale-in-sector-79-mohali.html" title="2 BHK Individual Houses for Sale in Sector 79 Mohali" >2 BHK Individual Houses</a></li>
-                                                      <li ><a href="3-bhk-individual-house-for-sale-in-sector-79-mohali.html" title="3 BHK Individual Houses for Sale in Sector 79 Mohali" >3 BHK Individual Houses</a></li>
-                                                      <li ><a href="5-bhk-individual-house-for-sale-in-sector-79-mohali.html" title="5 BHK Individual Houses for Sale in Sector 79 Mohali" >5 BHK Individual Houses</a></li>
-                                                      <li ><a href="6-bhk-individual-house-for-sale-in-sector-79-mohali.html" title="6 BHK Individual Houses for Sale in Sector 79 Mohali" >6 BHK Individual Houses</a></li>
-                                                      <li ><a href="1-rk-individual-house-for-sale-in-sector-79-mohali.html" title="1 RK Individual Houses for Sale in Sector 79 Mohali" >1 RK Individual Houses</a></li>
-                                                      <li ><a href="3-bhk-builder-floor-for-sale-in-sector-79-mohali.html" title="3 BHK Builder Floor for Sale in Sector 79 Mohali" >3 BHK Builder Floor</a></li>
-                                                      <li ><a href="1-rk-builder-floor-for-sale-in-sector-79-mohali.html" title="1 RK Builder Floor for Sale in Sector 79 Mohali" >1 RK Builder Floor</a></li>
-                                                      <li ><a href="4-bhk-flats-apartments-for-sale-in-sector-79-mohali.html" title="4 BHK Flats &amp; Apartments for Sale in Sector 79 Mohali" >4 BHK Flats &amp; Apartments</a></li>
-                                                   </ul>
-                                                </li>
-                                                <li >
-                                                   <a href="property-for-sale-in-phase-10-mohali.html" title="Property for Sale in Phase 10, Mohali" >Phase 10</a>
-                                                   <ul>
-                                                      <li ><a href="2-bhk-individual-house-for-sale-in-phase-10-mohali.html" title="2 BHK Individual Houses for Sale in Phase 10, Mohali" >2 BHK Individual Houses</a></li>
-                                                      <li ><a href="3-bhk-individual-house-for-sale-in-phase-10-mohali.html" title="3 BHK Individual Houses for Sale in Phase 10, Mohali" >3 BHK Individual Houses</a></li>
-                                                      <li ><a href="2-bhk-builder-floor-for-sale-in-phase-10-mohali.html" title="2 BHK Builder Floor for Sale in Phase 10, Mohali" >2 BHK Builder Floor</a></li>
-                                                      <li ><a href="3-bhk-builder-floor-for-sale-in-phase-10-mohali.html" title="3 BHK Builder Floor for Sale in Phase 10, Mohali" >3 BHK Builder Floor</a></li>
-                                                   </ul>
-                                                </li>
-                                                <li >
-                                                   <a href="property-for-sale-in-sector-69-mohali.html" title="Property for Sale in Sector 69 Mohali" >Sector 69 Mohali</a>
-                                                   <ul>
-                                                      <li ><a href="2-bhk-individual-house-for-sale-in-sector-69-mohali.html" title="2 BHK Individual Houses for Sale in Sector 69 Mohali" >2 BHK Individual Houses</a></li>
-                                                      <li ><a href="3-bhk-individual-house-for-sale-in-sector-69-mohali.html" title="3 BHK Individual Houses for Sale in Sector 69 Mohali" >3 BHK Individual Houses</a></li>
-                                                      <li ><a href="5-bhk-individual-house-for-sale-in-sector-69-mohali.html" title="5 BHK Individual Houses for Sale in Sector 69 Mohali" >5 BHK Individual Houses</a></li>
-                                                      <li ><a href="6-bhk-individual-house-for-sale-in-sector-69-mohali.html" title="6 BHK Individual Houses for Sale in Sector 69 Mohali" >6 BHK Individual Houses</a></li>
-                                                      <li ><a href="3-bhk-builder-floor-for-sale-in-sector-69-mohali.html" title="3 BHK Builder Floor for Sale in Sector 69 Mohali" >3 BHK Builder Floor</a></li>
-                                                   </ul>
-                                                </li>
-                                                <li >
-                                                   <a href="property-for-sale-in-sector-70-mohali.html" title="Property for Sale in Sector 70 Mohali" >Sector 70 Mohali</a>
-                                                   <ul>
-                                                      <li ><a href="2-bhk-builder-floor-for-sale-in-sector-70-mohali.html" title="2 BHK Builder Floor for Sale in Sector 70 Mohali" >2 BHK Builder Floor</a></li>
-                                                      <li ><a href="3-bhk-builder-floor-for-sale-in-sector-70-mohali.html" title="3 BHK Builder Floor for Sale in Sector 70 Mohali" >3 BHK Builder Floor</a></li>
-                                                      <li ><a href="3-bhk-individual-house-for-sale-in-sector-70-mohali.html" title="3 BHK Individual Houses for Sale in Sector 70 Mohali" >3 BHK Individual Houses</a></li>
-                                                      <li ><a href="5-bhk-individual-house-for-sale-in-sector-70-mohali.html" title="5 BHK Individual Houses for Sale in Sector 70 Mohali" >5 BHK Individual Houses</a></li>
-                                                      <li ><a href="3-bhk-flats-apartments-for-sale-in-sector-70-mohali.html" title="3 BHK Flats &amp; Apartments for Sale in Sector 70 Mohali" >3 BHK Flats &amp; Apartments</a></li>
-                                                   </ul>
-                                                </li>
-                                                <li >
-                                                   <a href="property-for-sale-in-aerocity-mohali.html" title="Property for Sale in Aerocity, Mohali" >Aerocity</a>
-                                                   <ul>
-                                                      <li ><a href="3-bhk-individual-house-for-sale-in-aerocity-mohali.html" title="3 BHK Individual Houses for Sale in Aerocity, Mohali" >3 BHK Individual Houses</a></li>
-                                                      <li ><a href="6-bhk-individual-house-for-sale-in-aerocity-mohali.html" title="6 BHK Individual Houses for Sale in Aerocity, Mohali" >6 BHK Individual Houses</a></li>
-                                                   </ul>
-                                                </li>
-                                                <li >
-                                                   <a href="property-for-sale-in-sector-68-mohali.html" title="Property for Sale in Sector 68 Mohali" >Sector 68 Mohali</a>
-                                                   <ul>
-                                                      <li ><a href="2-bhk-individual-house-for-sale-in-sector-68-mohali.html" title="2 BHK Individual Houses for Sale in Sector 68 Mohali" >2 BHK Individual Houses</a></li>
-                                                      <li ><a href="3-bhk-individual-house-for-sale-in-sector-68-mohali.html" title="3 BHK Individual Houses for Sale in Sector 68 Mohali" >3 BHK Individual Houses</a></li>
-                                                      <li ><a href="6-bhk-individual-house-for-sale-in-sector-68-mohali.html" title="6 BHK Individual Houses for Sale in Sector 68 Mohali" >6 BHK Individual Houses</a></li>
-                                                      <li ><a href="3-bhk-flats-apartments-for-sale-in-sector-68-mohali.html" title="3 BHK Flats &amp; Apartments for Sale in Sector 68 Mohali" >3 BHK Flats &amp; Apartments</a></li>
-                                                   </ul>
-                                                </li>
-                                                <li >
-                                                   <a href="property-for-sale-in-phase-3b-1-mohali.html" title="Property for Sale in Phase 3B-1, Mohali" >Phase 3B-1</a>
-                                                   <ul>
-                                                      <li ><a href="3-bhk-individual-house-for-sale-in-phase-3b-1-mohali.html" title="3 BHK Individual Houses for Sale in Phase 3B-1, Mohali" >3 BHK Individual Houses</a></li>
-                                                      <li ><a href="4-bhk-individual-house-for-sale-in-phase-3b-1-mohali.html" title="4 BHK Individual Houses for Sale in Phase 3B-1, Mohali" >4 BHK Individual Houses</a></li>
-                                                      <li ><a href="5-bhk-individual-house-for-sale-in-phase-3b-1-mohali.html" title="5 BHK Individual Houses for Sale in Phase 3B-1, Mohali" >5 BHK Individual Houses</a></li>
-                                                   </ul>
-                                                </li>
-                                                <li >
-                                                   <a href="property-for-sale-in-phase-4-mohali.html" title="Property for Sale in Phase 4, Mohali" >Phase 4</a>
-                                                   <ul>
-                                                      <li ><a href="2-bhk-individual-house-for-sale-in-phase-4-mohali.html" title="2 BHK Individual Houses for Sale in Phase 4, Mohali" >2 BHK Individual Houses</a></li>
-                                                      <li ><a href="3-bhk-individual-house-for-sale-in-phase-4-mohali.html" title="3 BHK Individual Houses for Sale in Phase 4, Mohali" >3 BHK Individual Houses</a></li>
-                                                      <li ><a href="6-bhk-individual-house-for-sale-in-phase-4-mohali.html" title="6 BHK Individual Houses for Sale in Phase 4, Mohali" >6 BHK Individual Houses</a></li>
-                                                      <li ><a href="9-bhk-individual-house-for-sale-in-phase-4-mohali.html" title="9 BHK Individual Houses for Sale in Phase 4, Mohali" >9 BHK Individual Houses</a></li>
-                                                   </ul>
-                                                </li>
-                                                <li >
-                                                   <a href="property-for-sale-in-phase-7-mohali.html" title="Property for Sale in Phase 7, Mohali" >Phase 7</a>
-                                                   <ul>
-                                                      <li ><a href="3-bhk-individual-house-for-sale-in-phase-7-mohali.html" title="3 BHK Individual Houses for Sale in Phase 7, Mohali" >3 BHK Individual Houses</a></li>
-                                                      <li ><a href="4-bhk-individual-house-for-sale-in-phase-7-mohali.html" title="4 BHK Individual Houses for Sale in Phase 7, Mohali" >4 BHK Individual Houses</a></li>
-                                                      <li ><a href="3-bhk-builder-floor-for-sale-in-phase-7-mohali.html" title="3 BHK Builder Floor for Sale in Phase 7, Mohali" >3 BHK Builder Floor</a></li>
-                                                   </ul>
-                                                </li>
-                                                <li >
-                                                   <a href="property-for-sale-in-sector-66a-mohali.html" title="Property for Sale in Sector 66A Mohali" >Sector 66A Mohali</a>
-                                                   <ul>
-                                                      <li ><a href="3-bhk-flats-apartments-for-sale-in-sector-66a-mohali.html" title="3 BHK Flats &amp; Apartments for Sale in Sector 66A Mohali" >3 BHK Flats &amp; Apartments</a></li>
-                                                      <li ><a href="4-bhk-flats-apartments-for-sale-in-sector-66a-mohali.html" title="4 BHK Flats &amp; Apartments for Sale in Sector 66A Mohali" >4 BHK Flats &amp; Apartments</a></li>
-                                                      <li ><a href="3-bhk-builder-floor-for-sale-in-sector-66a-mohali.html" title="3 BHK Builder Floor for Sale in Sector 66A Mohali" >3 BHK Builder Floor</a></li>
-                                                      <li ><a href="5-bhk-builder-floor-for-sale-in-sector-66a-mohali.html" title="5 BHK Builder Floor for Sale in Sector 66A Mohali" >5 BHK Builder Floor</a></li>
-                                                   </ul>
-                                                </li>
-                                             </ul>
-                                          </li>
-                                          <li class="liH" >
-                                             <a href="property-in-chandigarh.html" title="Property for Sale in Chandigarh" >Chandigarh</a>
-                                             <ul>
-                                                <li >
-                                                   <a href="property-for-sale-in-sector-33-chandigarh.html" title="Property for Sale in Sector 33 Chandigarh" >Sector 33 Chandigarh</a>
-                                                   <ul>
-                                                      <li ><a href="5-bhk-individual-house-for-sale-in-sector-33-chandigarh.html" title="5 BHK Individual Houses for Sale in Sector 33 Chandigarh" >5 BHK Individual Houses</a></li>
-                                                      <li ><a href="9-bhk-individual-house-for-sale-in-sector-33-chandigarh.html" title="9 BHK Individual Houses for Sale in Sector 33 Chandigarh" >9 BHK Individual Houses</a></li>
-                                                   </ul>
-                                                </li>
-                                             </ul>
-                                          </li>
+                                          @foreach($cities as $city)
+                                             <li class="liH" >
+                                                <a href="{{ route('city.details', ['cityname' => $city->name]) }}" title="Property for Sale in Mohali" >{{$city->name}}</a>
+                                                <ul>
+                                                   <li >
+                                                      @foreach ($city->sectors as $item)
+                                                      <a href="{{ route('sector.details', ['sectorname' => $item->name]) }}" title="Property in {{$item->name}}" >{{$item->name}}</a>
+                                                      @endforeach
+                                                      
+                                                     
+                                                   </li>
+                                                   
+                                                </ul>
+                                             </li>
+                                          @endforeach
+                                          
+                                        
                                           <li class="menu-arrow menu-arrow-down ac cp bdr0"></li>
                                        </ul>
                                     </li>

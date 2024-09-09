@@ -39,5 +39,13 @@ class Property extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    public function sector()
+    {
+        return $this->belongsTo(Sector::class);
+    }
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
     
 }

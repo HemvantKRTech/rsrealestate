@@ -52,206 +52,27 @@
                            <div class="ic" id="1102_1-1">
                               <div class="slider">
                                  <ul class=" bxslider180291 rent-slider fo slide-border idv_eqheight">
+                                    @foreach ($saleproperty as $item)
                                     <li>
                                        <div>
                                           <div class="imgFrame m0a ">
                                              <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/5-bhk-individual-houses-villas-sector-77-mohali_1166797.html" title="5 BHK Individual Houses / Villas For Sale In Sector 77, Mohali (420 Sq. Yards)">
+                                                <a href="{{route('propertydetail',['propertyid' => $item->id])}}" title="5 BHK Individual Houses / Villas For Sale In Sector 77, Mohali (420 Sq. Yards)">
                                                    <div class="imgWidth" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1166797_10-350x350.jpeg);background-size:cover;background-position:center;"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1166797_10-350x350.jpeg"  width="350" height="233" alt="5 BHK Individual Houses / Villas For Sale In Sector 77, Mohali (420 Sq. Yards)"  ></div>
                                                 </a>
                                              </div>
                                           </div>
-                                          <div class="large b p10px mt5px"><a href="sell/5-bhk-individual-houses-villas-sector-77-mohali_1166797.html" title="5 BHK Individual Houses / Villas For Sale In Sector 77, Mohali (420 Sq. Yards)">5 BHK Individual Houses / Vi...</a></div>
+                                          <div class="large b p10px mt5px"><a href="{{route('propertydetail',['propertyid' => $item->id])}}" title="5 BHK Individual Houses / Villas For Sale In Sector 77, Mohali (420 Sq. Yards)">{{$item->ad_title}}</a></div>
                                           <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 420 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 5</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 5</p>
+                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> {{$item->super_builtup_area}}Sq.</p>
+                                             <p class="w33 ac"><i class="si bath w24px vam"></i> {{$item->bathrooms}}</p>
+                                             <p class="w33 ac"><i class="si bed w24px vam"></i> {{$item->bedrooms}}</p>
                                           </div>
                                        </div>
                                     </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/6-bhk-individual-houses-villas-sector-79-mohali_1176993.html" title="6 BHK Individual Houses / Villas For Sale In Sector 79, Mohali (500 Sq. Yards)">
-                                                   <div class="imgWidth" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1176993_1-350x350.jpeg);background-size:cover;background-position:center;"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1176993_1-350x350.jpeg"  width="350" height="262" alt="6 BHK Individual Houses / Villas For Sale In Sector 79, Mohali (500 Sq. Yards)"  ></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/6-bhk-individual-houses-villas-sector-79-mohali_1176993.html" title="6 BHK Individual Houses / Villas For Sale In Sector 79, Mohali (500 Sq. Yards)">6 BHK Individual Houses / Vi...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 500 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 6</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 6</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/9-bhk-individual-houses-villas-mohali_1188554.html" title="9 BHK Individual Houses / Villas For Sale In Mohali (400 Sq.ft.)">
-                                                   <div class="imgWidth" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1188554_19-350x350.jpeg);background-size:cover;background-position:center;"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1188554_19-350x350.jpeg"  width="262" height="349" alt="9 BHK Individual Houses / Villas For Sale In Mohali (400 Sq.ft.)"  ></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/9-bhk-individual-houses-villas-mohali_1188554.html" title="9 BHK Individual Houses / Villas For Sale In Mohali (400 Sq.ft.)">9 BHK Individual Houses / Vi...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 400 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 9</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 9</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/5-bhk-individual-houses-villas-sector-33-chandigarh_1192149.html" title="5 BHK Individual Houses / Villas For Sale In Sector 33, Chandigarh (500 Sq. Yards)">
-                                                   <div class="imgWidth dtc vam ac white xxlarge lh15em" style="background-color:#2A90D3"><img style="margin:0;min-height: auto;width: auto;" src="http://catalog.wlimg.com/main-common/no-property-image.png" alt=""></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/5-bhk-individual-houses-villas-sector-33-chandigarh_1192149.html" title="5 BHK Individual Houses / Villas For Sale In Sector 33, Chandigarh (500 Sq. Yards)">5 BHK Individual Houses / Vi...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 500 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 5</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 5</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/residential-plot-sector-89-mohali_1213142.html" title="300 Sq. Yards Residential Plot For Sale In Sector 89, Mohali">
-                                                   <div class="imgWidth dtc vam ac white xxlarge lh15em" style="background-color:#F18667"><img style="margin:0;min-height: auto;width: auto;" src="http://catalog.wlimg.com/main-common/no-property-image.png" alt=""></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/residential-plot-sector-89-mohali_1213142.html" title="300 Sq. Yards Residential Plot For Sale In Sector 89, Mohali">300 Sq. Yards Residential Pl...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w50 ac"><i class="si sqft w24px vam"></i> 300 Sq. Yards</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/4-bhk-flats-apartments-sector-79-mohali_1273604.html" title="4 BHK Flats & Apartments For Sale In Sector 79, Mohali (1800 Sq.ft.)">
-                                                   <div class="imgWidth" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1273604_2-350x350.jpeg);background-size:cover;background-position:center;"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1273604_2-350x350.jpeg"  width="350" height="261" alt="4 BHK Flats & Apartments For Sale In Sector 79, Mohali (1800 Sq.ft.)"  ></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/4-bhk-flats-apartments-sector-79-mohali_1273604.html" title="4 BHK Flats & Apartments For Sale In Sector 79, Mohali (1800 Sq.ft.)">4 BHK Flats & Apartments For...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 1800 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 4</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 4</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/3-bhk-builder-floor-phase-3a-mohali_1286616.html" title="3 BHK Builder Floor For Sale In Phase 3A, Mohali (1800 Sq.ft.)">
-                                                   <div class="imgWidth" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1286616_1-350x350.jpg);background-size:cover;background-position:center;"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1286616_1-350x350.jpg"  width="350" height="234" alt="3 BHK Builder Floor For Sale In Phase 3A, Mohali (1800 Sq.ft.)"  ></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/3-bhk-builder-floor-phase-3a-mohali_1286616.html" title="3 BHK Builder Floor For Sale In Phase 3A, Mohali (1800 Sq.ft.)">3 BHK Builder Floor For Sale...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 1800 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 3</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 3</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/3-bhk-individual-houses-villas-sector-54-mohali_935767.html" title="3 BHK Individual Houses / Villas For Sale In Sector 54, Mohali (3500 Sq.ft.)">
-                                                   <div class="imgWidth dtc vam ac white xxlarge lh15em" style="background-color:#2A90D3"><img style="margin:0;min-height: auto;width: auto;" src="http://catalog.wlimg.com/main-common/no-property-image.png" alt=""></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/3-bhk-individual-houses-villas-sector-54-mohali_935767.html" title="3 BHK Individual Houses / Villas For Sale In Sector 54, Mohali (3500 Sq.ft.)">3 BHK Individual Houses / Vi...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 3500 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 3</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 3</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/residential-plot-phase-3-mohali_953627.html" title="262.5 Sq. Yards Residential Plot For Sale In Phase 3, Mohali">
-                                                   <div class="imgWidth dtc vam ac white xxlarge lh15em" style="background-color:#056ADB"><img style="margin:0;min-height: auto;width: auto;" src="http://catalog.wlimg.com/main-common/no-property-image.png" alt=""></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/residential-plot-phase-3-mohali_953627.html" title="262.5 Sq. Yards Residential Plot For Sale In Phase 3, Mohali">262.5 Sq. Yards Residential ...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w50 ac"><i class="si sqft w24px vam"></i> 262.5 Sq. Yards</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/6-bhk-individual-houses-villas-sas-nagar-phase-2-mohali_993997.html" title="6 BHK Individual Houses / Villas For Sale In Sas Nagar Phase 2, Mohali (192 Sq. Yards)">
-                                                   <div class="imgWidth dtc vam ac white xxlarge lh15em" style="background-color:#0651E0"><img style="margin:0;min-height: auto;width: auto;" src="http://catalog.wlimg.com/main-common/no-property-image.png" alt=""></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/6-bhk-individual-houses-villas-sas-nagar-phase-2-mohali_993997.html" title="6 BHK Individual Houses / Villas For Sale In Sas Nagar Phase 2, Mohali (192 Sq. Yards)">6 BHK Individual Houses / Vi...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 192 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 4</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 6</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/3-bhk-flats-apartments-sas-nagar-mohali_993999.html" title="3 BHK Flats & Apartments For Sale In SAS Nagar, Mohali (1650 Sq.ft.)">
-                                                   <div class="imgWidth dtc vam ac white xxlarge lh15em" style="background-color:#056ADB"><img style="margin:0;min-height: auto;width: auto;" src="http://catalog.wlimg.com/main-common/no-property-image.png" alt=""></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/3-bhk-flats-apartments-sas-nagar-mohali_993999.html" title="3 BHK Flats & Apartments For Sale In SAS Nagar, Mohali (1650 Sq.ft.)">3 BHK Flats & Apartments For...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 1650 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 3</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 3</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/6-bhk-individual-houses-villas-aerocity-mohali_1013155.html" title="6 BHK Individual Houses / Villas For Sale In Aerocity, Mohali (1200 Sq. Yards)">
-                                                   <div class="imgWidth" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1013155_1-350x350.jpeg);background-size:cover;background-position:center;"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1013155_1-350x350.jpeg"  width="467" height="350" alt="6 BHK Individual Houses / Villas For Sale In Aerocity, Mohali (1200 Sq. Yards)"  ></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/6-bhk-individual-houses-villas-aerocity-mohali_1013155.html" title="6 BHK Individual Houses / Villas For Sale In Aerocity, Mohali (1200 Sq. Yards)">6 BHK Individual Houses / Vi...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 1200 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 6</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 6</p>
-                                          </div>
-                                       </div>
-                                    </li>
+                                    @endforeach
+                                    
+                                    
                                  </ul>
                               </div>
                            </div>
@@ -284,206 +105,27 @@
                            <div class="ic" id="1102_1-1">
                               <div class="slider">
                                  <ul class=" bxslider180291 rent-slider fo slide-border idv_eqheight">
+                                    @foreach ($rentproperty as $item)
                                     <li>
                                        <div>
                                           <div class="imgFrame m0a ">
                                              <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/5-bhk-individual-houses-villas-sector-77-mohali_1166797.html" title="5 BHK Individual Houses / Villas For Sale In Sector 77, Mohali (420 Sq. Yards)">
+                                                <a href="{{route('propertydetail',['propertyid' => $item->id])}}" title="5 BHK Individual Houses / Villas For Sale In Sector 77, Mohali (420 Sq. Yards)">
                                                    <div class="imgWidth" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1166797_10-350x350.jpeg);background-size:cover;background-position:center;"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1166797_10-350x350.jpeg"  width="350" height="233" alt="5 BHK Individual Houses / Villas For Sale In Sector 77, Mohali (420 Sq. Yards)"  ></div>
                                                 </a>
                                              </div>
                                           </div>
-                                          <div class="large b p10px mt5px"><a href="sell/5-bhk-individual-houses-villas-sector-77-mohali_1166797.html" title="5 BHK Individual Houses / Villas For Sale In Sector 77, Mohali (420 Sq. Yards)">5 BHK Individual Houses / Vi...</a></div>
+                                          <div class="large b p10px mt5px"><a href="{{route('propertydetail',['propertyid' => $item->id])}}" title="5 BHK Individual Houses / Villas For Sale In Sector 77, Mohali (420 Sq. Yards)">{{$item->ad_title}}</a></div>
                                           <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 420 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 5</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 5</p>
+                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> {{$item->super_builtup_area}} Sq.</p>
+                                             <p class="w33 ac"><i class="si bath w24px vam"></i> {{$item->bathrooms}}</p>
+                                             <p class="w33 ac"><i class="si bed w24px vam"></i> {{$item->bedrooms}}</p>
                                           </div>
                                        </div>
                                     </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/6-bhk-individual-houses-villas-sector-79-mohali_1176993.html" title="6 BHK Individual Houses / Villas For Sale In Sector 79, Mohali (500 Sq. Yards)">
-                                                   <div class="imgWidth" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1176993_1-350x350.jpeg);background-size:cover;background-position:center;"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1176993_1-350x350.jpeg"  width="350" height="262" alt="6 BHK Individual Houses / Villas For Sale In Sector 79, Mohali (500 Sq. Yards)"  ></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/6-bhk-individual-houses-villas-sector-79-mohali_1176993.html" title="6 BHK Individual Houses / Villas For Sale In Sector 79, Mohali (500 Sq. Yards)">6 BHK Individual Houses / Vi...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 500 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 6</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 6</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/9-bhk-individual-houses-villas-mohali_1188554.html" title="9 BHK Individual Houses / Villas For Sale In Mohali (400 Sq.ft.)">
-                                                   <div class="imgWidth" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1188554_19-350x350.jpeg);background-size:cover;background-position:center;"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1188554_19-350x350.jpeg"  width="262" height="349" alt="9 BHK Individual Houses / Villas For Sale In Mohali (400 Sq.ft.)"  ></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/9-bhk-individual-houses-villas-mohali_1188554.html" title="9 BHK Individual Houses / Villas For Sale In Mohali (400 Sq.ft.)">9 BHK Individual Houses / Vi...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 400 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 9</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 9</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/5-bhk-individual-houses-villas-sector-33-chandigarh_1192149.html" title="5 BHK Individual Houses / Villas For Sale In Sector 33, Chandigarh (500 Sq. Yards)">
-                                                   <div class="imgWidth dtc vam ac white xxlarge lh15em" style="background-color:#2A90D3"><img style="margin:0;min-height: auto;width: auto;" src="http://catalog.wlimg.com/main-common/no-property-image.png" alt=""></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/5-bhk-individual-houses-villas-sector-33-chandigarh_1192149.html" title="5 BHK Individual Houses / Villas For Sale In Sector 33, Chandigarh (500 Sq. Yards)">5 BHK Individual Houses / Vi...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 500 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 5</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 5</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/residential-plot-sector-89-mohali_1213142.html" title="300 Sq. Yards Residential Plot For Sale In Sector 89, Mohali">
-                                                   <div class="imgWidth dtc vam ac white xxlarge lh15em" style="background-color:#F18667"><img style="margin:0;min-height: auto;width: auto;" src="http://catalog.wlimg.com/main-common/no-property-image.png" alt=""></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/residential-plot-sector-89-mohali_1213142.html" title="300 Sq. Yards Residential Plot For Sale In Sector 89, Mohali">300 Sq. Yards Residential Pl...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w50 ac"><i class="si sqft w24px vam"></i> 300 Sq. Yards</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/4-bhk-flats-apartments-sector-79-mohali_1273604.html" title="4 BHK Flats & Apartments For Sale In Sector 79, Mohali (1800 Sq.ft.)">
-                                                   <div class="imgWidth" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1273604_2-350x350.jpeg);background-size:cover;background-position:center;"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1273604_2-350x350.jpeg"  width="350" height="261" alt="4 BHK Flats & Apartments For Sale In Sector 79, Mohali (1800 Sq.ft.)"  ></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/4-bhk-flats-apartments-sector-79-mohali_1273604.html" title="4 BHK Flats & Apartments For Sale In Sector 79, Mohali (1800 Sq.ft.)">4 BHK Flats & Apartments For...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 1800 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 4</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 4</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/3-bhk-builder-floor-phase-3a-mohali_1286616.html" title="3 BHK Builder Floor For Sale In Phase 3A, Mohali (1800 Sq.ft.)">
-                                                   <div class="imgWidth" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1286616_1-350x350.jpg);background-size:cover;background-position:center;"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1286616_1-350x350.jpg"  width="350" height="234" alt="3 BHK Builder Floor For Sale In Phase 3A, Mohali (1800 Sq.ft.)"  ></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/3-bhk-builder-floor-phase-3a-mohali_1286616.html" title="3 BHK Builder Floor For Sale In Phase 3A, Mohali (1800 Sq.ft.)">3 BHK Builder Floor For Sale...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 1800 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 3</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 3</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/3-bhk-individual-houses-villas-sector-54-mohali_935767.html" title="3 BHK Individual Houses / Villas For Sale In Sector 54, Mohali (3500 Sq.ft.)">
-                                                   <div class="imgWidth dtc vam ac white xxlarge lh15em" style="background-color:#2A90D3"><img style="margin:0;min-height: auto;width: auto;" src="http://catalog.wlimg.com/main-common/no-property-image.png" alt=""></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/3-bhk-individual-houses-villas-sector-54-mohali_935767.html" title="3 BHK Individual Houses / Villas For Sale In Sector 54, Mohali (3500 Sq.ft.)">3 BHK Individual Houses / Vi...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 3500 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 3</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 3</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/residential-plot-phase-3-mohali_953627.html" title="262.5 Sq. Yards Residential Plot For Sale In Phase 3, Mohali">
-                                                   <div class="imgWidth dtc vam ac white xxlarge lh15em" style="background-color:#056ADB"><img style="margin:0;min-height: auto;width: auto;" src="http://catalog.wlimg.com/main-common/no-property-image.png" alt=""></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/residential-plot-phase-3-mohali_953627.html" title="262.5 Sq. Yards Residential Plot For Sale In Phase 3, Mohali">262.5 Sq. Yards Residential ...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w50 ac"><i class="si sqft w24px vam"></i> 262.5 Sq. Yards</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/6-bhk-individual-houses-villas-sas-nagar-phase-2-mohali_993997.html" title="6 BHK Individual Houses / Villas For Sale In Sas Nagar Phase 2, Mohali (192 Sq. Yards)">
-                                                   <div class="imgWidth dtc vam ac white xxlarge lh15em" style="background-color:#0651E0"><img style="margin:0;min-height: auto;width: auto;" src="http://catalog.wlimg.com/main-common/no-property-image.png" alt=""></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/6-bhk-individual-houses-villas-sas-nagar-phase-2-mohali_993997.html" title="6 BHK Individual Houses / Villas For Sale In Sas Nagar Phase 2, Mohali (192 Sq. Yards)">6 BHK Individual Houses / Vi...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 192 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 4</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 6</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/3-bhk-flats-apartments-sas-nagar-mohali_993999.html" title="3 BHK Flats & Apartments For Sale In SAS Nagar, Mohali (1650 Sq.ft.)">
-                                                   <div class="imgWidth dtc vam ac white xxlarge lh15em" style="background-color:#056ADB"><img style="margin:0;min-height: auto;width: auto;" src="http://catalog.wlimg.com/main-common/no-property-image.png" alt=""></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/3-bhk-flats-apartments-sas-nagar-mohali_993999.html" title="3 BHK Flats & Apartments For Sale In SAS Nagar, Mohali (1650 Sq.ft.)">3 BHK Flats & Apartments For...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 1650 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 3</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 3</p>
-                                          </div>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div>
-                                          <div class="imgFrame m0a ">
-                                             <div class="imgFrame picBg dtc ac vam lh0">
-                                                <a href="sell/6-bhk-individual-houses-villas-aerocity-mohali_1013155.html" title="6 BHK Individual Houses / Villas For Sale In Aerocity, Mohali (1200 Sq. Yards)">
-                                                   <div class="imgWidth" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1013155_1-350x350.jpeg);background-size:cover;background-position:center;"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1013155_1-350x350.jpeg"  width="467" height="350" alt="6 BHK Individual Houses / Villas For Sale In Aerocity, Mohali (1200 Sq. Yards)"  ></div>
-                                                </a>
-                                             </div>
-                                          </div>
-                                          <div class="large b p10px mt5px"><a href="sell/6-bhk-individual-houses-villas-aerocity-mohali_1013155.html" title="6 BHK Individual Houses / Villas For Sale In Aerocity, Mohali (1200 Sq. Yards)">6 BHK Individual Houses / Vi...</a></div>
-                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
-                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> 1200 Sq.</p>
-                                             <p class="w33 ac"><i class="si bath w24px vam"></i> 6</p>
-                                             <p class="w33 ac"><i class="si bed w24px vam"></i> 6</p>
-                                          </div>
-                                       </div>
-                                    </li>
+                                    @endforeach
+                                    
+                                    
                                  </ul>
                               </div>
                            </div>
@@ -505,118 +147,17 @@
                            <h4 class="xxxlarge ffos mb10px db">Browse Properties for Sale by Location</h4>
                         </div>
                         <ul class="fo data al">
+                           @foreach ($salesectors as $item)
                            <li>
                               <a href="property-for-sale-in-sector-79-mohali.html" title="Property for Sale in Sector 79 Mohali">			     
-                              <span class="dib dif ffrr fw5">Sector 79 Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(29)</span>
+                              <span class="dib dif ffrr fw5">{{$item->name}}</span>                   
+                              <span class="db fr p2px pb5px dif">{{$item->properties_count}}</span>
                               <span class="db small alpha75 lh15em"></span>  
                               </a>
                            </li>
-                           <li>
-                              <a href="property-for-sale-in-phase-10-mohali.html" title="Property for Sale in Phase 10, Mohali">			     
-                              <span class="dib dif ffrr fw5">Phase 10, Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(13)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-sale-in-sector-69-mohali.html" title="Property for Sale in Sector 69 Mohali">			     
-                              <span class="dib dif ffrr fw5">Sector 69 Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(11)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-sale-in-sector-70-mohali.html" title="Property for Sale in Sector 70 Mohali">			     
-                              <span class="dib dif ffrr fw5">Sector 70 Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(10)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-sale-in-aerocity-mohali.html" title="Property for Sale in Aerocity, Mohali">			     
-                              <span class="dib dif ffrr fw5">Aerocity, Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(10)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-sale-in-sector-68-mohali.html" title="Property for Sale in Sector 68 Mohali">			     
-                              <span class="dib dif ffrr fw5">Sector 68 Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(8)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-sale-in-phase-4-mohali.html" title="Property for Sale in Phase 4, Mohali">			     
-                              <span class="dib dif ffrr fw5">Phase 4, Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(7)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-sale-in-phase-7-mohali.html" title="Property for Sale in Phase 7, Mohali">			     
-                              <span class="dib dif ffrr fw5">Phase 7, Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(7)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-sale-in-phase-3b-1-mohali.html" title="Property for Sale in Phase 3B-1, Mohali">			     
-                              <span class="dib dif ffrr fw5">Phase 3B-1, Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(7)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-sale-in-sector-66a-mohali.html" title="Property for Sale in Sector 66A Mohali">			     
-                              <span class="dib dif ffrr fw5">Sector 66A Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(6)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-sale-in-phase-3a-mohali.html" title="Property for Sale in Phase 3A, Mohali">			     
-                              <span class="dib dif ffrr fw5">Phase 3A, Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(5)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-sale-in-sector-91-mohali.html" title="Property for Sale in Sector 91 Mohali">			     
-                              <span class="dib dif ffrr fw5">Sector 91 Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(5)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-sale-in-sector-71-mohali.html" title="Property for Sale in Sector 71 Mohali">			     
-                              <span class="dib dif ffrr fw5">Sector 71 Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(5)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-sale-in-phase-7-sector-61-mohali.html" title="Property for Sale in Phase 7 Sector 61, Mohali">			     
-                              <span class="dib dif ffrr fw5">Phase 7 Sector 61, Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(5)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-sale-in-phase-1-mohali.html" title="Property for Sale in Phase 1, Mohali">			     
-                              <span class="dib dif ffrr fw5">Phase 1, Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(4)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-sale-in-sector-88-mohali.html" title="Property for Sale in Sector 88 Mohali">			     
-                              <span class="dib dif ffrr fw5">Sector 88 Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(4)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
+                           @endforeach
+                          
+                           
                         </ul>
                      </div>
                   </div>
@@ -626,118 +167,16 @@
                            <h4 class="xxxlarge ffos mb10px db">Browse Properties for Rent by Location</h4>
                         </div>
                         <ul class="fo data al">
+                           @foreach ($salesectors as $item)
                            <li>
-                              <a href="property-for-rent-in-sector-70-mohali.html" title="Property for Rent in Sector 70 Mohali">			     
-                              <span class="dib dif ffrr fw5">Sector 70 Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(8)</span>
+                              <a href="property-for-sale-in-sector-79-mohali.html" title="Property for Sale in Sector 79 Mohali">			     
+                              <span class="dib dif ffrr fw5">{{$item->name}}</span>                   
+                              <span class="db fr p2px pb5px dif">{{$item->properties_count}}</span>
                               <span class="db small alpha75 lh15em"></span>  
                               </a>
                            </li>
-                           <li>
-                              <a href="property-for-rent-in-sector-66-mohali.html" title="Property for Rent in Sector 66 Mohali">			     
-                              <span class="dib dif ffrr fw5">Sector 66 Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(6)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-rent-in-sector-69-mohali.html" title="Property for Rent in Sector 69 Mohali">			     
-                              <span class="dib dif ffrr fw5">Sector 69 Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(5)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-rent-in-phase-7-mohali.html" title="Property for Rent in Phase 7, Mohali">			     
-                              <span class="dib dif ffrr fw5">Phase 7, Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(5)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-rent-in-sector-88-mohali.html" title="Property for Rent in Sector 88 Mohali">			     
-                              <span class="dib dif ffrr fw5">Sector 88 Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(5)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-rent-in-sector-91-mohali.html" title="Property for Rent in Sector 91 Mohali">			     
-                              <span class="dib dif ffrr fw5">Sector 91 Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(4)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-rent-in-sector-68-mohali.html" title="Property for Rent in Sector 68 Mohali">			     
-                              <span class="dib dif ffrr fw5">Sector 68 Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(3)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-rent-in-sector-71-mohali.html" title="Property for Rent in Sector 71 Mohali">			     
-                              <span class="dib dif ffrr fw5">Sector 71 Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(2)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-rent-in-phase-7-sector-61-mohali.html" title="Property for Rent in Phase 7 Sector 61, Mohali">			     
-                              <span class="dib dif ffrr fw5">Phase 7 Sector 61, Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(2)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-rent-in-phase-10-mohali.html" title="Property for Rent in Phase 10, Mohali">			     
-                              <span class="dib dif ffrr fw5">Phase 10, Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(2)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-rent-in-phase-3b2-mohali.html" title="Property for Rent in Phase 3B2, Mohali">			     
-                              <span class="dib dif ffrr fw5">Phase 3B2, Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(2)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-rent-in-sector-61-mohali.html" title="Property for Rent in Sector 61 Mohali">			     
-                              <span class="dib dif ffrr fw5">Sector 61 Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(1)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-rent-in-sector-35-chandigarh.html" title="Property for Rent in Sector 35 Chandigarh">			     
-                              <span class="dib dif ffrr fw5">Sector 35 Chandigarh</span>                   
-                              <span class="db fr p2px pb5px dif">(1)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-rent-in-sector-104-mohali.html" title="Property for Rent in Sector 104 Mohali">			     
-                              <span class="dib dif ffrr fw5">Sector 104 Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(1)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-rent-in-sector-70-faridabad.html" title="Property for Rent in Sector 70 Faridabad">			     
-                              <span class="dib dif ffrr fw5">Sector 70 Faridabad</span>                   
-                              <span class="db fr p2px pb5px dif">(1)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
-                           <li>
-                              <a href="property-for-rent-in-sas-nagar-phase-4-mohali.html" title="Property for Rent in Sas Nagar Phase 4, Mohali">			     
-                              <span class="dib dif ffrr fw5">Sas Nagar Phase 4, Mohali</span>                   
-                              <span class="db fr p2px pb5px dif">(1)</span>
-                              <span class="db small alpha75 lh15em"></span>  
-                              </a>
-                           </li>
+                           @endforeach
+                           
                         </ul>
                      </div>
                   </div>

@@ -27,7 +27,7 @@
                 <label for="type">Property Type *</label>
                 <select id="type" name="type" class="form-control">
                     <option value="">Select Property Type</option>
-                    @foreach ($type as $item)
+                    @foreach ($types as $item)
                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
                 </select>
@@ -191,20 +191,36 @@
             </div>
         </div>
 
-        <!-- Price, Address -->
+        <!-- City and Sector Dropdowns -->
         <div class="row mt-3">
             <div class="col">
-                <label for="price">Price *</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">₹</span>
-                    </div>
-                    <input id="price" name="price" type="text" class="form-control" min="0" pattern="(\d+[., \s]?\d?)*" value="">
-                </div>
-                @error('price')
+                <label for="city">City *</label>
+                <select id="city" name="city" class="form-control">
+                    <option value="">Select City</option>
+                    @foreach ($cities as $city)
+                        <option value="{{ $city->id }}">{{ $city->name }}</option>
+                    @endforeach
+                </select>
+                @error('city')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="col">
+                <label for="sector">Sector *</label>
+                <select id="sector" name="sector" class="form-control">
+                    <option value="">Select Sector</option>
+                    {{-- @foreach ($sectors as $sector)
+                        <option value="{{ $sector->id }}">{{ $sector->name }}</option>
+                    @endforeach --}}
+                </select>
+                @error('sector')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+        </div>
+
+        <!-- Address Field -->
+        <div class="row mt-3">
             <div class="col">
                 <label for="address">Address *</label>
                 <textarea id="address" name="address" class="form-control" maxlength="255" rows="1"></textarea>
@@ -214,22 +230,41 @@
             </div>
         </div>
 
-        <!-- Description -->
+        <!-- Description, Price, Negotiable -->
         <div class="row mt-3">
             <div class="col">
                 <label for="description">Description *</label>
-                <textarea id="description" name="description" class="form-control" maxlength="4096" rows="5"></textarea>
+                <textarea id="description" name="description" class="form-control" maxlength="4000" rows="3"></textarea>
                 @error('description')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
         </div>
-
-        <!-- Upload Images -->
         <div class="row mt-3">
             <div class="col">
-                <label for="images">Upload Property Images *</label>
-                <input id="images" name="images[]" type="file" class="form-control" accept="image/*" multiple>
+                <label for="price">Price *</label>
+                <input id="price" name="price" type="number" class="form-control" min="0" step="0.01" value="">
+                @error('price')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col">
+                <label for="negotiable">Negotiable *</label>
+                <select id="negotiable" name="negotiable" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                @error('negotiable')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+        </div>
+
+        <!-- Images Upload -->
+        <div class="row mt-3">
+            <div class="col">
+                <label for="images">Images *</label>
+                <input id="images" name="images[]" type="file" class="form-control-file" multiple>
                 @error('images')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -244,5 +279,29 @@
         </div>
     </form>
 </div>
-
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#city').on('change', function() {
+            var cityId = $(this).val();
+            if(cityId) {
+                $.ajax({
+                    url: '{{ route("getSectorsByCity") }}',
+                    type: 'GET',
+                    data: {city_id: cityId},
+                    dataType: 'json',
+                    success: function(data) {
+                        $('#sector').empty();
+                        $('#sector').append('<option value="">Select Sector</option>');
+                        $.each(data, function(key, value) {
+                            $('#sector').append('<option value="'+ key +'">'+ value +'</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#sector').empty();
+                $('#sector').append('<option value="">Select Sector</option>');
+            }
+        });
+    });
+</script>
 @endsection
