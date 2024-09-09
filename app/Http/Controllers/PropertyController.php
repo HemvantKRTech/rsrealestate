@@ -39,6 +39,12 @@ class PropertyController extends Controller
             'address' => 'required|max:255',
             'city' => 'required',
             'sector' => 'required',
+            'hospital_distance' => 'required',
+            'atm_distance' => 'required',
+            'railway_distance' => 'required',
+            'school_distance' => 'required',
+            'airport_distance' => 'required',
+            'bank_distance' => 'required',
             'description' => 'required|max:4096',
             'images' => 'required',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // Validate each image
@@ -66,6 +72,12 @@ class PropertyController extends Controller
         $property->address = $request->input('address');
         $property->city_id = $request->input('city');
         $property->sector_id = $request->input('sector');
+        $property->hospital_distance = $request->input('hospital_distance');
+        $property->atm_distance = $request->input('atm_distance');
+        $property->railway_distance = $request->input('railway_distance');
+        $property->school_distance = $request->input('school_distance');
+        $property->airport_distance = $request->input('airport_distance');
+        $property->bank_distance = $request->input('bank_distance');
         $property->description = $request->input('description');
     
         // Handle image uploads

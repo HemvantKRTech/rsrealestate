@@ -427,37 +427,37 @@
                               <li>
                                  <div class="df-dt vam mb5px">
                                     <div class="df-dtc w30px"><i class="si w20px icon-hospital mr5px"></i></div>
-                                    <div class="df-dtc vam al"> Hospital <span class="db fw6 mt1px"> 1 kms</span></div>
+                                    <div class="df-dtc vam al"> Hospital <span class="db fw6 mt1px"> {{$property->hospital_distance}} kms</span></div>
                                  </div>
                               </li>
                               <li>
                                  <div class="df-dt vam mb5px">
                                     <div class="df-dtc w30px"><i class="si w20px icon-airport mr5px"></i></div>
-                                    <div class="df-dtc vam al"> Airport <span class="db fw6 mt1px"> 10 kms</span></div>
+                                    <div class="df-dtc vam al"> Airport <span class="db fw6 mt1px"> {{$property->airport_distance}} kms</span></div>
                                  </div>
                               </li>
                               <li>
                                  <div class="df-dt vam mb5px">
                                     <div class="df-dtc w30px"><i class="si w20px icon-railway-station mr5px"></i></div>
-                                    <div class="df-dtc vam al"> Railway <span class="db fw6 mt1px"> 5 kms</span></div>
+                                    <div class="df-dtc vam al"> Railway <span class="db fw6 mt1px"> {{$property->railway_distance}} kms</span></div>
                                  </div>
                               </li>
                               <li>
                                  <div class="df-dt vam mb5px">
                                     <div class="df-dtc w30px"><i class="si w20px icon-school mr5px"></i></div>
-                                    <div class="df-dtc vam al"> School <span class="db fw6 mt1px"> 1 kms</span></div>
+                                    <div class="df-dtc vam al"> School <span class="db fw6 mt1px"> {{$property->school_distance}} kms</span></div>
                                  </div>
                               </li>
                               <li>
                                  <div class="df-dt vam mb5px">
                                     <div class="df-dtc w30px"><i class="si w20px icon-atm-card mr5px"></i></div>
-                                    <div class="df-dtc vam al"> Atm <span class="db fw6 mt1px"> 1 kms</span></div>
+                                    <div class="df-dtc vam al"> Atm <span class="db fw6 mt1px"> {{$property->atm_distance}} kms</span></div>
                                  </div>
                               </li>
                               <li>
                                  <div class="df-dt vam mb5px">
                                     <div class="df-dtc w30px"><i class="si w20px icon-bank mr5px"></i></div>
-                                    <div class="df-dtc vam al"> Bank <span class="db fw6 mt1px"> 1 kms</span></div>
+                                    <div class="df-dtc vam al"> Bank <span class="db fw6 mt1px"> {{$property->bank_distance}} kms</span></div>
                                  </div>
                               </li>
                            </ul>

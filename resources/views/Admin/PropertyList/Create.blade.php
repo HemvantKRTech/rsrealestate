@@ -271,6 +271,54 @@
             </div>
         </div>
 
+        <!-- Amenities Distances -->
+        <div class="row mt-3">
+            <div class="col">
+                <label for="hospital_distance">Distance to Hospital (km)</label>
+                <input id="hospital_distance" name="hospital_distance" type="number" class="form-control" min="0" step="0.01" value="">
+                @error('hospital_distance')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col">
+                <label for="atm_distance">Distance to ATM (km)</label>
+                <input id="atm_distance" name="atm_distance" type="number" class="form-control" min="0" step="0.01" value="">
+                @error('atm_distance')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col">
+                <label for="railway_distance">Distance to Railway Station (km)</label>
+                <input id="railway_distance" name="railway_distance" type="number" class="form-control" min="0" step="0.01" value="">
+                @error('railway_distance')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <label for="school_distance">Distance to School (km)</label>
+                <input id="school_distance" name="school_distance" type="number" class="form-control" min="0" step="0.01" value="">
+                @error('school_distance')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col">
+                <label for="airport_distance">Distance to Airport (km)</label>
+                <input id="airport_distance" name="airport_distance" type="number" class="form-control" min="0" step="0.01" value="">
+                @error('airport_distance')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col">
+                <label for="bank_distance">Distance to Bank (km)</label>
+                <input id="bank_distance" name="bank_distance" type="number" class="form-control" min="0" step="0.01" value="">
+                @error('bank_distance')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+        </div>
+
         <!-- Submit Button -->
         <div class="form-row mt-3">
             <div class="form-group col-md-12">
@@ -279,6 +327,7 @@
         </div>
     </form>
 </div>
+
 <script type="text/javascript">
     $(document).ready(function() {
         $('#city').on('change', function() {
