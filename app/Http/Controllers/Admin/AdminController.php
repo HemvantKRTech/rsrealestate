@@ -61,7 +61,7 @@ class AdminController extends Controller
         return redirect()->route('cities.all')->with('success','City updated');
     }
     public function sectorform(){
-        $city=City::all();
+        $city=City::where('status','active')->orderBy('name','ASC')->get();
         return view('Admin.CityFlat.Sectorcreate',compact('city'));
     }
     public function sectorstore(Request $request){
@@ -162,9 +162,11 @@ class AdminController extends Controller
         return redirect()->back()->with('success','Property type Updated.');
     }
     public function newpropertylist(){
-        $type=PropertyType::all();
-        $categories=Category::all();
-        return view('Admin.PropertyList.create',compact('type','categories'));
+        $types=PropertyType::where('status','active')->get();
+        $categories=Category::where('status',1)->get();
+        $cities=City::where('status','active')->get();
+       
+        return view('Admin.PropertyList.create',compact('types','categories','cities'));
     }
     public function allpropertylist(){
         $properties=Property::with('propertyType')->paginate(10);

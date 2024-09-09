@@ -19,6 +19,11 @@ Route::post('inquiries', [InquiryController::class, 'store'])->name('inquiries.s
 Route::get('contact-us', [InquiryController::class, 'create'])->name('contact.us');
 Route::post('contacts', [InquiryController::class, 'contactstore'])->name('contacts.store');
 Route::get('post-property', [PropertyController::class, 'create'])->name('property.create');
+Route::get('city/{cityname}', [PropertyController::class, 'show'])->name('city.details');
+Route::get('city/sector/{sectorname}', [PropertyController::class, 'sectorshow'])->name('sector.details');
+Route::get('propertydetail/{propertyid}', [PropertyController::class, 'propertydetail'])->name('propertydetail');
+
+
 
 Route::middleware('auth:admin')->group(function () {
     Route::prefix('admin')->group(function () {
@@ -48,6 +53,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('propertytype/{id}/edit', [AdminController::class, 'propertyedit'])->name('propertytype.edit');
         Route::put('propertytype/{id}', [AdminController::class, 'propertyupdate'])->name('propertytype.update');
         Route::get('newpropertylist', [AdminController::class, 'newpropertylist'])->name('newproperty.create');
+        Route::get('/get-sectors-by-city', [PropertyController::class, 'getSectorsByCity'])->name('getSectorsByCity');
         Route::get('allpropertylist', [AdminController::class, 'allpropertylist'])->name('newproperty.all');
         Route::get('/properties/{id}/show', [AdminController::class, 'show'])->name('property.show');
 Route::get('/properties/{id}/edit', [AdminController::class, 'edit'])->name('property.edit');

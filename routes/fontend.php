@@ -1,15 +1,23 @@
 <?php
 
 use App\Models\Banner;
+use App\Models\Category;
+use App\Models\Property;
 use App\Models\Service;
+use App\Models\Sector;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $services=Service::all();
     $banners=Banner::where('status','active')->first();
-    // dd($banners);
     $images = json_decode($banners->images, true); 
-    return view('FrontendPages.Home',compact('services','images'));
+    $saleproperty=Property::where('category_id',5)->get();
+    $rentproperty=Property::where('category_id',3)->get();
+    $leaseproperty=Property::where('category_id',4)->get();
+    $category=Category::where('status','active')->get();
+    $salesectors = Sector::withCount('properties')->get();
+    // dd($sectors);
+    return view('FrontendPages.Home',compact('services','images','saleproperty','rentproperty','leaseproperty','category','salesectors'));
 })->name('home');
 
 

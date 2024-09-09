@@ -146,10 +146,10 @@
                      <!--MIDDLE ROW1 COL-2 STARTS-->
                      <div class="fo mb20px res_clr">
                         <div class="xxlarge mb10px lh15em">
-                           <h1 class="xxlarge fw6">5 BHK Individual Houses For Sale In Sector 70, Mohali (400 Sq. Yards)</h1>
+                           <h1 class="xxlarge fw6">{{$property->ad_title}} In {{$property->sector->name}}, {{$property->city->name}} ({{$property->super_builtup_area}} Sq. Yards)</h1>
                         </div>
                         <div class="adrsDtls">
-                           <div class="large"><i class="fa fa-map-marker mr5px"></i>1234, Sector 70 Mohali</div>
+                           <div class="large"><i class="fa fa-map-marker mr5px"></i>{{$property->sector->name}}, {{$property->city->name}}</div>
                            <div class="ShareDropdown">
                               <span class="data"><i class="fa fa-share-alt xxlarge vam"></i></span>
                               <ul class="shareList data bdr0">
@@ -175,18 +175,25 @@
                            <div class="vat lh0 propDtls-banner ac pr">
                               <div class="mb10px" style="z-index:99;">
                                  <div class="bxslider2">
-                                    <div class="pr ofh" style="padding:0px;">
-                                       <div class="lh0 pa blur-bg" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1290327_1.jpg);"></div>
-                                       <div class="pr ac">
-                                          <a  data-fancybox="showZoomImage"  title="5 BHK Individual Houses for Sale in Sector 70, Mohali (400 Sq. Yards)" href="https://rei.wlimg.com/prop_images/88260/1290327_1.jpg"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1290327_1.jpg"  width="800" height="600" alt="5 BHK Individual Houses for Sale in Sector 70, Mohali (400 Sq. Yards)"  ></a> 
-                                       </div>
-                                    </div>
-                                    <div class="pr ofh" style="padding:0px;">
-                                       <div class="lh0 pa blur-bg" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1290327_2.jpg);"></div>
-                                       <div class="pr ac">
-                                          <a  data-fancybox="showZoomImage"  title="5 BHK Individual Houses for Sale in Sector 70, Mohali (400 Sq. Yards)" href="https://rei.wlimg.com/prop_images/88260/1290327_2.jpg"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1290327_2.jpg"  width="800" height="600" alt="5 BHK Individual Houses for Sale in Sector 70, Mohali (400 Sq. Yards)"  ></a> 
-                                       </div>
-                                    </div>
+                                    @foreach (json_decode($property->images) as $item)
+    <div class="pr ofh" style="padding:0px;">
+        <div class="lh0 pa blur-bg" style="background-image:url({{ asset('storage/' . $item) }});"></div>
+        <div class="pr ac">
+            <a data-fancybox="showZoomImage" 
+               title="{{ $property->name }}" 
+               href="{{ asset('storage/' . $item) }}">
+               <img loading="lazy" 
+                    src="{{ asset('storage/' . $item) }}" 
+                    width="800" 
+                    height="600" 
+                    alt="{{ $property->name }}">
+            </a>
+        </div>
+    </div>
+@endforeach
+
+                                    
+                                    
                                  </div>
                                  <script>
                                     $('.bxslider2').bxSlider({
@@ -224,14 +231,14 @@
                            <div class="vat ffos db p15px pt5px">
                               <div class="fo mb25px bdrB bdreee pb7px" style="border-color:#eee;">
                                  <div class="dib xxlarge alpha75 mt10px"><span class="xlarge"><i class="fa fa-inr small red mr2px"></i> <span class="fw6">6.25 Cr.</span></span>
-                                    <span class="xsmall ml5px dib">@ Rs 156250 per Sq. Yards</span>
+                                    <span class="xsmall ml5px dib">@ Rs {{$property->price}} per Sq. Yards</span>
                                  </div>
                               </div>
                               <ul class="lsn m0px p0px wp33 ac-mb10px">
-                                 <li><span class="alpha75">Bedrooms </span><span class="large db mb7px"> 5 </span></li>
-                                 <li><span class="alpha75">Bathrooms </span><span class="large db mb7px"> 5 </span></li>
+                                 <li><span class="alpha75">Bedrooms </span><span class="large db mb7px"> {{$property->bedrooms}} </span></li>
+                                 <li><span class="alpha75">Bathrooms </span><span class="large db mb7px"> {{$property->bathrooms}} </span></li>
                                  <li><span class="alpha75">Transaction Type </span><span class="large db mb7px"> Resale Property </span></li>
-                                 <li><span class="alpha75">Total Floor </span><span class="large db mb7px"> 2 </span></li>
+                                 <li><span class="alpha75">Total Floor </span><span class="large db mb7px"> {{$property->total_floors}} </span></li>
                                  <script type="text/javascript">
                                     area_conversion=function(b,f,e){var c=createAreaArr();if(e==1){if(b<20&&b!=18){var a=f/c[b];return a}else{return 0}}else{if(e==2){if(b<20&&b!=18){var d=f*c[b];return d}else{return 0}}}};
                                     
@@ -301,7 +308,7 @@
                                             if(400 > 0 )  updateArea(basetext,baseindex,400,'builtupArea','Y',baseunit,'DrpDownTab');   }
                                     </script>  
                                     <span class="db">
-                                       <span id="builtupArea_span" class="large dib mb17px">400</span>
+                                       <span id="builtupArea_span" class="large dib mb17px">{{$property->super_builtup_area}}</span>
                                        <span class="pr">
                                           <a onClick="jQuery('#builtUp').show();event.stopPropagation();" class="headVr pl5px pr5px small dib vam ml5px" id="DrpDownTab">Sq. Yards &#9660;</a>
                                           <div id="builtUp" style="width:120px;display:none;top:-1px;left:0px;" class="pa">
@@ -337,7 +344,7 @@
                                             if(300 > 0 )  updateArea(basetext,baseindex,300,'catpetArea','Y',baseunit,'DrpDownTab2');   }
                                     </script> 
                                     <span class="db">
-                                       <span id="catpetArea_span" class="large dib mb17px">300</span>
+                                       <span id="catpetArea_span" class="large dib mb17px">{{$property->carpet_area}}</span>
                                        <span class="pr">
                                           <a onClick="jQuery('#catpetArea').show();event.stopPropagation();" class="headVr pl5px pr5px small dib vam ml5px" id="DrpDownTab2">Sq. Yards &#9660;</a>
                                           <div id="catpetArea" style="width:120px;display:none;top:-1px;left:0px;" class="pa">
