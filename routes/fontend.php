@@ -32,3 +32,7 @@ Route::get('/property_details', function () {
 Route::get('/blog', function () {
     return view('FrontendPages.blog');
 })->name('blog');
+
+Route::get('/property-mohali', function () {
+    return view('FrontendPages.property-mohali');
+})->name('property-mohali');
