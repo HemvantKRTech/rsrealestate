@@ -16,7 +16,7 @@
                            </div>
                         </form>
                      </div>
-                     <div class="fl pl5px vat"><a href="javascript:viod(0)" class="xlarge dib p17px fltrBtn"> <i class="fa fa-filter alpha50 mr5px"></i> Filter </a></div>
+                     <div class="fl pl5px vat"><a href="javascript:void(0)" class="xlarge dib p17px fltrBtn"> <i class="fa fa-filter alpha50 mr5px"></i> Filter </a></div>
                      <div class="black-popupBg"></div>
                      <div class="right-filter data bdr">
                         <div class="theme2 p10px15px">
@@ -915,6 +915,69 @@
          </footer>
          <!--Created By - Weblink.In-->
       </div>
+
+      <script>
+         $(document).ready(function() {
+         	$(".fancy-popup" ).fancybox({
+         		toolbar  : false,
+         		smallBtn : true,
+         		type : 'iframe',		
+         		iframe : {
+         		preload : false,
+         		css : {
+         			maxWidth  : '715px',
+         			maxHeight : '422px'
+         		}
+         		},
+         		centerOnScroll : true 
+         	});
+         });
+         
+         $(document).ready(function() {
+         	$(".fancy-popup-service" ).fancybox({
+         		toolbar  : false,
+         		smallBtn : true,
+         		type : 'iframe',		
+         		iframe : {
+         		preload : false,
+         		css : {
+         			maxWidth  : '715px',
+         			maxHeight : '330px'
+         		}
+         		},
+         		centerOnScroll : true 
+         	});
+         });
+      </script>
+      <script>
+         jQuery(document).ready(function(e){
+           jQuery('.whatsappBtn').on('click',function(event){
+         	jQuery('.whChatSec').toggleClass('wh-active');
+         	jQuery('.whTxt').toggleClass('downTooltip');
+           });
+           jQuery('.whtCls').on('click',function(){	
+         	jQuery('.whChatSec').removeClass('wh-active');	
+           });
+           if ($(window).width() > 993) {
+           $.fn.scrollEnd = function(callback, timeout) {          
+           jQuery(this).scroll(function(){
+             var $this = jQuery(this);
+             if ($this.data('scrollTimeout')) {
+               clearTimeout($this.data('scrollTimeout'));
+             }
+              $this.data('scrollTimeout', setTimeout(callback,timeout));
+             });
+            };
+            jQuery(window).scroll(function(){
+             jQuery('.whatsappBtn').addClass('wh-close');
+            });
+            jQuery(window).scrollEnd(function(){
+             jQuery('.whatsappBtn').removeClass('wh-close');
+            }, 1800);
+            };
+         });
+         
+      </script>
 
 
 
