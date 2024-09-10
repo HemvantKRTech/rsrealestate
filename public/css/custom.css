@@ -181,18 +181,10 @@ footer{
 .xxxlarge{
     color: #fb6a19!important;
 }
-.container {
-    width: 80%;           /* Adjusts the container's width */
-    max-width: 1200px;     /* Optional: sets a maximum width */
-    margin: 0 auto;        /* Centers the container */
-    padding: 20px;         /* Optional: padding inside the container */
-    background-color: #f9f9f9; /* Optional: background color */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow */
-    border-radius: 10px;   /* Optional: rounded corners */
-}
 .mohali-content-post{
     width: 100%;
     float: left;
+    margin-top: 10%;
 }
 .mohali-post{
     width: 100%;
@@ -263,4 +255,8 @@ footer{
 }
 .p-tag{
     padding: 0px 0px 15px;
+}
+#middle{
+    width: 100%;
+    display: inline-block;
 }
