@@ -169,7 +169,7 @@ class PropertyController extends Controller
         $properties = Property::where('city_id', $cityId)->get();
         // dd($properties);
         // Pass properties and city data to the view
-        return view('properties.index', [
+        return view('FrontendPages.property-mohali', [
             'properties' => $properties,
             'city' => $city
         ]);

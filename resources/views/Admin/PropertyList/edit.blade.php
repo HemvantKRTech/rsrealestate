@@ -204,6 +204,75 @@
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <label for="city">City *</label>
+                    <select id="city" name="city" class="form-control">
+                        <option value="">Select City</option>
+                        @foreach ($cities as $city)
+                            <option value="{{ $city->id }}" {{ $property->city_id == $city->id ? 'selected' : '' }}>
+                                {{ $city->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    
+                    @error('city')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="col">
+                    <label for="sector">Sector *</label>
+                    <select id="sector" name="sector" class="form-control">
+                        <option value="">Select Sector</option>
+                        @if($property->city_id)
+                            @foreach ($sectors as $sector)
+                                @if ($sector->id == $property->sector_id)
+                                    <option value="{{ $sector->id }}" {{ $property->sector_id == $sector->id ? 'selected' : '' }}>
+                                        {{ $sector->name }}
+                                    </option>
+                                    
+                                @endif
+                            @endforeach
+                        @endif
+                    </select>
+                    @error('sector')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        $('#city').on('change', function() {
+                            var cityId = $(this).val();
+                            if(cityId) {
+                                $.ajax({
+                                    url: '{{ route("getSectorsByCity") }}',
+                                    type: 'GET',
+                                    data: {city_id: cityId},
+                                    dataType: 'json',
+                                    success: function(data) {
+                                        $('#sector').empty();
+                                        $('#sector').append('<option value="">Select Sector</option>');
+                                        $.each(data, function(key, value) {
+                                            $('#sector').append('<option value="'+ key +'">'+ value +'</option>');
+                                        });
+                                    }
+                                });
+                            } else {
+                                $('#sector').empty();
+                                $('#sector').append('<option value="">Select Sector</option>');
+                            }
+                        });
+                
+                        // Trigger change event to populate sectors when the page loads if a city is already selected
+                        var selectedCityId = $('#city').val();
+                        if (selectedCityId) {
+                            $('#city').trigger('change');
+                        }
+                    });
+                </script>
+                
+            </div>
             <div class="col">
                 <label for="address">Address *</label>
                 <textarea id="address" name="address" class="form-control" maxlength="255" rows="1">{{ $property->address }}</textarea>
@@ -222,7 +291,52 @@
                 @enderror
             </div>
         </div>
-
+        <div class="row mt-3">
+            <div class="col">
+                <label for="hospital_distance">Distance to Hospital (km)</label>
+                <input id="hospital_distance" name="hospital_distance" type="number" class="form-control" min="0" step="0.01" value="{{$property->hospital_distance}}">
+                @error('hospital_distance')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col">
+                <label for="atm_distance">Distance to ATM (km)</label>
+                <input id="atm_distance" name="atm_distance" type="number" class="form-control" min="0" step="0.01" value="{{$property->atm_distance}}">
+                @error('atm_distance')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col">
+                <label for="railway_distance">Distance to Railway Station (km)</label>
+                <input id="railway_distance" name="railway_distance" type="number" class="form-control" min="0" step="0.01" value="{{$property->railway_distance}}">
+                @error('railway_distance')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <label for="school_distance">Distance to School (km)</label>
+                <input id="school_distance" name="school_distance" type="number" class="form-control" min="0" step="0.01" value="{{$property->school_distance}}">
+                @error('school_distance')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col">
+                <label for="airport_distance">Distance to Airport (km)</label>
+                <input id="airport_distance" name="airport_distance" type="number" class="form-control" min="0" step="0.01" value="{{$property->airport_distance}}">
+                @error('airport_distance')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col">
+                <label for="bank_distance">Distance to Bank (km)</label>
+                <input id="bank_distance" name="bank_distance" type="number" class="form-control" min="0" step="0.01" value="{{$property->bank_distance}}">
+                @error('bank_distance')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+        </div>
         <div class="row">
             <div class="col">
                 <label for="images">Upload Property Images (Leave empty to keep existing images)</label>
@@ -240,5 +354,29 @@
         </div>
     </form>
 </div>
-
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#city').on('change', function() {
+            var cityId = $(this).val();
+            if(cityId) {
+                $.ajax({
+                    url: '{{ route("getSectorsByCity") }}',
+                    type: 'GET',
+                    data: {city_id: cityId},
+                    dataType: 'json',
+                    success: function(data) {
+                        $('#sector').empty();
+                        $('#sector').append('<option value="">Select Sector</option>');
+                        $.each(data, function(key, value) {
+                            $('#sector').append('<option value="'+ key +'">'+ value +'</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#sector').empty();
+                $('#sector').append('<option value="">Select Sector</option>');
+            }
+        });
+    });
+</script>
 @endsection
