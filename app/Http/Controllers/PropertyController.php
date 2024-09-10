@@ -171,7 +171,7 @@ class PropertyController extends Controller
         // Pass properties and city data to the view
         return view('FrontendPages.property-mohali', [
             'properties' => $properties,
-            'city' => $city
+            'city' => $cityname
         ]);
     }
     public function sectorshow($sectorname)
