@@ -294,6 +294,9 @@ footer{
 #bodyFormatNT{
     margin-top: 6%;
 }
-a:hover{
+.view-details:hover{
     color: #fb6a19!important;
+}
+.showallspan:hover{
+    color: #fb6a19;
 }

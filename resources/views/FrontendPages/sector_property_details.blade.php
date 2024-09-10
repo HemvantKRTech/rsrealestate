@@ -185,7 +185,7 @@
                                           <input type="hidden" name="subject" value="Inquiry For Property - 4 BHK Flats &amp; Apartments for Sale in Sector 79, Mohali (1800 Sq.ft.) - REI1273604" />
                                           <input type="hidden" name="property_id" value="1273604" />
                                        </form>
-                                       <a href="sell/4-bhk-flats-apartments-sector-79-mohali_1273604.html" class="large data c5px dib p17px pt7px pb7px">View Details</a>
+                                       <a href="sell/4-bhk-flats-apartments-sector-79-mohali_1273604.html" class="large data c5px dib p17px pt7px pb7px view-details">View Details</a>
                                        <a href="javascript:void(0);" class="submit-inquiry large buttonBig ts0 c5px dib p17px pt7px pb7px">Send Enquiry</a>
                                     </div>
                                  </div>
@@ -214,7 +214,7 @@
                                           <input type="hidden" name="subject" value="Inquiry For Property - 6 BHK Individual Houses / Villas for Sale in Sector 79, Mohali (500 Sq. Yards) - REI1217394" />
                                           <input type="hidden" name="property_id" value="1217394" />
                                        </form>
-                                       <a href="sell/6-bhk-individual-houses-villas-sector-79-mohali_1217394.html" class="large data c5px dib p17px pt7px pb7px">View Details</a>
+                                       <a href="sell/6-bhk-individual-houses-villas-sector-79-mohali_1217394.html" class="large data c5px dib p17px pt7px pb7px view-details">View Details</a>
                                        <a href="javascript:void(0);" class="submit-inquiry large buttonBig ts0 c5px dib p17px pt7px pb7px">Send Enquiry</a>
                                     </div>
                                  </div>
@@ -247,7 +247,7 @@
                                           <input type="hidden" name="subject" value="Inquiry For Property - 2 BHK Individual Houses / Villas for Sale in Sector 79, Mohali (150 Sq.ft.) - REI1216750" />
                                           <input type="hidden" name="property_id" value="1216750" />
                                        </form>
-                                       <a href="sell/2-bhk-individual-houses-villas-sector-79-mohali_1216750.html" class="large data c5px dib p17px pt7px pb7px">View Details</a>
+                                       <a href="sell/2-bhk-individual-houses-villas-sector-79-mohali_1216750.html" class="large data c5px dib p17px pt7px pb7px view-details">View Details</a>
                                        <a href="javascript:void(0);" class="submit-inquiry large buttonBig ts0 c5px dib p17px pt7px pb7px">Send Enquiry</a>
                                     </div>
                                  </div>
@@ -280,7 +280,7 @@
                                           <input type="hidden" name="subject" value="Inquiry For Property - 2 BHK Individual Houses / Villas for Sale in Sector 79, Mohali (155 Sq. Yards) - REI1216742" />
                                           <input type="hidden" name="property_id" value="1216742" />
                                        </form>
-                                       <a href="sell/2-bhk-individual-houses-villas-sector-79-mohali_1216742.html" class="large data c5px dib p17px pt7px pb7px">View Details</a>
+                                       <a href="sell/2-bhk-individual-houses-villas-sector-79-mohali_1216742.html" class="large data c5px dib p17px pt7px pb7px view-details">View Details</a>
                                        <a href="javascript:void(0);" class="submit-inquiry large buttonBig ts0 c5px dib p17px pt7px pb7px">Send Enquiry</a>
                                     </div>
                                  </div>
@@ -309,7 +309,7 @@
                                           <input type="hidden" name="subject" value="Inquiry For Property - 3 BHK Individual Houses / Villas for Sale in Sector 79, Mohali (200 Sq. Yards) - REI1200632" />
                                           <input type="hidden" name="property_id" value="1200632" />
                                        </form>
-                                       <a href="sell/3-bhk-individual-houses-villas-sector-79-mohali_1200632.html" class="large data c5px dib p17px pt7px pb7px">View Details</a>
+                                       <a href="sell/3-bhk-individual-houses-villas-sector-79-mohali_1200632.html" class="large data c5px dib p17px pt7px pb7px view-details">View Details</a>
                                        <a href="javascript:void(0);" class="submit-inquiry large buttonBig ts0 c5px dib p17px pt7px pb7px">Send Enquiry</a>
                                     </div>
                                  </div>
@@ -342,7 +342,7 @@
                                           <input type="hidden" name="subject" value="Inquiry For Property - 6 BHK Individual Houses / Villas for Sale in Sector 79, Mohali (500 Sq. Yards) - REI1192415" />
                                           <input type="hidden" name="property_id" value="1192415" />
                                        </form>
-                                       <a href="sell/6-bhk-individual-houses-villas-sector-79-mohali_1192415.html" class="large data c5px dib p17px pt7px pb7px">View Details</a>
+                                       <a href="sell/6-bhk-individual-houses-villas-sector-79-mohali_1192415.html" class="large data c5px dib p17px pt7px pb7px view-details">View Details</a>
                                        <a href="javascript:void(0);" class="submit-inquiry large buttonBig ts0 c5px dib p17px pt7px pb7px">Send Enquiry</a>
                                     </div>
                                  </div>
