@@ -892,34 +892,6 @@
             </section>
          </section>
          <br style="content:'';display:inline-block;width:100%;height:15px;" />
-         <footer id="footerFormat1">
-            <div class="wrap">
-               <div class="ac">
-                  <p class="ma5px b bgl"><a href="../index.html"  title="Home" >Home</a> | <a href="../blog/index.html"   title="Blog" >Blog</a> | <a href="../about-us.html"   title="About Us" >About Us</a> | <a href="../our-projects.html"   title="Our Projects" >Our Projects</a> | <a href="../post-property.html"   title="Post Property" >Post Property</a> | <a href="../testimonials.html"  title="What clients say" >What clients say</a> | <a href="../post-requirement.html"   title="Post Requirement" >Post Requirement</a> | <a href="../career.html"   title="Career" >Career</a> | <a href="../contact-us.html"  title="Contact Us" >Contact Us</a> | <a href="../send-inquiry1.html"  title="Enquiry" >Enquiry</a> | <a href="../sitemap.html"  title="Sitemap" >Site Map</a>
-                     <a href="../property.rss" target="_blank" title="RSS"><img src="https://catalog.wlimg.com/templates-images/12569/common/rss_icon.png" alt="RSS" class="vam" width="36" height="14" loading="lazy"></a>
-                  </p>
-               </div>
-               <div class="row1 columns12 dt bdrT mt10px">
-                  <div class="col-1"><span class="copyright">All Rights Reserved. <b>R S Real Estate</b></span><br><span class="memberOf">Developed &amp; Managed By <a href="https://www.weblink.in/" rel="nofollow" target="_blank">Weblink.In Pvt. Ltd.</a></span></div>
-                  <div class="col-2">
-                     <div class="dib ml30px vab">
-                        <script> 
-                           var tlJsHost = ((window.location.protocol == "5-bhk-individual-houses-sector-70-mohali_1290327.html") ? "https://secure.trust-provider.com/" : "https://www.trustlogo.com/");
-                           document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
-                        </script>			
-                        <span>
-                           <script>
-                              TrustLogo("https://www.positivessl.com/images/seals/positivessl_trust_seal_sm_124x32.png", "POSDV", "none");
-                           </script>
-                        </span>
-                     </div>
-                     <div class="dib vab">
-                        <span><a href="https://www.realestateindia.com/" target="_blank"><img src="https://catalog.wlimg.com/main-common/rei.png" width="133" height="44" loading="lazy" alt="RealEstateIndia.Com"></a></span>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </footer>
          <!--Created By - Weblink.In-->
       </div>
 

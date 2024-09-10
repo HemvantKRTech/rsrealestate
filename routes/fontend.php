@@ -28,3 +28,11 @@ Route::get('/about-us', function () {
 Route::get('/property_details', function () {
     return view('FrontendPages.property_details');
 })->name('property_details');
+
+Route::get('/blog', function () {
+    return view('FrontendPages.blog');
+})->name('blog');
+
+Route::get('/property-mohali', function () {
+    return view('FrontendPages.property-mohali');
+})->name('property-mohali');

@@ -127,7 +127,10 @@ input.button-search:hover{
 .contact-icon{
     background-color: #fb6a19!important;
 }
-.dif a{
+.mb7px a{
+    color: #fb6a19!important;
+}
+.mb7px a:hover{
     color: #000!important;
 }
 input.button:hover{
@@ -177,4 +180,87 @@ footer{
 }
 .xxxlarge{
     color: #fb6a19!important;
+}
+.container {
+    width: 80%;           /* Adjusts the container's width */
+    max-width: 1200px;     /* Optional: sets a maximum width */
+    margin: 0 auto;        /* Centers the container */
+    padding: 20px;         /* Optional: padding inside the container */
+    background-color: #f9f9f9; /* Optional: background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow */
+    border-radius: 10px;   /* Optional: rounded corners */
+}
+.mohali-content-post{
+    width: 100%;
+    float: left;
+}
+.mohali-post{
+    width: 100%;
+    float: left;
+}
+.hot-property{
+    width: 30%;
+    float: left;
+}
+.mohali-property-post{
+    width: 70%;
+    float: left;
+    /* background-color: aquamarine */
+}
+/* Section container */
+.two-row-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Row styling */
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Space between rows */
+}
+
+/* Individual box styling */
+.box {
+    background-color: #fff;
+    border-radius: 10px;
+    /* padding: 20px; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 48%; /* Each box takes about half of the row width */
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Box hover effect */
+.box:hover {
+    transform: translateY(-10px);
+}
+
+/* Image styling */
+.box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Title styling */
+.box h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Content styling */
+.box p {
+    font-size: 1em;
+    color: #666;
+}
+.mb5px, a.mb5px {
+    /* margin-bottom: 5px; */
+    margin: 10px;
+}
+.p-tag{
+    padding: 0px 0px 15px;
 }
