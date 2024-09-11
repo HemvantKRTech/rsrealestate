@@ -139,7 +139,7 @@
                </div>
             </div>
             <div class="wrap" id="bodyFormatNT">
-               <p class="breadcrumb ar uu small db"><span class="pl15px pr15px db"><a href="../index.html">Home</a> <b class="ffv p2px">&rsaquo;</b><a href="../property-in-mohali.html" title="Property in Mohali">Property in Mohali</a><b class="ffv p2px">&rsaquo;</b><a href="../property-for-sale-in-sector-70-mohali.html" title="Property for Sale in Sector 70 Mohali">Property for Sale in Sector 70 Mohali</a> <b class="ffv p2px">&rsaquo;</b> Property Detail</span></p>
+               <p class="breadcrumb ar uu small db"><span class="pl15px pr15px db"><a href="/">Home</a><b class="ffv p2px">&rsaquo;</b> {{$property->ad_title}}</span></p>
                <div class="row1 dt columns12">
                   <!--MIDDLE ROW1 STARTS-->
                   <div class="col-1 wideColumn ip ls">
@@ -230,8 +230,8 @@
                            </script>
                            <div class="vat ffos db p15px pt5px">
                               <div class="fo mb25px bdrB bdreee pb7px" style="border-color:#eee;">
-                                 <div class="dib xxlarge alpha75 mt10px"><span class="xlarge"><i class="fa fa-inr small red mr2px"></i> <span class="fw6">6.25 Cr.</span></span>
-                                    <span class="xsmall ml5px dib">@ Rs {{$property->price}} per Sq. Yards</span>
+                                 <div class="dib xxlarge alpha75 mt10px"><span class="xlarge"><i class="fa fa-inr small red mr2px"></i> <span class="fw6">{{$property->price}}</span></span>
+                                    {{-- <span class="xsmall ml5px dib">@ Rs per Sq. Yards</span> --}}
                                  </div>
                               </div>
                               <ul class="lsn m0px p0px wp33 ac-mb10px">

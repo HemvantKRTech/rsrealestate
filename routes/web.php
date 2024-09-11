@@ -7,6 +7,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\EmailController;
 
 // Route::get('/', function () {
 //     return view('FrontendPages.Home');
@@ -24,8 +25,8 @@ Route::get('city/{cityname}', [PropertyController::class, 'show'])->name('city.d
 Route::get('city/sector/{sectorname}', [PropertyController::class, 'sectorshow'])->name('sector.details');
 Route::get('propertydetail/{propertyid}', [PropertyController::class, 'propertydetail'])->name('propertydetail');
 Route::get('category/{category}',[PropertyController::class,'catproshow'])->name('catproshow');
-
-
+Route::get('/api/sectors/{cityId}', [PropertyController::class, 'getSectorsByCitys']);
+Route::get('/send-email', [EmailController::class, 'sendEmail'])->name('send.email');
 
 Route::middleware('auth:admin')->group(function () {
     Route::prefix('admin')->group(function () {
@@ -69,6 +70,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::put('category/{category}', [PropertyController::class, 'categoryupdate'])->name('categories.update');
         Route::delete('category/{category}', [PropertyController::class, 'categorydestroy'])->name('categories.destroy');
         Route::get('banners', [AdminController::class, 'bannerindex'])->name('banners.index');
+        Route::patch('banners/{id}/status', [AdminController::class, 'updateStatus'])->name('banners.updateStatus');
         Route::post('banners', [AdminController::class, 'store'])->name('banners.store');
         Route::delete('banners/{banner}', [AdminController::class, 'destroy'])->name('banners.destroy');
         Route::get('settings/site-title', [SettingController::class,'index'])->name('site_title');

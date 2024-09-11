@@ -42,36 +42,48 @@
     <!-- List of Banners -->
     <h2>Banners</h2>
     @if($banners->count())
-        <table class="table table-bordered">
-            <thead>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Images</th>
+                <th>Status</th> <!-- New Column for Status -->
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($banners as $banner)
                 <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Images</th>
-                    <th>Actions</th>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $banner->name }}</td>
+                    <td>
+                        @foreach(json_decode($banner->images) as $image)
+                            <img src="{{ asset('storage/' . $image) }}" alt="banner image" style="width: 100px; height: 100px;">
+                        @endforeach
+                    </td>
+                    <td>
+                        <form action="{{ route('banners.updateStatus', $banner->id) }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <button type="submit" class="btn btn-sm {{ $banner->status === 'active' ? 'btn-success' : 'btn-secondary' }}">
+                                {{ $banner->status === 'active' ? 'Active' : 'Inactive' }}
+                            </button>
+                        </form>
+                    </td>
+                    
+                    <td>
+                        <form action="{{ route('banners.destroy', $banner->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this banner?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach($banners as $banner)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $banner->name }}</td>
-                        <td>
-                            @foreach(json_decode($banner->images) as $image)
-                                <img src="{{ asset('storage/' . $image) }}" alt="banner image" style="width: 100px; height: 100px;">
-                            @endforeach
-                        </td>
-                        <td>
-                            <form action="{{ route('banners.destroy', $banner->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this banner?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+            @endforeach
+        </tbody>
+    </table>
+    
 
         <!-- Pagination Links -->
         {{ $banners->links() }}

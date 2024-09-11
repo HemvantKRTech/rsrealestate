@@ -40,3 +40,7 @@ Route::get('/property-mohali', function () {
 Route::get('/sector_propertys', function () {
     return view('FrontendPages.sector_property_details');
 })->name('sector_propertys');
+
+Route::get('/testimonials', function () {
+    return view('FrontendPages.testimonials');
+})->name('testimonials');

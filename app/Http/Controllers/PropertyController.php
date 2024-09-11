@@ -226,5 +226,9 @@ class PropertyController extends Controller
         'singlecity'=> $singlecity
     ]);
     }
-
+    public function getSectorsByCitys($cityId)
+    {
+        $sectors = Sector::where('city_id', $cityId)->get(['id', 'name']);
+        return response()->json($sectors);
+    }
 }

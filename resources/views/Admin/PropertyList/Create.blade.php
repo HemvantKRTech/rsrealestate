@@ -3,6 +3,11 @@
 @section('maincontent')
 
 <div class="container mt-5">
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <h1>Property Details Form</h1>
     <form action="{{ route('property.store') }}" method="POST" enctype="multipart/form-data">
         @csrf

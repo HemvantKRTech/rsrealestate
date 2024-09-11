@@ -32,7 +32,7 @@
                 
                 <!-- Status -->
                 <div class="form-group">
-                    <label for="status">Sector Name</label>
+                    <label for="status">Sector/Phase</label>
                     <input type="text" class="form-control @error('name') is-invalid @enderror" id="cityName" name="name" value="{{ old('name') }}" required>
                     @error('name')
                         <div class="invalid-feedback">{{ $message }}</div>
