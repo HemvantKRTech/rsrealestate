@@ -79,18 +79,14 @@
                         </div>
                         <div class="ic showHide_rp">
                            <ul>
+                              @foreach ($sectors as $item)
                               <li>
                                  <b class="b2 fl"></b>
-                                 <p class="ofh"><a href="property-in-manimajra.html"   title="Property in Manimajra" >Property in Manimajra</a></p>
-                              </li>
-                              <li>
-                                 <b class="b2 fl"></b>
-                                 <p class="ofh"><a href="property-in-mohali.html"   title="Property in Mohali" >Property in Mohali</a></p>
-                              </li>
-                              <li>
-                                 <b class="b2 fl"></b>
-                                 <p class="ofh"><a href="property-in-zirakpur.html"   title="Property in Zirakpur" >Property in Zirakpur</a></p>
-                              </li>
+                                 <p class="ofh"><a href="property-in-manimajra.html"   title="Property in Manimajra" >Property in {{$item->name}}</a></p>
+                              </li>  
+                              @endforeach
+                              
+                             
                            </ul>
                            <p class="cb"></p>
                         </div>

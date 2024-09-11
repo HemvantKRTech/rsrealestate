@@ -116,6 +116,16 @@
                 <i class="bi bi-house"></i> New Enquiry
             </a>
         </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-folder"></i> Setting
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="{{route('site_title')}}">Site Title</a></li>
+                <li><a class="dropdown-item" href="{{route('meta-tags')}}">Meta Tags</a></li>
+                
+            </ul>
+        </li>
     </ul>
 </div>
 
