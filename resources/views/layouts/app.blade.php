@@ -6,6 +6,8 @@
    <!-- /Added by HTTrack -->
    <head>
       <meta charset="utf-8">
+      <meta name="csrf-token" content="{{ csrf_token() }}">
+
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
       <title>R S Real Estate - Real Estate Agent in Mohali,Sell Flats in S.A.S. Nagar</title>
       <meta name="description" content="R S Real Estate is a highly venerated Real Estate Agent Serving the Clients in Mohali and Chandigarh Services related to Buy, Sell, Rent &amp; Lease of Properties,Real Estate Agent in Mohali,Flats for Sale in S.A.S. Nagar Mohali.">

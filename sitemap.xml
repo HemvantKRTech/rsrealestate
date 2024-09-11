@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+    <url>
+        <loc>http://127.0.0.1:8000/</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/about-us</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/city/Mohali</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/city/sector/Sector%2071</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/city/Mohali%20east</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/city/sector/68</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/service/buying-property</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/service/selling-property</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/service/renting-property</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/contact-us</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/propertydetail/6</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/blog</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/post-property</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/admin/properties/6/show</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/category/5</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/storage/property_images/LvgiidzBoMeUV2olenFp9eEt45RXUc1oVRJKtMFx.jpg</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/propertydetail/6-bhk-individual-houses-villas-sector-79-mohali_1217394.html</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/storage/property_images/PoOjsQDIxUjHZB1J4laxO89FNMd6t06CSg9AGExv.jpg</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/storage/property_images/APq4XV0e7xLqhhsJC33UTnh3dtVJxyhOlxi5KNFa.jpg</loc>
+    
+            </url>
+    <url>
+        <loc>http://127.0.0.1:8000/login</loc>
+    
+            </url>
+</urlset>

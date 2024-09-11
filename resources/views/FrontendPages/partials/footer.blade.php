@@ -38,28 +38,29 @@
                         <p class="l"><b class="b"></b><a href="{{route('blog')}}" title="Blog" >Blog</a></p>
                      </div>
                      <div class="w">
-                        <p class="l"><b class="b"></b><a href="about-us.html" title="About Us" >About Us</a></p>
+                        <p class="l"><b class="b"></b><a href="{{route('about-us')}}" title="About Us" >About Us</a></p>
                      </div>
-                     <div class="w">
+                     {{-- <div class="w">
                         <p class="l"><b class="b"></b><a href="our-projects.html" title="Our Projects" >Our Projects</a></p>
-                     </div>
+                     </div> --}}
                      <div class="w">
                         <p class="l"><b class="b"></b><a href="{{route('property.create')}}" title="Post Property" >Post Property</a></p>
                      </div>
                      <div class="w">
-                        <p class="l"><b class="b"></b><a href="testimonials.html" title="What clients say" >What clients say</a></p>
+                        <p class="l"><b class="b"></b><a href="#" title="What clients say" >What clients say</a></p>
                      </div>
                      <div class="w">
-                        <p class="l"><b class="b"></b><a href="post-requirement.html" title="Post Requirement" >Post Requirement</a></p>
+                        <p class="l"><b class="b"></b><a href="#" title="Post Requirement" >Post Requirement</a></p>
                      </div>
                      <div class="w">
-                        <p class="l"><b class="b"></b><a href="career.html" title="Career" >Career</a></p>
+                        <p class="l"><b class="b"></b><a href="#" title="Career" >Career</a></p>
                      </div>
                      <div class="w">
-                        <p class="l"><b class="b"></b><a href="contact-us.html" title="Contact Us" >Contact Us</a></p>
+                        <p class="l"><b class="b"></b><a href="{{route('contact.us')}}" title="Contact Us" >Contact Us</a></p>
                      </div>
                      <div class="w">
-                        <p class="l"><b class="b"></b><a href="send-inquiry1.html" title="Enquiry" >Enquiry</a></p>
+                        <p class="l"><b class="b"></b><a href="javascript:;" data-fancybox="sendEmail" data-src="#sendEmail" title="Enquiry" >Enquiry</a></p>
+                        
                      </div>
                      <div class="w">
                         <p class="l"><b class="b"></b><a href="sitemap.html" title="Sitemap" >Site Map</a></p>

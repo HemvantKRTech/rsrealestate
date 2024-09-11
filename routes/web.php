@@ -7,6 +7,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\EmailController;
 
 // Route::get('/', function () {
 //     return view('FrontendPages.Home');
@@ -25,7 +26,7 @@ Route::get('city/sector/{sectorname}', [PropertyController::class, 'sectorshow']
 Route::get('propertydetail/{propertyid}', [PropertyController::class, 'propertydetail'])->name('propertydetail');
 Route::get('category/{category}',[PropertyController::class,'catproshow'])->name('catproshow');
 Route::get('/api/sectors/{cityId}', [PropertyController::class, 'getSectorsByCitys']);
-
+Route::get('/send-email', [EmailController::class, 'sendEmail'])->name('send.email');
 
 Route::middleware('auth:admin')->group(function () {
     Route::prefix('admin')->group(function () {
