@@ -90,12 +90,12 @@
                 <table class="formTable w100">
                     <tbody>
                         <tr>
-                            <td colspan="2" class="headHr p5px b">
+                            <td colspan="2" class="post-property-form p5px b">
                                 <b class="n fr"><b class="star">*</b> fields are mandatory</b>Basic Information
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Property For &nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Property Category &nbsp;</td>
                             <td class="w70 data p5px">
                                 <input type="radio" value="Sell" name="dynFrm_property_for" checked="checked">Sell &nbsp;
                                 <input type="radio" value="Rent / Lease" name="dynFrm_property_for">Rent / Lease &nbsp;
@@ -103,7 +103,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Property Category <b class="star">*</b> &nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Property type <b class="star">*</b> &nbsp;</td>
                             <td class="w70 data p5px">
                                 <select name="dynFrm_property_category" id="r_please-select-property-category" class="w65">
                                     <option value="" selected="selected">Select One</option>
@@ -115,59 +115,211 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Area &nbsp;</td>
-                            <td class="w70 data p5px"><input type="text" name="dynFrm_area" value="" size="35" maxlength="90" class="input w65"></td>
+                            <td class="w30 headVr p5px ar b">Bedrooms <b class="star">*</b> &nbsp;</td>
+                            <td class="w70 data p5px">
+                            <select id="bedrooms" name="bedrooms" class="form-control">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="4+">4+</option>
+                            </select>
+                            </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Unit Measure &nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Bathrooms <b class="star">*</b> &nbsp;</td>
+                            <td class="w70 data p5px">
+                            <select id="bedrooms" name="bedrooms" class="form-control">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="4+">4+</option>
+                            </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="w30 headVr p5px ar b">Furnishing <b class="star">*</b>&nbsp;</td>
                             <td class="w70 data p5px">
                                 <select name="dynFrm_unit_measure" class="w65">
-                                    <option value="" selected="selected">Sq. Feet</option>
-                                    <option value="Cent">Cent</option>
-                                    <option value="Sq. Yards">Sq. Yards</option>
-                                    <option value="Acre">Acre</option>
-                                    <option value="Sq. Meter">Sq. Meter</option>
-                                    <option value="Bigha">Bigha</option>
-                                    <option value="Hectares">Hectares</option>
+                                    <option value="" selected="selected">Furnished</option>
+                                    <option value="furnished">Furnished</option>
+                                    <option value="semi_furnished">Semi-Furnished</option>
+                                    <option value="unfurnished">Unfurnished</option>
                                 </select>
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Price <b class="star">*</b> &nbsp;</td>
-                            <td class="w70 data p5px"><input type="text" name="dynFrm_price" value="" size="35" maxlength="90" class="input w65"></td>
-                        </tr>
-                        <tr>
-                            <td class="w30 headVr p5px ar b">Price Measure &nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Construction Status <b class="star">*</b>&nbsp;</td>
                             <td class="w70 data p5px">
-                                <select name="dynFrm_price_measure" class="w65">
-                                    <option value="" selected="selected">INR</option>
-                                </select>
+                            <select id="construction_status" name="construction_status" class="form-control">
+                            <option value="new_launch">New Launch</option>
+                            <option value="ready_to_move">Ready to Move</option>
+                            <option value="under_construction">Under Construction</option>
+                            </select>
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Property Facing &nbsp;</td>
-                            <td class="w70 data p5px"><input type="text" name="dynFrm_property_facing" value="" size="35" maxlength="90" class="input w65"></td>
+                            <td class="w30 headVr p5px ar b">Listed by <b class="star">*</b>&nbsp;</td>
+                            <td class="w70 data p5px">
+                            <select id="listed_by" name="listed_by" class="form-control">
+                            <option value="builder">Builder</option>
+                            <option value="dealer">Dealer</option>
+                            <option value="owner">Owner</option>
+                            </select>
+                            </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Property Image &nbsp;</td>
-                            <td class="w70 data p5px"><input type="file" name="dynFrm_property_image_file"></td>
+                            <td for="super_builtup_area" class="w30 headVr p5px ar b">Super Builtup Area (ft²) <b class="star">*</b>&nbsp;</td>
+                            <td class="w70 data p5px">
+                            <input id="super_builtup_area" name="super_builtup_area" type="number" class="form-control input" min="0" step="1" value="">
+                            </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Property Description <b class="star">*</b> &nbsp;</td>
-                            <td class="w70 data p5px"><textarea name="dynFrm_property_description" cols="50" rows="4" class="input w65"></textarea></td>
+                            <td class="w30 headVr p5px ar b">Carpet Area (ft²) <b class="star">*</b>&nbsp;</td>
+                            <td class="w70 data p5px">
+                            <input id="carpet_area" name="carpet_area" type="number" class="form-control input" min="0" step="1" value="">
+                            </td>
                         </tr>
                         <tr>
-                            <td colspan="2" class="headHr p5px b">Property Location</td>
+                            <td class="w30 headVr p5px ar b">Maintenance (Monthly)&nbsp;</td>
+                            <td class="w70 data p5px">
+                            <input id="maintenance" name="maintenance" type="number" class="form-control input" min="0" step="1" value="" placeholder="Rs:">
+                            </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Address &nbsp;</td>
-                            <td class="w70 data p5px"><textarea name="dynFrm_address" cols="50" rows="4" class="input w65"></textarea></td>
+                            <td class="w30 headVr p5px ar b">Totle Floor <b class="star">*</b>&nbsp;</td>
+                            <td class="w70 data p5px">
+                            <input id="total_floors" name="total_floors" type="number" class="form-control input" min="0" step="1" value="">
+                            </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">City / State &nbsp;</td>
-                            <td class="w70 data p5px"><input type="text" name="dynFrm_city_state_2" value="" size="35" maxlength="90" class="input w65"></td>
+                            <td class="w30 headVr p5px ar b">Floor No <b class="star">*</b>&nbsp;</td>
+                            <td class="w70 data p5px">
+                            <input id="floor_no" name="floor_no" type="number" class="form-control input" min="0" step="1" value="">
+                            </td>
                         </tr>
                         <tr>
+                            <td class="w30 headVr p5px ar b">Car Parking <b class="star">*</b>&nbsp;</td>
+                            <td class="w70 data p5px">
+                            <select id="car_parking" name="car_parking" class="form-control">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="3+">3+</option>
+                            </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="w30 headVr p5px ar b">Facing <b class="star">*</b>&nbsp;</td>
+                            <td class="w70 data p5px">
+                            <select id="facing" name="facing" class="form-control">
+                            <option value="">Select</option>
+                            <option value="east">East</option>
+                            <option value="north">North</option>
+                            <option value="northeast">North-East</option>
+                            <option value="northwest">North-West</option>
+                            <option value="south">South</option>
+                            <option value="southeast">South-East</option>
+                            <option value="southwest">South-West</option>
+                            <option value="west">West</option>
+                            </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="w30 headVr p5px ar b">Price <b class="star">*</b>&nbsp;</td>
+                            <td class="w70 data p5px">
+                            <input id="price" name="price" type="number" class="form-control input" min="0" step="1" value="" placeholder="Rs:">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="w30 headVr p5px ar b">Negotiable <b class="star">*</b>&nbsp;</td>
+                            <td class="w70 data p5px">
+                            <select id="negotiable" name="negotiable" class="form-control">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="w30 headVr p5px ar b">Property Image <b class="star">*</b>&nbsp;</td>
+                            <td class="w70 data p5px">
+                                <!-- <input type="file" name="dynFrm_property_image_file"> -->
+                                <input id="images" name="dynFrm_property_image_file" type="file" class="form-control input" multiple>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="w30 headVr p5px ar b">Property Description &nbsp;</td>
+                            <td class="w70 data p5px">
+                                <!-- <textarea name="dynFrm_property_description" cols="50" rows="4" class="input w65"></textarea> -->
+                                <textarea id="description" name="description" class="form-control input"  cols="50" rows="4"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="post-property-form p5px b">Near Property Location</td>
+                        </tr>
+                        <tr>
+                            <td class="w30 headVr p5px ar b">Hospital (km) <b class="star">*</b>&nbsp;</td>
+                            <td class="w70 data p5px">
+                            <input id="hospital_distance" name="hospital_distance" type="number" class="form-control input" min="0" step="0.01" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="w30 headVr p5px ar b">ATM (km) <b class="star">*</b>&nbsp;</td>
+                            <td class="w70 data p5px">
+                            <input id="atm_distance" name="atm_distance" type="number" class="form-control input" min="0" step="0.01" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="w30 headVr p5px ar b">Bank (km) <b class="star">*</b>&nbsp;</td>
+                            <td class="w70 data p5px">
+                            <input id="bank_distance" name="bank_distance" type="number" class="form-control input" min="0" step="0.01" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="w30 headVr p5px ar b">Railway Station (km) <b class="star">*</b>&nbsp;</td>
+                            <td class="w70 data p5px">
+                            <input id="railway_distance" name="railway_distance" type="number" class="form-control input" min="0" step="0.01" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="w30 headVr p5px ar b">School (km) <b class="star">*</b>&nbsp;</td>
+                            <td class="w70 data p5px">
+                            <input id="school_distance" name="school_distance" type="number" class="form-control input" min="0" step="0.01" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="w30 headVr p5px ar b">Airport (km) <b class="star">*</b>&nbsp;</td>
+                            <td class="w70 data p5px">
+                            <input id="airport_distance" name="airport_distance" type="number" class="form-control input" min="0" step="0.01" value="">
+                            </td>
+                        </tr>
+                
+                        <tr>
+                            <td colspan="2" class="post-property-form p5px b">Property Location</td>
+                        </tr>
+                        <tr>
+                            <td class="w30 headVr p5px ar b">Address <b class="star">*</b> &nbsp;</td>
+                            <td class="w70 data p5px">
+                                <textarea id="address" name="address" cols="50" rows="4" class="form-control input"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="w30 headVr p5px ar b">City / Sector <b class="star">*</b>&nbsp;</td>
+                            <td class="w70 data p5px">
+                            <select id="sector" name="sector" class="form-control">
+                            <option value="">Select Sector</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                            <option value="">5</option>
+                            <option value="">6</option>
+                            </select>
+                            </td>
+                        </tr>
+                        <!-- <tr>
                             <td class="w30 headVr p5px ar b">Country <b class="star">*</b> &nbsp;</td>
                             <td class="w70 data p5px">
                                 <select name="dynFrm_country_property" id="r_please-select-your-country" class="w70">
@@ -371,27 +523,43 @@
                                     <option value="Zimbabwe">Zimbabwe</option>
                                 </select>
                             </td>
-                        </tr>
+                        </tr> -->
                         <tr>
-                            <td colspan="2" class="headHr p5px b">Contact Details</td>
+                            <td colspan="2" class="post-property-form p5px b">Contact Details</td>
                         </tr>
                         <tr>
                             <td class="w30 headVr p5px ar b">Your Name <b class="star">*</b> &nbsp;</td>
-                            <td class="w70 data p5px"><input type="text" name="dynFrm_your_name" value="" size="35" maxlength="90" class="input w65"></td>
+                            <td class="w70 data p5px">
+                                <input type="text" name="dynFrm_your_name" value="" size="35" maxlength="90" class="form-control input">
+                            </td>
                         </tr>
                         <tr>
                             <td class="w30 headVr p5px ar b">Email ID <b class="star">*</b> &nbsp;</td>
-                            <td class="w70 data p5px"><input type="text" name="dynFrm_email_id" value="" size="35" maxlength="90" class="input w65"></td>
+                            <td class="w70 data p5px">
+                                <input type="text" name="dynFrm_email_id" value="" size="35" maxlength="90" class="form-control input">
+                            </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Address &nbsp;</td>
-                            <td class="w70 data p5px"><textarea name="dynFrm_address" cols="50" rows="4" class="input w65"></textarea></td>
+                            <td class="w30 headVr p5px ar b">Address <b class="star">*</b> &nbsp;</td>
+                            <td class="w70 data p5px">
+                                <textarea id="address" name="address" cols="50" rows="4" class="form-control input"></textarea>
+                            </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">City / State <b class="star">*</b> &nbsp;</td>
-                            <td class="w70 data p5px"><input type="text" name="dynFrm_city_state" value="" size="35" maxlength="90" class="input w65"></td>
+                            <td class="w30 headVr p5px ar b">City / Sector <b class="star">*</b>&nbsp;</td>
+                            <td class="w70 data p5px">
+                            <select id="sector" name="sector" class="form-control">
+                            <option value="">Select Sector</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                            <option value="">5</option>
+                            <option value="">6</option>
+                            </select>
+                            </td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td class="w30 headVr p5px ar b">Country <b class="star">*</b> &nbsp;</td>
                             <td class="w70 data p5px">
                                 <select name="dynFrm_country_2" id="r_please-select-your-country" class="w70">
@@ -595,9 +763,13 @@
                                     <option value="Zimbabwe">Zimbabwe</option>
                                 </select>
                             </td>
-                        </tr>
+                        </tr> -->
                         <tr>
-                            <td colspan="2" class="p10px ac"><button type="submit">Submit</button></td>
+                            <td colspan="2" class="p10px ac">
+                            <input type="submit" name="submit" value="Submit" class="button p10px pl15px pr15px b">
+                            <input type="reset" name="reset" value="Reset" class="resetbtn p10px pl15px pr15px b">
+                            </td>
+                            
                         </tr>
                     </tbody>
                 </table>

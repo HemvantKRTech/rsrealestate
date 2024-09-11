@@ -15,7 +15,7 @@
                         <p class="hr bdrB"></p>
                         <p><b>Mobile :</b> +91-9872023591</p>
                         <p class="hr bdrB"></p>
-                        <p><b>Call Us : </b><span class="b dif xlarge fw6">08048025143</span></p>
+                        <p><b>Call Us : </b><span class="b xlarge">08048025143</span></p>
                         <p class="hr bdrB"></p>
                         <p><b>E-mail :</b> <a href="mailto:chadha_in@yahoo.com">chadha_in@yahoo.com</a></p>
                      </div>

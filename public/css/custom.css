@@ -181,9 +181,6 @@ footer{
 .theme2{
     background-color: #fb6a19!important;
 }
-.xxxlarge{
-    color: #fb6a19!important;
-}
 .mohali-content-post{
     width: 100%;
     float: left;
@@ -294,9 +291,9 @@ footer{
 .box-sector-property:hover{
     transform: translateY(-10px);
 }
-#bodyFormatNT{
+/* #bodyFormatNT{
     margin-top: 6%;
-}
+} */
 .view-details:hover{
     color: #fb6a19!important;
 }
@@ -309,9 +306,18 @@ footer{
 .rHead{
     color: #fff;
 }
-/* .xxlarge {
-    color: #000000!important;
-} */
-/* .xxlarge:hover {
-    color: #fb6a19!important;
-} */
+.enquiry-form{
+    background-color: #fb6a19;
+    color: #fff;
+}
+.resetbtn{
+    background-color: #000;
+}
+.post-property-form{
+    background-color: #fb6a19;
+    color: #fff;
+}
+.form-control{
+    width: 65%;
+    float: left;
+}
