@@ -10,7 +10,7 @@
 @endif
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h3 class="mb-4">Add New Service</h3>
+            <h3 class="mb-4">Add New City</h3>
             <form action="{{ route('cities.store') }}" method="POST">
                 @csrf
         

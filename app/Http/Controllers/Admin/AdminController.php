@@ -255,10 +255,14 @@ class AdminController extends Controller
         $property->save();
         // Handle image uploads if any
         if ($request->hasFile('images')) {
+            // Store uploaded images
+            $images = [];
             foreach ($request->file('images') as $image) {
                 $path = $image->store('property_images', 'public');
-                $property->images()->create(['path' => $path]);
+                $images[] = $path;
             }
+            // Store image paths as JSON array
+            $property->images = $images;
         }
 
         return redirect()->route('newproperty.all')->with('success', 'Property updated successfully.');
@@ -271,7 +275,25 @@ class AdminController extends Controller
         $banners = Banner::orderBy('created_at', 'desc')->paginate(10);
         return view('Admin.banner.create', compact('banners'));
     }
+    public function updateStatus($id)
+{
+    // Retrieve the banner that is being updated
+    $banner = Banner::findOrFail($id);
+    
+    // Check if the banner is currently inactive
+    if (!$banner->status) {
+        // If inactive, set all other banners to inactive
+        Banner::where('status', 'active')->update(['status' => 'inactive']);
+        
+        // Set the selected banner to active
+        $banner->status = 'active';
+        $banner->save();
 
+        return redirect()->back()->with('success', 'Banner is now active. All other banners are inactive.');
+    }
+
+    return redirect()->back()->with('info', 'This banner is already active.');
+}
     public function store(Request $request)
     {
         // Validate the request

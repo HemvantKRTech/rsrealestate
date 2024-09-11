@@ -4,6 +4,11 @@
 
 <div class="container mt-5">
     <h1>Edit Property</h1>
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <form action="{{ route('property.update', $property->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         {{-- {{ route('property.update', $property->id) }} --}}
