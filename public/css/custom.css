@@ -15,8 +15,8 @@ body.boxed {
 .di a{
     color: #fff;
 }
-.fa-mobile{
-    color: #fff!important;
+.mr10px{
+    color: #fff;
 }
 .fa-envelope{
     color: #fff!important;
@@ -162,6 +162,9 @@ a.buttonBig{
 footer{
     background-color: #000!important;
 }
+.add{
+    color: #fff;
+}
 
 /* Property Details */
 
@@ -300,3 +303,15 @@ footer{
 .showallspan:hover{
     color: #fb6a19;
 }
+.dif a{
+    color: #666!important;
+}
+.rHead{
+    color: #fff;
+}
+/* .xxlarge {
+    color: #000000!important;
+} */
+/* .xxlarge:hover {
+    color: #fb6a19!important;
+} */

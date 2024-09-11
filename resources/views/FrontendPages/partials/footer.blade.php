@@ -5,11 +5,11 @@
                <div class="column_Box mc qc">
                   <div class="h h2">
                      <b class="plusMinus"></b> 
-                     <p class="b dif rHead">Contact Us</p>
+                     <p class="b rHead">Contact Us</p>
                   </div>
                   <div class="ic showHide_rp">
                      <div class="uu lh13em">
-                        <p class="dif b">R S Real Estate</p>
+                        <p class="b add">R S Real Estate</p>
                         <p class="hr bdrB"></p>
                         <p>SCF-19 , 2nd Floor, Phase 7, Mohali, Punjab, India</p>
                         <p class="hr bdrB"></p>
@@ -28,7 +28,7 @@
                <div class="column_Box mc ">
                   <div class="h h2">
                      <b class="plusMinus"></b> 
-                     <h3>General Links</h3>
+                     <h3 class="rHead">General Links</h3>
                   </div>
                   <div class="ic showHide_rp bml float">
                      <div class="w">
@@ -76,7 +76,7 @@
                <div class="mc column_Box newsLetter_f2">
                   <div class="h h2">
                      <b class="plusMinus"></b> 
-                     <h3>News Letter</h3>
+                     <h3 class="rHead">News Letter</h3>
                   </div>
                   <div class="ic ma5px showHide_rp">
                      <form name="newsletter" id="newsletter" method="post" action="http://catalog.realestateindia.com/catalog-newsletter-submit.php" onsubmit="return newsletter_validation()">

@@ -32,7 +32,7 @@
 </div>
 
 <div id="middle">
-    <div id="bodyFormatNT" class="wrap thinFormat">	
+    <div class="wrap thinFormat">	
         <div class="row1 dt columns12">
             <div class="col-1 thinColumn">
 	          <div class="column_Box mc thinColumnLink">
