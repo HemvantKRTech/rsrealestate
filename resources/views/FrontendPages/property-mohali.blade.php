@@ -24,10 +24,13 @@
                         </div>
                         <div class="ic showHide_rp">
                            <ul>
-                              <li>
-                                 <b class="b2 fl"></b>
-                                 <p class="ofh"><a href="rent/2-bhk-flats-apartments_1122152.html" title="2 BHK Flats &amp; Apartments for Rent in Sector 61, Mohali">2 BHK Flats &amp; Apartments for Rent in Sector 61, Mohali</a></p>
-                              </li>
+                             {{-- @foreach ($collection as $item) --}}
+                             <li>
+                              <b class="b2 fl"></b>
+                              {{-- <p class="ofh"><a href="#" title="{{$item->ad_title}}">{{$item->ad_title}}</a></p> --}}
+                           </li>
+                             {{-- @endforeach --}}
+                              
                               <li>
                                  <b class="b2 fl"></b>
                                  <p class="ofh"><a href="rent/3-bhk-flats-apartments_1127433.html" title="3 BHK Flats &amp; Apartments for Rent in Sector 88, Mohali">3 BHK Flats &amp; Apartments for Rent in Sector 88, Mohali</a></p>
@@ -76,18 +79,14 @@
                         </div>
                         <div class="ic showHide_rp">
                            <ul>
+                              @foreach ($sectors as $item)
                               <li>
                                  <b class="b2 fl"></b>
-                                 <p class="ofh"><a href="property-in-manimajra.html"   title="Property in Manimajra" >Property in Manimajra</a></p>
-                              </li>
-                              <li>
-                                 <b class="b2 fl"></b>
-                                 <p class="ofh"><a href="property-in-mohali.html"   title="Property in Mohali" >Property in Mohali</a></p>
-                              </li>
-                              <li>
-                                 <b class="b2 fl"></b>
-                                 <p class="ofh"><a href="property-in-zirakpur.html"   title="Property in Zirakpur" >Property in Zirakpur</a></p>
-                              </li>
+                                 <p class="ofh"><a href="property-in-manimajra.html"   title="Property in Manimajra" >Property in {{$item->name}}</a></p>
+                              </li>  
+                              @endforeach
+                              
+                             
                            </ul>
                            <p class="cb"></p>
                         </div>
@@ -120,39 +119,62 @@
                <section class="two-row-section">
                   <!-- First Row -->
                   <div class="row">
+                     @foreach ($properties as $item)
+                     @php
+                         // Decode the images JSON and get the first image or use a default image if none exists
+                         $images = json_decode($item->images);
+                         $image = !empty($images) && count($images) > 0 ? asset('storage/' . $images[0]) : 'https://rei.wlimg.com/prop_images/88260/1290327_1-350x350.jpg';
+                     @endphp
                      <div class="box">
-                        <div class="imgWidth" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1290327_1-350x350.jpg);background-size:cover;background-position:center;width:100%;height:260px;overflow:hidden;border-radius: 10px;"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1290327_1-350x350.jpg"  width="350" height="262" alt="5 BHK Individual Houses for Sale in Sector 70, Mohali"  style="max-height:150px;max-width:150px;z-index: -1;margin-left: -1000px;"></div>
-                        <p class="mb5px"><a class="dif b large" href="sell/5-bhk-individual-houses-sector-70-mohali_1290327.html" title="5 BHK Individual Houses for Sale in Sector 70, Mohali">5 BHK Individual Houses for Sale in Sector 70, Mohali</a></p>
-                        <div class="p-tag">
-                           <p> (Sector 70 Mohali) <br /> Area: 400 Sq. Yards | 5 Bedrooms | 5 Bathrooms | 6.25 Cr.</p>
-                        </div>
+                         <div class="imgWidth" style="background-image:url('{{ $image }}');background-size:cover;background-position:center;width:100%;height:260px;overflow:hidden;border-radius: 10px;">
+                             <img loading="lazy" src="{{ $image }}" width="350" height="262" alt="{{ $item->ad_title }}" style="max-height:150px;max-width:150px;z-index: -1;margin-left: -1000px;">
+                         </div>
+                         <p class="mb5px">
+                             <a class="dif b large" href="{{ route('property.show', $item->id) }}" title="{{ $item->ad_title }}">
+                                 {{ $item->ad_title }}
+                             </a>
+                         </p>
+                         <div class="p-tag">
+                             <p> ({{ $item->city->name }}) <br />
+                                 Area: {{ $item->carpet_area }} Sq. Yards | 
+                                 {{ $item->bedrooms }} Bedrooms | 
+                                 {{ $item->bathrooms }} Bathrooms | 
+                                 {{ number_format($item->price, 2) }} Rs.
+                             </p>
+                         </div>
                      </div>
-                     <div class="box">
-                        <div class="imgWidth" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1290327_1-350x350.jpg);background-size:cover;background-position:center;width:100%;height:260px;overflow:hidden;border-radius: 10px;"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1290327_1-350x350.jpg"  width="350" height="262" alt="5 BHK Individual Houses for Sale in Sector 70, Mohali"  style="max-height:150px;max-width:150px;z-index: -1;margin-left: -1000px;"></div>
-                        <p class="mb5px"><a class="dif b large" href="sell/5-bhk-individual-houses-sector-70-mohali_1290327.html" title="5 BHK Individual Houses for Sale in Sector 70, Mohali">5 BHK Individual Houses for Sale in Sector 70, Mohali</a></p>
-                        <div class="p-tag">
-                           <p> (Sector 70 Mohali) <br /> Area: 400 Sq. Yards | 5 Bedrooms | 5 Bathrooms | 6.25 Cr.</p>
-                        </div>
-                     </div>
+                 @endforeach
+                 
                   </div>
+                  
                   <!-- Second Row -->
                   <div class="row">
-                     <div class="box">
-                        <div class="imgWidth" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1290327_1-350x350.jpg);background-size:cover;background-position:center;width:100%;height:260px;overflow:hidden;border-radius: 10px;"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1290327_1-350x350.jpg"  width="350" height="262" alt="5 BHK Individual Houses for Sale in Sector 70, Mohali"  style="max-height:150px;max-width:150px;z-index: -1;margin-left: -1000px;"></div>
-                        <p class="mb5px"><a class="dif b large" href="sell/5-bhk-individual-houses-sector-70-mohali_1290327.html" title="5 BHK Individual Houses for Sale in Sector 70, Mohali">5 BHK Individual Houses for Sale in Sector 70, Mohali</a></p>
-                        <div class="p-tag">
-                           <p> (Sector 70 Mohali) <br /> Area: 400 Sq. Yards | 5 Bedrooms | 5 Bathrooms | 6.25 Cr.</p>
-                        </div>
-                     </div>
-                     <div class="box">
-                        <div class="imgWidth" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1290327_1-350x350.jpg);background-size:cover;background-position:center;width:100%;height:260px;overflow:hidden;border-radius: 10px;"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1290327_1-350x350.jpg"  width="350" height="262" alt="5 BHK Individual Houses for Sale in Sector 70, Mohali"  style="max-height:150px;max-width:150px;z-index: -1;margin-left: -1000px;"></div>
-                        <p class="mb5px"><a class="dif b large" href="sell/5-bhk-individual-houses-sector-70-mohali_1290327.html" title="5 BHK Individual Houses for Sale in Sector 70, Mohali">5 BHK Individual Houses for Sale in Sector 70, Mohali</a></p>
-                        <div class="p-tag">
-                           <p> (Sector 70 Mohali) <br /> Area: 400 Sq. Yards | 5 Bedrooms | 5 Bathrooms | 6.25 Cr.</p>
-                        </div>
-                     </div>
+                      @foreach ($properties->skip(3) as $item) <!-- Assuming you want to skip the first 3 properties -->
+                          @php
+                              $image = $item->images->isNotEmpty() ? asset('storage/' . $item->images->first()->path) : 'https://rei.wlimg.com/prop_images/88260/1290327_1-350x350.jpg';
+                          @endphp
+                          <div class="box">
+                              <div class="imgWidth" style="background-image:url({{ $image }});background-size:cover;background-position:center;width:100%;height:260px;overflow:hidden;border-radius: 10px;">
+                                  <img loading="lazy" src="{{ $image }}" width="350" height="262" alt="{{ $item->ad_title }}" style="max-height:150px;max-width:150px;z-index: -1;margin-left: -1000px;">
+                              </div>
+                              <p class="mb5px">
+                                  <a class="dif b large" href="{{ route('property.show', $item->id) }}" title="{{ $item->ad_title }}">
+                                      {{ $item->ad_title }}
+                                  </a>
+                              </p>
+                              <div class="p-tag">
+                                  <p> ({{ $item->city->name }}) <br />
+                                      Area: {{ $item->carpet_area }} Sq. Yards | 
+                                      {{ $item->bedrooms }} Bedrooms | 
+                                      {{ $item->bathrooms }} Bathrooms | 
+                                      {{ number_format($item->price, 2) }} Cr.
+                                  </p>
+                              </div>
+                          </div>
+                      @endforeach
                   </div>
-               </section>
+              </section>
+              
             </div>
          </div>
       </div>

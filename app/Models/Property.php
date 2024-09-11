@@ -30,6 +30,12 @@ class Property extends Model
         'price',
         'status',
         'added_by',
+        'hospital_distance',
+        'atm_distance',
+        'railway_distance',
+        'school_distance',
+        'airport_distance',
+        'bank_distance',
     ];
     public function propertyType()
     {

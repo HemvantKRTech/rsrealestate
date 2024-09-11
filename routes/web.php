@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\SettingController;
 
 // Route::get('/', function () {
 //     return view('FrontendPages.Home');
@@ -22,6 +23,7 @@ Route::get('post-property', [PropertyController::class, 'create'])->name('proper
 Route::get('city/{cityname}', [PropertyController::class, 'show'])->name('city.details');
 Route::get('city/sector/{sectorname}', [PropertyController::class, 'sectorshow'])->name('sector.details');
 Route::get('propertydetail/{propertyid}', [PropertyController::class, 'propertydetail'])->name('propertydetail');
+Route::get('category/{category}',[PropertyController::class,'catproshow'])->name('catproshow');
 
 
 
@@ -31,7 +33,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('service', [ServiceController::class, 'index'])->name('addservice');
         Route::post('addservice', [ServiceController::class, 'create'])->name('services.store');
         Route::get('/allservices', [ServiceController::class, 'allservice'])->name('allservice');
-        Route::get('editservices/{id}', [ServiceController::class,'edit'])->name('services.edit');
+        Route::get('editservices/{id}', [ServiceController::class, 'edit'])->name('services.edit');
         Route::delete('/deleteservice/{id}', [ServiceController::class, 'deleteservice'])->name('services.destroy');
         Route::put('/updateservice/{id}', [ServiceController::class, 'updateservice'])->name('services.update');
         Route::get('/cities/create', [AdminController::class, 'createcity'])->name('cities.create');
@@ -56,20 +58,26 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/get-sectors-by-city', [PropertyController::class, 'getSectorsByCity'])->name('getSectorsByCity');
         Route::get('allpropertylist', [AdminController::class, 'allpropertylist'])->name('newproperty.all');
         Route::get('/properties/{id}/show', [AdminController::class, 'show'])->name('property.show');
-Route::get('/properties/{id}/edit', [AdminController::class, 'edit'])->name('property.edit');
-Route::put('/properties/{id}', [AdminController::class, 'update'])->name('property.update');
-Route::delete('/properties/{id}', [AdminController::class, 'propertydestroy'])->name('property.destroy');
+        Route::get('/properties/{id}/edit', [AdminController::class, 'edit'])->name('property.edit');
+        Route::put('/properties/{id}', [AdminController::class, 'update'])->name('property.update');
+        Route::delete('/properties/{id}', [AdminController::class, 'propertydestroy'])->name('property.destroy');
         Route::get('addnewproject', [AdminController::class, 'addnewproject'])->name('newproject.create');
         Route::get('inquiries', [InquiryController::class, 'index'])->name('admin.inquiries');
         Route::post('post-property', [PropertyController::class, 'store'])->name('property.store');
         Route::get('category', [PropertyController::class, 'categorycreate'])->name('category.create');
         Route::post('post-category', [PropertyController::class, 'categorystore'])->name('categories.store');
         Route::put('category/{category}', [PropertyController::class, 'categoryupdate'])->name('categories.update');
-Route::delete('category/{category}', [PropertyController::class, 'categorydestroy'])->name('categories.destroy');
-Route::get('banners', [AdminController::class, 'bannerindex'])->name('banners.index');
-Route::post('banners', [AdminController::class, 'store'])->name('banners.store');
-Route::delete('banners/{banner}', [AdminController::class, 'destroy'])->name('banners.destroy');
+        Route::delete('category/{category}', [PropertyController::class, 'categorydestroy'])->name('categories.destroy');
+        Route::get('banners', [AdminController::class, 'bannerindex'])->name('banners.index');
+        Route::post('banners', [AdminController::class, 'store'])->name('banners.store');
+        Route::delete('banners/{banner}', [AdminController::class, 'destroy'])->name('banners.destroy');
+        Route::get('settings/site-title', [SettingController::class,'index'])->name('site_title');
+        Route::post('settings/site-title', [SettingController::class, 'storeSiteTitle'])->name('admin.settings.siteTitle.store');
+        Route::get('settings/meta-tags', [SettingController::class,'meta'])->name('meta-tags');
+        Route::post('settings/site-meta', [SettingController::class, 'storeSiteMeta'])->name('meta-tags.store');
+        
+
     });
 });
 
-require __DIR__ .'/fontend.php';
+require __DIR__ . '/fontend.php';

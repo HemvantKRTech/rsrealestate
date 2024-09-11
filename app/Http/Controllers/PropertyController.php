@@ -39,6 +39,12 @@ class PropertyController extends Controller
             'address' => 'required|max:255',
             'city' => 'required',
             'sector' => 'required',
+            'hospital_distance' => 'required',
+            'atm_distance' => 'required',
+            'railway_distance' => 'required',
+            'school_distance' => 'required',
+            'airport_distance' => 'required',
+            'bank_distance' => 'required',
             'description' => 'required|max:4096',
             'images' => 'required',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // Validate each image
@@ -66,6 +72,12 @@ class PropertyController extends Controller
         $property->address = $request->input('address');
         $property->city_id = $request->input('city');
         $property->sector_id = $request->input('sector');
+        $property->hospital_distance = $request->input('hospital_distance');
+        $property->atm_distance = $request->input('atm_distance');
+        $property->railway_distance = $request->input('railway_distance');
+        $property->school_distance = $request->input('school_distance');
+        $property->airport_distance = $request->input('airport_distance');
+        $property->bank_distance = $request->input('bank_distance');
         $property->description = $request->input('description');
     
         // Handle image uploads
@@ -152,38 +164,67 @@ class PropertyController extends Controller
 
         // Get the city ID
         $cityId = $city->id;
-
+        $sectors = Sector::where('city_id',$cityId)->get();
         // Fetch properties based on the city ID
         $properties = Property::where('city_id', $cityId)->get();
         // dd($properties);
         // Pass properties and city data to the view
-        return view('properties.index', [
+        return view('FrontendPages.property-mohali', [
             'properties' => $properties,
-            'city' => $city
+            'city' => $cityname,
+            'sectors'=> $sectors
         ]);
     }
     public function sectorshow($sectorname)
     {
         // Fetch the city based on cityname
-        $city = Sector::where('name', $sectorname)->firstOrFail();
+        $sector = Sector::where('name', $sectorname)->firstOrFail();
 
         // Get the city ID
-        $cityId = $city->id;
-
+        $sectorId = $sector->city_id;
+        $sectormainid= $sector->id;
+     
+        $category=Category::where('status', 1)->withCount('property')->get();
+        $sector=Sector::where('city_id', $sectorId)->withCount('properties')->get();
+        // dd($sector);
         // Fetch properties based on the city ID
-        $properties = Property::where('sector_id', $cityId)->get();
-        dd($properties);
-        // Pass properties and city data to the view
-        return view('properties.index', [
+        $properties = Property::where('sector_id', $sectormainid)->with('city')->get();
+        $city=City::where('status', 'active')->withCount('property')->get();
+        $cityId=$sector['0']->city_id;
+    $singlecity=City::find($cityId);
+    
+        return view('FrontendPages.sector_property_details', [
             'properties' => $properties,
-            'city' => $city
+            'sector' => $sector,
+            'category'=> $category,
+            'city'=> $city,
+            'singlecity'=> $singlecity
         ]);
     }
     public function propertydetail($id){
        $property= Property::where('id', $id)->with('city')->with('sector')->firstOrFail();
+       $cityid=$property->city_id;
+       $relatedProperty=Property::where('city_id', $cityid)->get();
        return view('FrontendPages.property_details', [
-        'property'=> $property
+        'property'=> $property,
+        'relatedProperty'=> $relatedProperty
         ]);
+    }
+    public function catproshow($name){
+        
+        $properties = Property::where('category_id', $name)->with('city')->get();
+        $category=Category::where('status', 1)->withCount('property')->get();
+        $cityId=$properties['0']->city_id;
+    $singlecity=City::find($cityId);
+    $sector=Sector::where('city_id', $cityId)->withCount('properties')->get();
+    $allcity=City::where('status', 'active')->withCount('property')->get();
+    return view('FrontendPages.category_properties', [
+        'properties' => $properties,
+        'sector' => $sector,
+        'category'=> $category,
+        'city'=> $allcity,
+        'singlecity'=> $singlecity
+    ]);
     }
 
 }

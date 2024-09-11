@@ -187,16 +187,17 @@ class AdminController extends Controller
 
         // Get all active categories
         $categories = Category::where('status', true)->get();
-
-        return view('Admin.PropertyList.edit', compact('property', 'types','categories'));
+        $cities=City::where('status','active')->get();
+        $sectors=Sector::where('status','active')->get();
+        return view('Admin.PropertyList.edit', compact('property', 'types','categories','cities','sectors'));
     }
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
             'category'=>'required',
             'type' => 'required|exists:property_types,id',
-            'bedrooms' => 'required|integer',
-            'bathrooms' => 'required|integer',
+            'bedrooms' => 'required|',
+            'bathrooms' => 'required|',
             'furnishing' => 'required|string',
             'construction_status' => 'required|string',
             'listed_by' => 'required|string',
@@ -212,12 +213,46 @@ class AdminController extends Controller
             'price' => 'required|numeric',
             'address' => 'required|string|max:255',
             'description' => 'required|string|max:4096',
+            'city' => 'required',
+            'sector' => 'required',
+            'hospital_distance' => 'required',
+            'atm_distance' => 'required',
+            'railway_distance' => 'required',
+            'school_distance' => 'required',
+            'airport_distance' => 'required',
+            'bank_distance' => 'required',
             'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate images
         ]);
 
         $property = Property::findOrFail($id);
-        $property->update($validated);
-
+        $property->category_id = $request->input('category');
+        $property->type = $request->input('type');
+        $property->bedrooms = $request->input('bedrooms');
+        $property->bathrooms = $request->input('bathrooms');
+        $property->furnishing = $request->input('furnishing');
+        $property->construction_status = $request->input('construction_status');
+        $property->listed_by = $request->input('listed_by');
+        $property->super_builtup_area = $request->input('super_builtup_area');
+        $property->carpet_area = $request->input('carpet_area');
+        $property->maintenance = $request->input('maintenance');
+        $property->total_floors = $request->input('total_floors');
+        $property->floor_no = $request->input('floor_no');
+        $property->car_parking = $request->input('car_parking');
+        $property->facing = $request->input('facing');
+        $property->project_name = $request->input('project_name');
+        $property->ad_title = $request->input('ad_title');
+        $property->price = $request->input('price');
+        $property->address = $request->input('address');
+        $property->city_id = $request->input('city');
+        $property->sector_id = $request->input('sector');
+        $property->hospital_distance = $request->input('hospital_distance');
+        $property->atm_distance = $request->input('atm_distance');
+        $property->railway_distance = $request->input('railway_distance');
+        $property->school_distance = $request->input('school_distance');
+        $property->airport_distance = $request->input('airport_distance');
+        $property->bank_distance = $request->input('bank_distance');
+        $property->description = $request->input('description');
+        $property->save();
         // Handle image uploads if any
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
