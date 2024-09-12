@@ -94,7 +94,7 @@
                              <img loading="lazy" src="{{ $image }}" width="350" height="262" alt="{{ $item->ad_title }}" style="max-height:150px;max-width:150px;z-index: -1;margin-left: -1000px;">
                          </div>
                          <p class="mb5px">
-                             <a class="dif b large" href="{{ route('property.show', $item->id) }}" title="{{ $item->ad_title }}">
+                             <a class="dif b large" href="{{ route('propertydetail', $item->id) }}" title="{{ $item->ad_title }}">
                                  {{ $item->ad_title }}
                              </a>
                          </p>

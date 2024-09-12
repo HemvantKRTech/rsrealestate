@@ -29,6 +29,17 @@ Route::get('/api/sectors/{cityId}', [PropertyController::class, 'getSectorsByCit
 Route::get('/send-email', [EmailController::class, 'sendEmail'])->name('send.email');
 Route::post('/property-enquiry', [EmailController::class, 'submitEnquiry'])->name('property.enquiry.submit');
 Route::post('post-property', [PropertyController::class, 'frontendstore'])->name('frontendproperty.store');
+// In your web.php file
+Route::get('/search', [PropertyController::class, 'search'])->name('search_property');
+
+
+
+
+
+
+
+
+
 Route::middleware('auth:admin')->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('dasboard', [AdminController::class, 'index'])->name('dashboard');

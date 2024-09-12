@@ -4,6 +4,7 @@ namespace App\Providers;
 use App\Models\Property;
 use App\Models\Category;
 use App\Models\City;
+use App\Models\Metatag;
 use App\Models\PropertyType;
 use Illuminate\Support\Facades\View;
 use App\Models\Service;
@@ -36,9 +37,9 @@ class AppServiceProvider extends ServiceProvider
             ]); 
         });
         View::composer('component.search_form', function ($view) {
-            $category = Category::all(); 
-            $type = PropertyType::all();
-            $city = City::all(); // Fetch all cities
+            $category = Category::where('status',1)->get(); 
+            $type = PropertyType::where('status','active')->get();
+            $city = City::where('status','active')->get();// Fetch all cities
         
             $view->with([
                 'category' => $category,
@@ -57,11 +58,13 @@ class AppServiceProvider extends ServiceProvider
             ->get();
             $sitesetting=Setting::find(1);
             $city = City::all(); 
+            $metatags=Metatag::all();
         // dd($hotProperties);
             $view->with([
                 'city' => $city,
                 'hotProperties' => $hotProperties,
-                'sitesetting'=>$sitesetting
+                'sitesetting'=>$sitesetting,
+                'metatags'=>$metatags
             ]);
         });
     }

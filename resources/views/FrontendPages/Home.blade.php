@@ -39,7 +39,7 @@
                   <div class="saleRent">
                      <div class="row1 dt">
                         <div class="large">
-                           <div class="pt15px">
+                           <div class="pt15px property-selle-rent">
                               <div class="">
                                  <span class="db mb10px">Featured Property</span>
                                  <h2 class="xxxlarge b dif" style="font-size:32px">For Sale</h2>
@@ -92,7 +92,7 @@
                   <div class="saleRent">
                      <div class="row1 dt">
                         <div class="large">
-                           <div class="pt15px">
+                           <div class="pt15px property-selle-rent">
                               <div class="">
                                  <span class="db mb10px">Featured Property</span>
                                  <h2 class="xxxlarge b dif" style="font-size:32px">For Rent</h2>

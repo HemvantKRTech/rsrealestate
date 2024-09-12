@@ -44,3 +44,7 @@ Route::get('/sector_propertys', function () {
 Route::get('/testimonials', function () {
     return view('FrontendPages.testimonials');
 })->name('testimonials');
+
+Route::get('/search-property', function () {
+    return view('FrontendPages.search-property');
+})->name('search-property');
