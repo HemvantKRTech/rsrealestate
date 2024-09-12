@@ -13,18 +13,24 @@
         </div>
 
         <div style="padding: 20px 0;">
+            
             <p style="font-size: 16px; color: #555555; line-height: 1.6; margin: 12px 0;">
-                <strong style="color: #333333;">Name:</strong> {{ $data['name'] }}
+                <strong style="color: #333333;">Name:</strong><br>{{ $data['name'] }}
             </p>
+            
+           
             <p style="font-size: 16px; color: #555555; line-height: 1.6; margin: 12px 0;">
                 <strong style="color: #333333;">Email:</strong> {{ $data['email'] }}
             </p>
             <p style="font-size: 16px; color: #555555; line-height: 1.6; margin: 12px 0;">
                 <strong style="color: #333333;">Phone:</strong> {{ $data['phone'] }}
             </p>
+            
             <p style="font-size: 16px; color: #555555; line-height: 1.6; margin: 12px 0;">
                 <strong style="color: #333333;">Message:</strong><br>{{ $data['message'] }}
             </p>
+          
+            
         </div>
     </div>
 

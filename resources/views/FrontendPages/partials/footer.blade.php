@@ -9,15 +9,15 @@
                   </div>
                   <div class="ic showHide_rp">
                      <div class="uu lh13em">
-                        <p class="b add">R S Real Estate</p>
+                        <p class="b add">{{$sitesetting->site_title}}</p>
                         <p class="hr bdrB"></p>
-                        <p>SCF-19 , 2nd Floor, Phase 7, Mohali, Punjab, India</p>
+                        <p>{{$sitesetting->address}}</p>
                         <p class="hr bdrB"></p>
-                        <p><b>Mobile :</b> +91-9872023591</p>
+                        <p><b>Mobile :</b> +91-{{$sitesetting->mobile}}</p>
                         <p class="hr bdrB"></p>
-                        <p><b>Call Us : </b><span class="b xlarge">08048025143</span></p>
+                        <p><b>Call Us : </b><span class="b xlarge">0{{$sitesetting->calling_mobile}}</span></p>
                         <p class="hr bdrB"></p>
-                        <p><b>E-mail :</b> <a href="mailto:chadha_in@yahoo.com">chadha_in@yahoo.com</a></p>
+                        <p><b>E-mail :</b> <a href="mailto:{{$sitesetting->email}}">{{$sitesetting->email}}</a></p>
                      </div>
                   </div>
                </div>
@@ -103,7 +103,7 @@
             </div>
          </div>
          <div class="row1 dt bdrT bdreee columns12 mt12px">
-            <div class="col-1"> <span class="copyright">All Rights Reserved. <a href="index.html"><b>R S Real Estate</b></a></span><br><span class="memberOf">Developed &amp; Managed By <a href="https://www.weblink.in/" rel="nofollow" target="_blank">Weblink.In Pvt. Ltd.</a></span><br> </div>
+            <div class="col-1"> <span class="copyright">All Rights Reserved. <a href="index.html"><b>{{$sitesetting->site_title}}</b></a></span><br><span class="memberOf">Developed &amp; Managed By <a href="https://www.weblink.in/" rel="nofollow" target="_blank">Weblink.In Pvt. Ltd.</a></span><br> </div>
             <div class="col-2">
                <div class="dib ml30px vab">
                   <script> var tlJsHost = ((window.location.protocol == "index.html") ? "https://secure.trust-provider.com/" : "https://www.trustlogo.com/"); document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));</script>

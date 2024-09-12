@@ -1,5 +1,5 @@
 @extends('layouts.app') @section('content') @include('FrontendPages.partials.header')
-
+@section('title', 'Service Detail ')
 <section class="headBg theme2 bread-right">
     <div class="wrap">
         <div class="page-title-inner fo">
@@ -24,36 +24,13 @@
                         </div>
                         <div class="ic showHide_rp">
                             <ul>
+                                @foreach ($hotProperties as $item)
                                 <li><b class="b2 fl"></b>
-                                    <p class="ofh"><a href="sell/3-bhk-individual-houses-villas-sector-80-mohali_1129655.html" title="3 BHK Individual Houses / Villas for Sale in Sector 80, Mohali">3 BHK Individual Houses / Villas for Sale in Sector 80, Mohali</a></p>
-                                </li>
-                                <li><b class="b2 fl"></b>
-                                    <p class="ofh"><a href="sell/residential-plot-sector-67-mohali_1130120.html" title="350 Sq. Yards Residential Plot for Sale in Sector 67, Mohali">350 Sq. Yards Residential Plot for Sale in Sector 67, Mohali</a></p>
-                                </li>
-                                <li><b class="b2 fl"></b>
-                                    <p class="ofh"><a href="sell/3-bhk-individual-houses-villas_1127455.html" title="3 BHK Individual Houses / Villas for Sale in Punjab">3 BHK Individual Houses / Villas for Sale in Punjab</a></p>
-                                </li>
-                                <li><b class="b2 fl"></b>
-                                    <p class="ofh"><a href="sell/3-bhk-individual-houses-villas-aerocity-mohali_1061323.html" title="3 BHK Individual Houses / Villas for Sale in Aerocity, Mohali">3 BHK Individual Houses / Villas for Sale in Aerocity, Mohali</a></p>
-                                </li>
-                                <li><b class="b2 fl"></b>
-                                    <p class="ofh"><a href="rent/3-bhk-individual-houses-villas-phase-10-mohali_1098903.html" title="3 BHK Individual Houses / Villas for Rent in Phase 10, Mohali">3 BHK Individual Houses / Villas for Rent in Phase 10, Mohali</a></p>
-                                </li>
-                                <li><b class="b2 fl"></b>
-                                    <p class="ofh"><a href="rent/2-bhk-builder-floor-phase-7-mohali_1160619.html" title="2 BHK Builder Floor for Rent in Phase 7, Mohali">2 BHK Builder Floor for Rent in Phase 7, Mohali</a></p>
-                                </li>
-                                <li><b class="b2 fl"></b>
-                                    <p class="ofh"><a href="rent/3-bhk-individual-houses-villas-sector-70-mohali_1058156.html" title="3 BHK Individual Houses / Villas for Rent in Sector 70, Mohali">3 BHK Individual Houses / Villas for Rent in Sector 70, Mohali</a></p>
-                                </li>
-                                <li><b class="b2 fl"></b>
-                                    <p class="ofh"><a href="sell/3-bhk-individual-houses-sas-nagar-phase-11-mohali_1254880.html" title="3 BHK Individual Houses for Sale in SAS Nagar Phase 11, Mohali">3 BHK Individual Houses for Sale in SAS Nagar Phase 11, Mohali</a></p>
-                                </li>
-                                <li><b class="b2 fl"></b>
-                                    <p class="ofh"><a href="sell/2-bhk-individual-houses-villas-sector-79-mohali_1050093.html" title="2 BHK Individual Houses / Villas for Sale in Sector 79, Mohali">2 BHK Individual Houses / Villas for Sale in Sector 79, Mohali</a></p>
-                                </li>
-                                <li><b class="b2 fl"></b>
-                                    <p class="ofh"><a href="sell/6-bhk-individual-houses-villas-phase-4-mohali_1226058.html" title="6 BHK Individual Houses / Villas for Sale in Phase 4, Mohali">6 BHK Individual Houses / Villas for Sale in Phase 4, Mohali</a></p>
-                                </li>
+                                    <p class="ofh"><a href="{{route('propertydetail',$item->id)}}" title="{{$item->ad_title}} for {{$item->category->name}} in{{$item->sector->name}}, {{$item->city->name}}">{{$item->ad_title}} for {{$item->category->name}} in{{$item->sector->name}}, {{$item->city->name}}</a></p>
+                                </li> 
+                                @endforeach
+                                
+                                
                             </ul>
                         </div>
                     </div>
@@ -65,15 +42,18 @@
                         </div>
                         <div class="ic showHide_rp">
                             <ul>
+                                @foreach ($city as $item)
                                 <li><b class="b2 fl"></b>
-                                    <p class="ofh"><a href="property-in-manimajra.html" title="Property in Manimajra">Property in Manimajra</a></p>
+                                    <p class="ofh"><a href="{{route('city.details',$item->name)}}" title="Property in {{$item->name}}">Property in {{$item->name}}</a></p>
                                 </li>
-                                <li><b class="b2 fl"></b>
+                                @endforeach
+                                
+                                {{-- <li><b class="b2 fl"></b>
                                     <p class="ofh"><a href="property-in-mohali.html" title="Property in Mohali">Property in Mohali</a></p>
                                 </li>
                                 <li><b class="b2 fl"></b>
                                     <p class="ofh"><a href="property-in-zirakpur.html" title="Property in Zirakpur">Property in Zirakpur</a></p>
-                                </li>
+                                </li> --}}
                             </ul>
                             <p class="cb"></p>
                         </div>
@@ -85,18 +65,18 @@
                     </div>
                     <div class="ic showHide_rp">
                         <div class="uu lh13em">
-                            <p class="dif b">R S Real Estate</p>
+                            <p class="dif b">{{$sitesetting->site_title}}</p>
                             <p class="hr bdrB"></p>
-                            <p>SCF-19 , 2nd Floor, Phase 7, Mohali, Punjab, India</p>
+                            <p>{{$sitesetting->address}}</p>
                             <p class="hr bdrB"></p>
-                            <p><b>Mobile :</b> +91-9872023591</p>
+                            <p><b>Mobile :</b> +91-{{$sitesetting->mobile}}</p>
                             <p class="hr bdrB"></p>
                             <p><b>Call Us : </b><span class="b dif xlarge fw6">
-			08048025143					</span>
+								{{$sitesetting->calling_mobile}}					</span>
                             </p>
                             <p class="hr bdrB"></p>
-                            <p><b>E-mail :</b> <a href="mailto:chadha_in@yahoo.com">chadha_in@yahoo.com</a></p>
-                        </div>
+                            <p><b>E-mail :</b> <a href="mailto:{{$sitesetting->email}}">{{$sitesetting->email}}</a></p>
+                         </div>
                     </div>
                 </div>
             </div>
@@ -109,16 +89,14 @@
                         <table class="frwm">
                             <tbody>
                                 <tr>
-                                    <td><img loading="lazy" src="https://catalog.wlimg.com/3/88260/small-images/buying-property-23815.jpg" class="bdr bw5px p1px" style="width:100%;max-width: 400px;max-height: 400px;" alt="Buying Property in Mohali" title="Buying Property in Mohali"></td>
+                                    <td><img loading="lazy" src="{{ asset('storage/' . $service->feature_image) }}"
+                                        class="bdr bw5px p1px" style="width:100%;max-width: 400px;max-height: 400px;" alt="Buying Property in Mohali" title="Buying Property in Mohali"></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="aj large lh17em">
-                        <p>It is important to consult a reliable real estate consultant before buying or selling any type of property. R S Real Estate is the noteworthy property dealer in Mohali having experienced team of professionals who advise the clients
-                            for their real estate investments. We are the best buying property consultant across Mohali, Punjab. As a best buying property agent in Mohali, we deal with any type of property for sale and help the clients to purchase property
-                            at their desired budget. We coordinate between the property buyers and sellers skillfully. We are providing services which help our clients for choosing the right kind of property as per their requirements and demands. At R
-                            S Real Estate, we are offering the best price which would be suitable for sellers and buyers.</p>
+                        <p>{!! $service->service_content !!}.</p>
                     </div>
                     <p class="cb"></p>
                     <br> @if (session('status'))

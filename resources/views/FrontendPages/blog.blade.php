@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @include('FrontendPages.partials.header')
-
+@section('title', 'Blogs')
 
 <div id="middle">
             <div id="bodyFormat1" class="wrap">

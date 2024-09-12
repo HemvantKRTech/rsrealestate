@@ -330,3 +330,6 @@ a.testbtn:hover{
     color: #fb6a19;
     border: 1px solid;
 }
+.message-color{
+    color: rgb(66, 200, 227);
+}

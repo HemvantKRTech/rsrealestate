@@ -13,15 +13,21 @@ class SettingController extends Controller
     }
     public function storeSiteTitle(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'site_title' => 'required|string|max:255',
+            'address' => 'nullable|string|max:255',
+            'email' => 'nullable|email|max:255',
+            'mobile' => 'nullable|string|max:20',
+            'calling_mobile' => 'nullable|string|max:20',
         ]);
-
-        // Assuming SiteSetting is a model handling site settings
-        $setting = Setting::updateOrCreate(
-           
-            ['site_title' => $request->input('site_title')]
-        );
+    
+        $setting = Setting::firstOrNew();
+        $setting->site_title = $validated['site_title'];
+        $setting->address = $validated['address'];
+        $setting->email = $validated['email'];
+        $setting->mobile = $validated['mobile'];
+        $setting->calling_mobile = $validated['calling_mobile'];
+        $setting->save();
 
         return redirect()->back()->with('success', 'Site title updated successfully.');
     }

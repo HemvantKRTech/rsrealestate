@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @include('FrontendPages.partials.header')
-
+@section('title', 'Contact Us')
 <div id="middle">
     <section class="headBg theme2 bread-right">
        <div class="wrap">

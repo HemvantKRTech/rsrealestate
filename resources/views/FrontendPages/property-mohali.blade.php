@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @include('FrontendPages.partials.header')
-
+@section('title', 'City Property')
 <div id="middle">
    <div class="wrap">
       <div class="mohali-content-post">
@@ -24,49 +24,13 @@
                         </div>
                         <div class="ic showHide_rp">
                            <ul>
-                             {{-- @foreach ($collection as $item) --}}
-                             <li>
-                              <b class="b2 fl"></b>
-                              {{-- <p class="ofh"><a href="#" title="{{$item->ad_title}}">{{$item->ad_title}}</a></p> --}}
-                           </li>
-                             {{-- @endforeach --}}
+                              @foreach ($hotProperties as $item)
+                              <li><b class="b2 fl"></b>
+                                  <p class="ofh"><a href="{{route('propertydetail',$item->id)}}" title="{{$item->ad_title}} for {{$item->category->name}} in{{$item->sector->name}}, {{$item->city->name}}">{{$item->ad_title}} for {{$item->category->name}} in{{$item->sector->name}}, {{$item->city->name}}</a></p>
+                              </li> 
+                              @endforeach
                               
-                              <li>
-                                 <b class="b2 fl"></b>
-                                 <p class="ofh"><a href="rent/3-bhk-flats-apartments_1127433.html" title="3 BHK Flats &amp; Apartments for Rent in Sector 88, Mohali">3 BHK Flats &amp; Apartments for Rent in Sector 88, Mohali</a></p>
-                              </li>
-                              <li>
-                                 <b class="b2 fl"></b>
-                                 <p class="ofh"><a href="rent/3-bhk-builder-floor-sector-80-mohali_1012516.html" title="3 BHK Builder Floor for Rent in Sector 80, Mohali">3 BHK Builder Floor for Rent in Sector 80, Mohali</a></p>
-                              </li>
-                              <li>
-                                 <b class="b2 fl"></b>
-                                 <p class="ofh"><a href="sell/3-bhk-flats-apartments-sector-90-mohali_1038086.html" title="3 BHK Flats &amp; Apartments for Sale in Sector 90, Mohali">3 BHK Flats &amp; Apartments for Sale in Sector 90, Mohali</a></p>
-                              </li>
-                              <li>
-                                 <b class="b2 fl"></b>
-                                 <p class="ofh"><a href="sell/2-bhk-individual-houses-villas-sector-79-mohali_1055519.html" title="2 BHK Individual Houses / Villas for Sale in Sector 79, Mohali">2 BHK Individual Houses / Villas for Sale in Sector 79, Mohali</a></p>
-                              </li>
-                              <li>
-                                 <b class="b2 fl"></b>
-                                 <p class="ofh"><a href="sell/5-bhk-individual-houses-villas-sector-71-mohali_1130941.html" title="5 BHK Individual Houses / Villas for Sale in Sector 71, Mohali">5 BHK Individual Houses / Villas for Sale in Sector 71, Mohali</a></p>
-                              </li>
-                              <li>
-                                 <b class="b2 fl"></b>
-                                 <p class="ofh"><a href="rent/3-bhk-flats-apartments-sector-70-mohali_979793.html" title="3 BHK Flats &amp; Apartments for Rent in Sector 70, Mohali">3 BHK Flats &amp; Apartments for Rent in Sector 70, Mohali</a></p>
-                              </li>
-                              <li>
-                                 <b class="b2 fl"></b>
-                                 <p class="ofh"><a href="sell/2-bhk-individual-houses-villas-phase-4-mohali_1213090.html" title="2 BHK Individual Houses / Villas for Sale in Phase 4, Mohali">2 BHK Individual Houses / Villas for Sale in Phase 4, Mohali</a></p>
-                              </li>
-                              <li>
-                                 <b class="b2 fl"></b>
-                                 <p class="ofh"><a href="sell/residential-plot-sector-89-mohali_1221393.html" title="300 Sq. Yards Residential Plot for Sale in Sector 89, Mohali">300 Sq. Yards Residential Plot for Sale in Sector 89, Mohali</a></p>
-                              </li>
-                              <li>
-                                 <b class="b2 fl"></b>
-                                 <p class="ofh"><a href="rent-lease/commercial-shops_1183089.html" title="1000 Sq.ft. Commercial Shops for Rent in Punjab">1000 Sq.ft. Commercial Shops for Rent in Punjab</a></p>
-                              </li>
+                              
                            </ul>
                         </div>
                      </div>
@@ -99,17 +63,17 @@
                      </div>
                      <div class="ic showHide_rp">
                         <div class="uu lh13em">
-                           <p class="dif b">R S Real Estate</p>
+                           <p class="dif b">{{$sitesetting->site_title}}</p>
                            <p class="hr bdrB"></p>
-                           <p>SCF-19 , 2nd Floor, Phase 7, Mohali, Punjab, India</p>
+                           <p>{{$sitesetting->address}}</p>
                            <p class="hr bdrB"></p>
-                           <p><b>Mobile :</b> +91-9872023591</p>
+                           <p><b>Mobile :</b> +91-{{$sitesetting->mobile}}</p>
                            <p class="hr bdrB"></p>
                            <p><b>Call Us : </b><span class="b dif xlarge fw6">
-                              08048025143					</span>
+                       {{$sitesetting->calling_mobile}}					</span>
                            </p>
                            <p class="hr bdrB"></p>
-                           <p><b>E-mail :</b> <a href="mailto:chadha_in@yahoo.com">chadha_in@yahoo.com</a></p>
+                           <p><b>E-mail :</b> <a href="mailto:{{$sitesetting->email}}">{{$sitesetting->email}}</a></p>
                         </div>
                      </div>
                   </div>

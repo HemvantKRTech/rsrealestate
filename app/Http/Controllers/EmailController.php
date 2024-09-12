@@ -4,9 +4,19 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Mail\Toadmin;
+use App\Models\Setting;
 
 class EmailController extends Controller
 {
+    protected $adminEmail;
+
+    public function __construct()
+    {
+        // Initialize admin email from settings
+        $this->adminEmail = Setting::where('id', 1)->value('email');
+    }
+
+
     public function sendEmail(Request $request)
     {
         $validated = $request->validate([
@@ -16,22 +26,25 @@ class EmailController extends Controller
             'phone' => 'required|string|max:15',
         ]);
 
-        $adminEmail = 'admin@example.com'; // Replace with the admin's email address
-        Mail::to([ $adminEmail])->send(new Toadmin($validated));
-        // Mail::send(['Emails.adminemail'], [ $validated], function ($message) use ($validated, $adminEmail) {
-        //     $message->to($adminEmail)
-        //             ->subject('New Form Submission')
-        //             ->setBody(
-        //                 "<h1>New Form Submission</h1>
-        //                  <p><strong>Name:</strong> {$validated['name']}</p>
-        //                  <p><strong>Email:</strong> {$validated['email']}</p>
-        //                  <p><strong>Phone:</strong> {$validated['phone']}</p>
-        //                  <p><strong>Message:</strong><br>{$validated['message']}</p>",
-        //                 'text/html'
-        //             )
-        //             ->from($validated['email'], $validated['name']);
-        // });
+       
+        Mail::to([ $this->adminEmail])->send(new Toadmin($validated));
+        
 
         return redirect()->back()->with('success', 'Your message has been sent successfully.');
+    }
+    public function submitEnquiry(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:15',
+            'message' => 'required|string|max:4096',
+        ]);
+
+       
+        Mail::to([ $this->adminEmail])->send(new Toadmin($validated));
+        
+
+        return redirect()->back()->with('mailsuccess', 'Your message has been sent successfully.');
     }
 }
