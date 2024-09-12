@@ -284,7 +284,7 @@ footer{
     border-radius: 10px;
     /* padding: 20px; */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    /* text-align: center; */
     transition: transform 0.3s ease;
     
 }
@@ -292,6 +292,9 @@ footer{
     transform: translateY(-10px);
 }
 #testimonial-top{
+    margin-top: 6%;
+}
+#search-page{
     margin-top: 6%;
 }
 .view-details:hover{
