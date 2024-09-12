@@ -149,7 +149,7 @@
                         <ul class="fo data al">
                            @foreach ($salesectors as $item)
                            <li>
-                              <a href="property-for-sale-in-sector-79-mohali.html" title="Property for Sale in Sector 79 Mohali">			     
+                              <a href="{{route('sector.details',$item->name)}}" title="Property for Sale in {{$item->name}}">			     
                               <span class="dib dif ffrr fw5">{{$item->name}}</span>                   
                               <span class="db fr p2px pb5px dif">{{$item->properties_count}}</span>
                               <span class="db small alpha75 lh15em"></span>  
@@ -169,7 +169,7 @@
                         <ul class="fo data al">
                            @foreach ($salesectors as $item)
                            <li>
-                              <a href="property-for-sale-in-sector-79-mohali.html" title="Property for Sale in Sector 79 Mohali">			     
+                              <a href="{{route('sector.details',$item->name)}}" title="Property for Rent in {{$item->name}}">			     
                               <span class="dib dif ffrr fw5">{{$item->name}}</span>                   
                               <span class="db fr p2px pb5px dif">{{$item->properties_count}}</span>
                               <span class="db small alpha75 lh15em"></span>  

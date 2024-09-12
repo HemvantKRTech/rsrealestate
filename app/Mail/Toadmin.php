@@ -36,6 +36,7 @@ class Toadmin extends Mailable
      */
     public function content(): Content
     {
+        // dd($this->data);
         return new Content(
             view: 'Emails.adminemail',
             with: [

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use DOMDocument;
@@ -121,7 +122,8 @@ class ServiceController extends Controller
     }
     public function show($slug){
         $service = Service::where('slug', $slug)->firstOrFail();
-        return view('FrontendPages.servicedetail', compact('service'));
+        $city=City::all();
+        return view('FrontendPages.servicedetail', compact('service','city'));
     }
 
    

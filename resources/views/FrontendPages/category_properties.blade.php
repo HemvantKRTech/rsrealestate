@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @include('FrontendPages.partials.header')
-
+@section('title', 'Category Properties')
 <div id="middle">
             <div id="bodyFormatNT" class="wrap  ip ls">
                <br style="content:'';display:inline-block;width:100%;height:15px;" />

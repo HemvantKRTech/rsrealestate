@@ -7,12 +7,16 @@ use App\Models\Property;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Sector;
+use App\Models\PropertyType;
 class PropertyController extends Controller
 {
     public function create()
     {
-        
-        return view('FrontendPages.postproperty');
+        $types=PropertyType::where('status','active')->get();
+        $categories=Category::where('status',1)->get();
+        $cities=City::where('status','active')->get();
+       
+        return view('FrontendPages.postproperty',compact('types','categories','cities'));
     }
 
     public function store(Request $request)
@@ -230,5 +234,62 @@ class PropertyController extends Controller
     {
         $sectors = Sector::where('city_id', $cityId)->get(['id', 'name']);
         return response()->json($sectors);
+    }
+    public function frontendstore(Request $request)
+    {
+        // dd($request->all());
+        $validated = $request->validate([
+            'category_id' => 'required|exists:categories,id',
+            'type' => 'required|exists:property_types,id',
+            'ad_title' => 'required',
+            'bedrooms' => 'required|',
+            'bathrooms' => 'required|',
+            'furnishing' => 'required|',
+            'construction_status' => 'required|string',
+            'listed_by' => 'required|string',
+            'super_builtup_area' => 'required|numeric|min:0',
+            'carpet_area' => 'required|numeric|min:0',
+            'maintenance' => 'nullable|numeric|min:0',
+            'total_floors' => 'required|min:0',
+            'floor_no' => 'required|integer|min:0',
+            'car_parking' => 'required|string',
+            'facing' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'negotiable' => 'required|string',
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'description' => 'nullable|string',
+            'hospital_distance' => 'required|numeric|min:0',
+            'atm_distance' => 'required|numeric|min:0',
+            'bank_distance' => 'required|numeric|min:0',
+            'railway_distance' => 'required|numeric|min:0',
+            'school_distance' => 'required|numeric|min:0',
+            'airport_distance' => 'required|numeric|min:0',
+            'address' => 'required|string',
+            'city_id' => 'required|exists:cities,id',
+            'sector_id' => 'required|exists:sectors,id',
+            'user_name' => 'required|string|max:90',
+            'user_email' => 'required|email|max:90',
+            'user_address' => 'required|string',
+        ]);
+       
+    
+        // Handle file uploads
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+            $imagePaths = [];
+            foreach ($images as $image) {
+                $path = $image->store('property_images', 'public');
+                $imagePaths[] = $path;
+            }
+            $validated['images'] = json_encode($imagePaths); // Store paths as JSON
+        }
+
+        // Create a new property record
+       $n= Property::create($validated);
+        if ($n) {
+            return redirect()->back()->with('success', 'Property listed successfully.');
+        }
+        // Redirect or return a response
+        
     }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @include('FrontendPages.partials.header')
-
+@section('title', 'Testimonial Page')
 
 <div id="middle">
             <div id="testimonial-top" class="wrap thinFormat">
@@ -15,46 +15,12 @@
                            </div>
                            <div class="ic showHide_rp">
                               <ul>
-                                 <li>
-                                    <b class="b2 fl"></b>
-                                    <p class="ofh"><a href="sell/2-bhk-individual-houses-villas-sector-79-mohali_1055519.html" title="2 BHK Individual Houses / Villas for Sale in Sector 79, Mohali">2 BHK Individual Houses / Villas for Sale in Sector 79, Mohali</a></p>
-                                 </li>
-                                 <li>
-                                    <b class="b2 fl"></b>
-                                    <p class="ofh"><a href="sell/4-bhk-individual-houses-villas-phase-7-mohali_1129650.html" title="4 BHK Individual Houses / Villas for Sale in Phase 7, Mohali">4 BHK Individual Houses / Villas for Sale in Phase 7, Mohali</a></p>
-                                 </li>
-                                 <li>
-                                    <b class="b2 fl"></b>
-                                    <p class="ofh"><a href="sell/3-bhk-individual-houses-villas_1115804.html" title="3 BHK Individual Houses / Villas for Sale in Phase 5, Mohali">3 BHK Individual Houses / Villas for Sale in Phase 5, Mohali</a></p>
-                                 </li>
-                                 <li>
-                                    <b class="b2 fl"></b>
-                                    <p class="ofh"><a href="rent/3-bhk-builder-floor-sector-80-mohali_1012516.html" title="3 BHK Builder Floor for Rent in Sector 80, Mohali">3 BHK Builder Floor for Rent in Sector 80, Mohali</a></p>
-                                 </li>
-                                 <li>
-                                    <b class="b2 fl"></b>
-                                    <p class="ofh"><a href="rent/2-bhk-flats-apartments-faridabad_1141507.html" title="2 BHK Flats &amp; Apartments for Rent in Faridabad">2 BHK Flats &amp; Apartments for Rent in Faridabad</a></p>
-                                 </li>
-                                 <li>
-                                    <b class="b2 fl"></b>
-                                    <p class="ofh"><a href="sell/5-bhk-individual-houses-sector-89-mohali_1290324.html" title="5 BHK Individual Houses for Sale in Sector 89, Mohali">5 BHK Individual Houses for Sale in Sector 89, Mohali</a></p>
-                                 </li>
-                                 <li>
-                                    <b class="b2 fl"></b>
-                                    <p class="ofh"><a href="sell/2-bhk-individual-houses-villas-phase-7-sector-61-mohali_1070478.html" title="2 BHK Individual Houses / Villas for Sale in Phase 7 Sector 61, Mohali">2 BHK Individual Houses / Villas for Sale in Phase 7 Sector 61, Mohali</a></p>
-                                 </li>
-                                 <li>
-                                    <b class="b2 fl"></b>
-                                    <p class="ofh"><a href="sell/3-bhk-builder-floor-sector-67-mohali_1048272.html" title="3 BHK Builder Floor for Sale in Sector 67, Mohali">3 BHK Builder Floor for Sale in Sector 67, Mohali</a></p>
-                                 </li>
-                                 <li>
-                                    <b class="b2 fl"></b>
-                                    <p class="ofh"><a href="sell/residential-plot-phase-3-mohali_953627.html" title="262.5 Sq. Yards Residential Plot for Sale in Phase 3, Mohali">262.5 Sq. Yards Residential Plot for Sale in Phase 3, Mohali</a></p>
-                                 </li>
-                                 <li>
-                                    <b class="b2 fl"></b>
-                                    <p class="ofh"><a href="sell/3-bhk-individual-houses-sas-nagar-phase-11-mohali_1254880.html" title="3 BHK Individual Houses for Sale in SAS Nagar Phase 11, Mohali">3 BHK Individual Houses for Sale in SAS Nagar Phase 11, Mohali</a></p>
-                                 </li>
+                                 @foreach ($hotProperties as $item)
+                                <li><b class="b2 fl"></b>
+                                    <p class="ofh"><a href="{{route('propertydetail',$item->id)}}" title="{{$item->ad_title}} for {{$item->category->name}} in{{$item->sector->name}}, {{$item->city->name}}">{{$item->ad_title}} for {{$item->category->name}} in{{$item->sector->name}}, {{$item->city->name}}</a></p>
+                                </li> 
+                                @endforeach
+                                
                               </ul>
                            </div>
                         </div>
@@ -67,18 +33,11 @@
                            </div>
                            <div class="ic showHide_rp">
                               <ul>
-                                 <li>
-                                    <b class="b2 fl"></b>
-                                    <p class="ofh"><a href="property-in-manimajra.html"   title="Property in Manimajra" >Property in Manimajra</a></p>
-                                 </li>
-                                 <li>
-                                    <b class="b2 fl"></b>
-                                    <p class="ofh"><a href="property-in-mohali.html"   title="Property in Mohali" >Property in Mohali</a></p>
-                                 </li>
-                                 <li>
-                                    <b class="b2 fl"></b>
-                                    <p class="ofh"><a href="property-in-zirakpur.html"   title="Property in Zirakpur" >Property in Zirakpur</a></p>
-                                 </li>
+                                 @foreach ($city as $item)
+                                <li><b class="b2 fl"></b>
+                                    <p class="ofh"><a href="{{route('city.details',$item->name)}}" title="Property in {{$item->name}}">Property in {{$item->name}}</a></p>
+                                </li>
+                                @endforeach
                               </ul>
                               <p class="cb"></p>
                            </div>
@@ -91,17 +50,17 @@
                         </div>
                         <div class="ic showHide_rp">
                            <div class="uu lh13em">
-                              <p class="dif b">R S Real Estate</p>
+                              <p class="dif b">{{$sitesetting->site_title}}</p>
                               <p class="hr bdrB"></p>
-                              <p>SCF-19 , 2nd Floor, Phase 7, Mohali, Punjab, India</p>
+                              <p>{{$sitesetting->address}}</p>
                               <p class="hr bdrB"></p>
-                              <p><b>Mobile :</b> +91-9872023591</p>
+                              <p><b>Mobile :</b> +91-{{$sitesetting->mobile}}</p>
                               <p class="hr bdrB"></p>
                               <p><b>Call Us : </b><span class="b dif xlarge fw6">
-                                 08048025143					</span>
+                          {{$sitesetting->calling_mobile}}					</span>
                               </p>
                               <p class="hr bdrB"></p>
-                              <p><b>E-mail :</b> <a href="mailto:chadha_in@yahoo.com">chadha_in@yahoo.com</a></p>
+                              <p><b>E-mail :</b> <a href="mailto:{{$sitesetting->email}}">{{$sitesetting->email}}</a></p>
                            </div>
                         </div>
                      </div>

@@ -27,7 +27,8 @@ Route::get('propertydetail/{propertyid}', [PropertyController::class, 'propertyd
 Route::get('category/{category}',[PropertyController::class,'catproshow'])->name('catproshow');
 Route::get('/api/sectors/{cityId}', [PropertyController::class, 'getSectorsByCitys']);
 Route::get('/send-email', [EmailController::class, 'sendEmail'])->name('send.email');
-
+Route::post('/property-enquiry', [EmailController::class, 'submitEnquiry'])->name('property.enquiry.submit');
+Route::post('post-property', [PropertyController::class, 'frontendstore'])->name('frontendproperty.store');
 Route::middleware('auth:admin')->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('dasboard', [AdminController::class, 'index'])->name('dashboard');

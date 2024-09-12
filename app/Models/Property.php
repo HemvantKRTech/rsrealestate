@@ -8,8 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Property extends Model
 {
     use HasFactory;
+    const ADDED_BY_USER = 'user';
+    const ADDED_BY_ADMIN = 'admin';
     protected $table = 'properties';
     protected $fillable = [
+        'category_id',
         'type',
         'bedrooms',
         'bathrooms',
@@ -23,19 +26,23 @@ class Property extends Model
         'floor_no',
         'car_parking',
         'facing',
-        'project_name',
-        'ad_title',
-        'description',
-        'address',
         'price',
-        'status',
-        'added_by',
+        'negotiable',
+        'description',
         'hospital_distance',
         'atm_distance',
+        'bank_distance',
         'railway_distance',
         'school_distance',
         'airport_distance',
-        'bank_distance',
+        'address',
+        'city_id',
+        'sector_id',
+        'ad_title',
+        'images',
+        'your_name',
+        'your_email_id',
+        'your_address'
     ];
     public function propertyType()
     {
