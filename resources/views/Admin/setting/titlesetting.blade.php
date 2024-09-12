@@ -22,9 +22,21 @@
                     <h4>Update Site Title</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.settings.siteTitle.store') }}" method="POST">
+                    <form action="{{ route('admin.settings.siteTitle.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                    
+                
+                        <!-- Logo -->
+                        <div class="mb-3">
+                            <label for="logo" class="form-label">Logo</label>
+                            <input type="file" class="form-control" id="logo" name="logo" placeholder="Upload Your Logo">
+                            @if($setting->logo ?? false)
+                                <img src="{{ asset('storage/' . $setting->logo) }}" alt="Logo" width="100" class="mt-2">
+                            @endif
+                            @error('logo')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                
                         <!-- Site Title -->
                         <div class="mb-3">
                             <label for="site_title" class="form-label">Site Title</label>
@@ -33,7 +45,7 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                    
+                
                         <!-- Address -->
                         <div class="mb-3">
                             <label for="address" class="form-label">Address</label>
@@ -42,7 +54,7 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                    
+                
                         <!-- Email -->
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
@@ -51,7 +63,7 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                    
+                
                         <!-- Mobile -->
                         <div class="mb-3">
                             <label for="mobile" class="form-label">Mobile</label>
@@ -60,7 +72,7 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                    
+                
                         <!-- Calling Mobile -->
                         <div class="mb-3">
                             <label for="calling_mobile" class="form-label">Calling Mobile</label>
@@ -69,7 +81,7 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                    
+                
                         <!-- Submit Button -->
                         <button type="submit" class="btn btn-primary">Save Settings</button>
                     </form>

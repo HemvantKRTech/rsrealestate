@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Setting;
 use App\Models\Metatag;
@@ -14,6 +14,7 @@ class SettingController extends Controller
     public function storeSiteTitle(Request $request)
     {
         $validated = $request->validate([
+            'logo'=>'required',
             'site_title' => 'required|string|max:255',
             'address' => 'nullable|string|max:255',
             'email' => 'nullable|email|max:255',
@@ -22,7 +23,19 @@ class SettingController extends Controller
         ]);
     
         $setting = Setting::firstOrNew();
+        if ($request->hasFile('logo')) {
+            // Delete the previous logo if it exists
+            if ($setting->logo) {
+                Storage::delete('public/' . $setting->logo);
+            }
+
+            // Store the new logo and update the setting
+            $path = $request->file('logo')->store('logos', 'public');
+            $setting->logo = $path;
+        }
         $setting->site_title = $validated['site_title'];
+        
+
         $setting->address = $validated['address'];
         $setting->email = $validated['email'];
         $setting->mobile = $validated['mobile'];
