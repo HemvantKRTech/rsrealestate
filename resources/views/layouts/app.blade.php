@@ -10,14 +10,9 @@
 
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
       <title>{{$sitesetting->site_title}} | @yield('title')</title>
-      <meta name="description" content="R S Real Estate is a highly venerated Real Estate Agent Serving the Clients in Mohali and Chandigarh Services related to Buy, Sell, Rent &amp; Lease of Properties,Real Estate Agent in Mohali,Flats for Sale in S.A.S. Nagar Mohali.">
-      <meta name="keywords" content="Buy Sell Chandigarh House,Real Estate Agent in Mohali,Flats for Sale in S.A.S. Nagar Mohali,Property Advisor in Mohali,Property Leasing Services in Punjab,Property Legal Advisor in Chandigarh">
-      <meta property="og:title" content="R S Real Estate - Real Estate Agent in Mohali,Sell Flats in S.A.S. Nagar">
-      <meta property="og:site_name" content="R S Real Estate">
-      <meta property="og:url" content="index.html">
-      <meta property="og:description" content="R S Real Estate is a highly venerated Real Estate Agent Serving the Clients in Mohali and Chandigarh Services related to Buy, Sell, Rent &amp; Lease of Properties,Real Estate Agent in Mohali,Flats for Sale in S.A.S. Nagar Mohali.">
-      <meta property="og:type" content="website">
-      <meta property="og:image" content="https://catalog.wlimg.com/3/88260/other-images/43392.jpg">
+     @foreach ($metatags as $item)
+     <meta name="{{$item->meta_name}}" content="{{$item->meta_content}}">
+     @endforeach
       <link rel="canonical" href="index.html">
       <link rel="stylesheet" type="text/css" href="{{asset('css/custom.css')}}">
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-53199383-2"></script><script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-53199383-2');</script>

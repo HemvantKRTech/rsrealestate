@@ -25,14 +25,18 @@
                         <div class="ic showHide_rp">
                            <ul>
                               @foreach ($hotProperties as $item)
-                              <li><b class="b2 fl"></b>
-                                  <p class="ofh"><a href="{{route('propertydetail',$item->id)}}" title="{{$item->ad_title}} for {{$item->category->name}} in{{$item->sector->name}}, {{$item->city->name}}">{{$item->ad_title}} for {{$item->category->name}} in{{$item->sector->name}}, {{$item->city->name}}</a></p>
-                              </li> 
+                                    <li><b class="b2 fl"></b>
+                                       <p class="ofh">
+                                          <a href="{{ route('propertydetail', $item->id) }}" 
+                                                title="{{ $item->ad_title }} for {{ $item->category->name ?? 'Category' }} in {{ $item->sector->name ?? 'Sector' }}, {{ $item->city->name ?? 'City' }}">
+                                                {{ $item->ad_title }} for {{ $item->category->name ?? 'Category' }} in {{ $item->sector->name ?? 'Sector' }}, {{ $item->city->name ?? 'City' }}
+                                          </a>
+                                       </p>
+                                    </li> 
                               @endforeach
-                              
-                              
                            </ul>
                         </div>
+
                      </div>
                   </div>
                   <div class="column_Box mc thinColumnLink dif">
@@ -94,7 +98,7 @@
                              <img loading="lazy" src="{{ $image }}" width="350" height="262" alt="{{ $item->ad_title }}" style="max-height:150px;max-width:150px;z-index: -1;margin-left: -1000px;">
                          </div>
                          <p class="mb5px">
-                             <a class="dif b large" href="{{ route('property.show', $item->id) }}" title="{{ $item->ad_title }}">
+                             <a class="dif b large" href="{{ route('propertydetail', $item->id) }}" title="{{ $item->ad_title }}">
                                  {{ $item->ad_title }}
                              </a>
                          </p>
@@ -115,7 +119,7 @@
                   <div class="row">
                       @foreach ($properties->skip(3) as $item) <!-- Assuming you want to skip the first 3 properties -->
                           @php
-                              $image = $item->images->isNotEmpty() ? asset('storage/' . $item->images->first()->path) : 'https://rei.wlimg.com/prop_images/88260/1290327_1-350x350.jpg';
+                              $image =  !empty($images) && count($images) > 0 ? asset('storage/' . $item->images) : 'https://rei.wlimg.com/prop_images/88260/1290327_1-350x350.jpg';
                           @endphp
                           <div class="box">
                               <div class="imgWidth" style="background-image:url({{ $image }});background-size:cover;background-position:center;width:100%;height:260px;overflow:hidden;border-radius: 10px;">

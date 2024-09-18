@@ -208,9 +208,9 @@ footer{
 
 /* Row styling */
 .row {
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
-    margin-bottom: 20px; /* Space between rows */
+    /* margin-bottom: 20px; Space between rows */
 }
 
 /* Individual box styling */
@@ -221,7 +221,9 @@ footer{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 48%; /* Each box takes about half of the row width */
     text-align: center;
+    display: inline-block;
     transition: transform 0.3s ease;
+    margin: 0px 6px 25px 6px;
 }
 
 /* Box hover effect */
@@ -333,10 +335,14 @@ a.testbtn:hover{
     color: #fb6a19;
     border: 1px solid;
 }
+<<<<<<< HEAD
 .property-selle-rent{
     text-align: center;
 }
 .message-color{
     color:#00bc8c;
+}
+.property-selle-rent{
+    text-align: center;
 
 }

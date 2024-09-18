@@ -6,7 +6,9 @@
             <div id="bodyFormatNT" class="wrap  ip ls">
                <br style="content:'';display:inline-block;width:100%;height:15px;" />
                <!-- header ends -->
-               <p class="aj">Find Residential &amp; Commercial Property in {{$singlecity->name}}. R S Real Estate is  providing {{$singlecity->name}}, {{$sector[0]->name}} Properties Sell Rent Classifieds database . Contact with us for instant Buy sell .</p>
+               <p class="aj">
+                  Find Residential &amp; Commercial Property in {{$singlecity->name}}. R S Real Estate is  providing {{$singlecity->name}}, {{$sector[0]->name}} Properties Sell Rent Classifieds database . Contact with us for instant Buy sell .
+               </p>
                <br>
                <div id="search_filter_data">
                   <form name="prop_search" method="get" action="#">

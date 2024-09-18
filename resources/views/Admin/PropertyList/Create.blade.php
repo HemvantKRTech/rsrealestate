@@ -33,7 +33,7 @@
                 <select id="type" name="type" class="form-control">
                     <option value="">Select Property Type</option>
                     @foreach ($types as $item)
-                        <option value="{{ $item->id }}">{{ $item->id }}</option>
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
                 </select>
                 @error('type')

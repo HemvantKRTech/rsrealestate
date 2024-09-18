@@ -292,4 +292,52 @@ class PropertyController extends Controller
         // Redirect or return a response
         
     }
+    public function search(Request $request)
+{
+    // Get all input data from the search form
+    $query = Property::query();
+
+    // Filter by category (I Want to)
+    if ($request->filled('want_to')) {
+        $query->where('category_id', $request->input('want_to'));
+    }
+
+    // Filter by property type
+    if ($request->filled('property_type')) {
+        $query->where('type_id', $request->input('property_type'));
+    }
+
+    // Filter by city
+    if ($request->filled('city_id')) {
+        $query->where('city_id', $request->input('city_id'));
+    }
+
+    // Filter by sector
+    if ($request->filled('sector_id')) {
+        $query->where('sector_id', $request->input('sector_id'));
+    }
+
+    // Filter by sell price (Min and Max)
+    if ($request->filled('sell_price_from')) {
+        $query->where('price', '>=', $request->input('sell_price_from') * 100000); // Convert lacs to actual amount
+    }
+    if ($request->filled('sell_price_to')) {
+        $query->where('price', '<=', $request->input('sell_price_to') * 100000);
+    }
+
+    // Filter by rent price (Min and Max)
+    if ($request->filled('rent_price_from')) {
+        $query->where('rent_price', '>=', $request->input('rent_price_from') * 1000); // Convert thousands to actual amount
+    }
+    if ($request->filled('rent_price_to')) {
+        $query->where('rent_price', '<=', $request->input('rent_price_to') * 1000);
+    }
+
+    // Execute the query to get the results
+    $properties = $query->get();
+    
+    // Return the results to a view
+    return view('FrontendPages.search-property', compact('properties'));
+}
+
 }

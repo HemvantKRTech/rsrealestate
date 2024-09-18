@@ -1,4 +1,4 @@
-<form name="frmreisearch" method="get" action="https://www.chandigarhhouse.com/rei-search.php">
+<form name="frmreisearch" method="get" action="{{route('search_property')}}">
    <div class="slider-content2" style="text-align:left;line-height:inherit;">
        <div class="menu">
            <div class="column_box">

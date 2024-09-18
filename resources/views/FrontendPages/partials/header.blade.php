@@ -9,7 +9,7 @@
                         <table class="top-head tooltip callTip ttBtm">
                            <tr>
                               <td class=""><i style="font-size:1.6em;" class="fa vam fa-mobile mr10px"></i></td>
-                              <td class="large"><span class="di"><a href="tel:1234567890">1234567890</a></span><span class="tooltipVt"> </span></td>
+                              <td class="large"><span class="di"><a href="tel:{{$sitesetting->mobile}}">{{$sitesetting->mobile}}</a></span><span class="tooltipVt"> </span></td>
                            </tr>
                         </table>
                      </li>
@@ -17,7 +17,7 @@
                         <table class="top-head">
                            <tr>
                               <td class=""><i style="font-size:1.2em;" class="fa vam fa-envelope mr10px"></i></td>
-                              <td class=""><span class="di"><a href="mailto:chadha_in@yahoo.com" target="_blank">chadha_in@yahoo.com</a></span></td>
+                              <td class=""><span class="di"><a href="mailto:{{$sitesetting->email}}" target="_blank">{{$sitesetting->email}}</a></span></td>
                            </tr>
                         </table>
                      </li>
@@ -388,7 +388,7 @@
                   <div class="row1 dt">
                      <div class="col-1 pr20px">
                         <div class="company_mH dt">
-                           <div class="dib dtc vam" id="company"><a class="dib" href="index.html" title="R S Real Estate"><img src="https://catalog.wlimg.com/3/88260/other-images/12569-comp-image.png" width="270" height="69" alt="R S Real Estate" title="R S Real Estate"></a></div>
+                           <div class="dib dtc vam" id="company"><a class="dib" href="/" title="R S Real Estate"><img src="{{ asset('storage/' . $sitesetting->logo) }}" width="270" height="69" alt="R S Real Estate" title="R S Real Estate"></a></div>
                         </div>
                      </div>
                      <div class="col-2">
@@ -400,7 +400,7 @@
                                     <li><a href="{{route('home')}}" title="Home" >Home</a></li>
                                     <li ><a href="{{route('about-us')}}" title="About Us" >About Us</a></li>
                                     <li >
-                                       <a href="find-property.html" title="Find Property" >Find Property</a>
+                                       <a href="#" title="Find Property" >Find Property</a>
                                        <ul class="menu_style">
                                           <li class="menu-arrow menu-arrow-top ac cp bdr0"></li>
                                           @foreach($cities as $city)
