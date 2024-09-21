@@ -206,12 +206,6 @@ footer{
     padding: 20px;
 }
 
-/* Row styling */
-.row {
-    /* display: flex; */
-    justify-content: space-between;
-    margin-bottom: 20px; /* Space between rows */
-}
 
 /* Individual box styling */
 .box {
@@ -342,4 +336,36 @@ a.testbtn:hover{
 .property-selle-rent{
     text-align: center;
 
+}
+
+
+
+
+.saleRent .bx-wrapper .bx-prev, .saleRent .bx-wrapper .bx-next {
+    background-color: #333;
+    top: auto;
+  bottom: -28px !important; 
+    margin-left: 45% !important;
+    margin-top: 20% !important;
+}
+.saleRent .bx-wrapper .bx-prev{
+    background-color: #fb6a19 !important;
+}
+.saleRent .bx-wrapper .bx-prev:hover{
+    background-color: #fb6a19 !important;
+}
+.saleRent .bx-wrapper .bx-next{
+    background-color: #fb6a19 !important;
+}
+.saleRent .bx-wrapper .bx-next:hover{
+    background-color: #fb6a19 !important;
+}
+.contact-form-padding{
+    padding: 15% !important;
+}
+.alpha75 a:hover{
+    color: #000;
+}
+.sub-center{
+    text-align: center;
 }

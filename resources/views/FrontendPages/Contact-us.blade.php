@@ -18,8 +18,8 @@
             
                 <div class="row1 bdr dt columns12 contFull ">
                 <div class="col-1 headVr width50 bdr0">
-                <div class="p30px pr7px">
-                    <div style="margin-bottom:0;" class="h1"><h1>R S REAL ESTATE </h1>
+                <div class="p30px pr7px contact-form-padding">
+                    <div style="margin-bottom:0;" class="h1"><h1>ARORA ESTATES </h1>
                     <p><span class="btmBdr theme2 dib w75px pt2px"></span></p></div>							
                     <div class="contView">
                     
@@ -28,7 +28,7 @@
                     <div class="df-dtc w50px"><div class="theme2 dib contVicon w30px h35px pl7px pr7px p5px pr c30px"><i class="fa fa-user xxlarge"></i> </div></div>
                     <div class="df-dtc vam pl10px"> 
                     <p class="xlarge fw6 mb7px ffpp contHd">Contact Person</p>
-                    <p class="alpha75">Mr. Satinder Singh Chadha</p>
+                    <p class="alpha75">Mr. Arora Ji</p>
                     </div>
                     </div></div>
                     
@@ -38,7 +38,7 @@
                     <div class="df-dtc w50px"><div class="theme2 dib contVicon w30px h35px pl7px pr7px p5px pr c30px"><i class="fa fa-map-marker xxlarge"></i> </div></div>
                     <div class="df-dtc vam pl10px"> 
                     <p class="xlarge fw6 mb7px ffpp contHd">Address</p>
-                    <p class="alpha75">SCF-19 , 2nd Floor, Phase 7, Mohali, Punjab, India</p>
+                    <p class="alpha75">{{$sitesetting->address}}</p>
                     </div>
                     </div></div>	
                             <div class="bdrT dashed"></div>					
@@ -47,8 +47,7 @@
                             <div class="df-dtc w50px"><div class="theme2 dib contVicon w30px h35px pl7px pr7px p5px pr c30px"><i class="fa fa-mobile xxxlarge"></i> </div></div>
                             <div class="df-dtc vam pl10px"> 
                             <p class="xlarge fw6 mb7px ffpp contHd">Call Us</p>
-                            <p class="alpha75">
-                +91-9872023591						</p>
+                            <p class="alpha75">+91-{{$sitesetting->mobile}}</p>
                             </div>
                             </div></div>
                         <div class="bdrT dashed"></div>
@@ -57,8 +56,7 @@
                         <div class="df-dtc w50px"><div class="theme2 dib contVicon w30px h35px pl7px pr7px p5px pr c30px"><i class="fa fa-vphone xxlarge"></i> </div></div>
                         <div class="df-dtc vam pl10px"> 
                         <p class="xlarge fw6 mb7px ffpp contHd">Call Us</p>
-                        <p class="alpha75 lh12em"><span class="xlarge dif fw6">
-                08048025143</span>
+                        <p class="alpha75 lh12em"><span class="xlarge dif fw6">0{{$sitesetting->calling_mobile}}</span>
                         </p>
                         <p class="alpha75 small"></p>
                         </div>
@@ -69,29 +67,9 @@
                                 <div class="df-dtc w50px"><div class="theme2 dib contVicon w30px h35px pl7px pr7px p5px pr c30px"><i class="fa fa-envelope xxlarge"></i> </div></div>
                                 <div class="df-dtc vam pl10px"> 
                                 <p class="xlarge fw6 mb7px ffpp contHd">Email</p>
-                                <p class="alpha75"><a href="mailto:chadha_in@yahoo.com">chadha_in@yahoo.com</a></p>
+                                <p class="alpha75"><a href="#" class="hover">{{$sitesetting->email}}</a></p>
                                 </div>
                                 </div></div>
-                        <div class="bdrT dashed"></div>
-                        <div class="pt15px pb15px">
-                        <div class="df-dt">
-                        <div class="df-dtc w50px"><div class="theme2 dib contVicon w30px h35px pl7px pr7px p5px pr c30px"><i class="fa fa-desktop xxlarge"></i> </div></div>
-                        <div class="df-dtc vam pl10px"> 
-                        <p class="xlarge fw6 mb7px ffpp contHd">Web Address</p>
-                        <p class="alpha75"><a href="index.html" target="_blank" title="https://www.chandigarhhouse.com">https://www.chandigarhhouse.com</a></p>
-                        </div>
-                        </div></div>
-                        <div class="bdrT dashed"></div>
-                        <div class="pt15px pb15px">
-                        <div class="df-dt">
-                        <div class="df-dtc w50px"><div class="theme2 dib contVicon w30px h35px pl7px pr7px p5px pr c30px"><i class="fa fa-globe xxlarge"></i> </div></div>
-                        <div class="df-dtc vam pl10px"> 
-                        <p class="xlarge fw6 mb7px ffpp contHd">Web Page</p>
-                        <p class="alpha75">
-                        <a href="https://www.realestateindia.com/profile/r-s-real-estate-in-phase-7-mohali-88260/" target="_blank" title="https://www.realestateindia.com/profile/r-s-real-estate-in-phase-7-mohali-88260/">https://www.realestateindia.com/profile/r-s-real-estate-in-phase-7-mohali-88260/</a><a class="db mt7px" href="https://www.indianyellowpages.com/mohali/r-s-real-estate-phase-7-mohali-2814892/" target="_blank" title="https://www.indianyellowpages.com/mohali/r-s-real-estate-phase-7-mohali-2814892/">https://www.indianyellowpages.com/mohali/r-s-real-estate-phase-7-mohali-2814892/</a>
-                        </p>
-                        </div>
-                        </div></div>
                             <div class="bdrT dashed"></div>
                             <div class="pt15px pb15px">
                             <div class="df-dt">
@@ -127,7 +105,7 @@
             <option value="Rent-IN Property">Rent-IN Property</option>
             <option value="Rent-Out Property">Rent-Out Property</option>
             <option value="Sell a Property">Sell a Property</option></select></div><div class="db mb5px">Detail </div><div class="mb17px"><textarea name="dynFrm_detail" cols="30" rows="5" class="input w120px" maxlength="1000"></textarea></div>
-                <div class="mb10px"><input type="submit" name="submit" value="Submit" class="button">&nbsp;&nbsp;&nbsp;
+                <div class="mb10px sub-center"><input type="submit" name="submit" value="Submit" class="button">&nbsp;&nbsp;&nbsp;
             <input type="hidden" name="username" value="chadha_in@yahoo.com">
             <input type="hidden" name="catalog_mi" value="88260">
               <input type="hidden" name="redirected_url" value="https://www.chandigarhhouse.com/thanks.htm"><input type="hidden" name="referrer" value="">

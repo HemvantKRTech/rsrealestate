@@ -82,7 +82,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Property Category &nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Property Category <b class="star">*</b> &nbsp;</td>
                             <td class="w70 data p5px">
                                 @foreach ($categories as $category)
                                 <input type="radio" value="{{$category->id}}" name="category_id" >{{$category->name}} &nbsp;
@@ -116,7 +116,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Bedrooms <b class="star">*</b> &nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Bedrooms &nbsp;</td>
                             <td class="w70 data p5px">
                             <select id="bedrooms" name="bedrooms" class="form-control">
                             <option value="1">1</option>
@@ -146,7 +146,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Furnishing <b class="star">*</b>&nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Furnishing&nbsp;</td>
                             <td class="w70 data p5px">
                                 <select name="furnishing" class="w65">
                                     <option value="" selected="selected">Select</option>

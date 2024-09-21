@@ -33,7 +33,7 @@
                 <select id="type" name="type" class="form-control">
                     <option value="">Select Property Type</option>
                     @foreach ($types as $item)
-                        <option value="{{ $item->id }}">{{ $item->id }}</option>
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
                 </select>
                 @error('type')
@@ -41,8 +41,10 @@
                 @enderror
             </div>
             <div class="col">
-                <label for="bedrooms">Bedrooms *</label>
+                <label for="bedrooms">Bedrooms</label>
                 <select id="bedrooms" name="bedrooms" class="form-control">
+                <option value="1">Select</option>
+                    <option value="1">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -56,6 +58,7 @@
             <div class="col">
                 <label for="bathrooms">Bathrooms *</label>
                 <select id="bathrooms" name="bathrooms" class="form-control">
+                    <option value="1">Select</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -71,7 +74,7 @@
         <!-- Furnishing, Construction Status, Listed by -->
         <div class="row mt-3">
             <div class="col">
-                <label for="furnishing">Furnishing *</label>
+                <label for="furnishing">Furnishing</label>
                 <select id="furnishing" name="furnishing" class="form-control">
                     <option value="furnished">Furnished</option>
                     <option value="semi_furnished">Semi-Furnished</option>
@@ -93,8 +96,9 @@
                 @enderror
             </div>
             <div class="col">
-                <label for="listed_by">Listed by *</label>
+                <label for="listed_by">Listed by</label>
                 <select id="listed_by" name="listed_by" class="form-control">
+                <option value="builder">Select</option>
                     <option value="builder">Builder</option>
                     <option value="dealer">Dealer</option>
                     <option value="owner">Owner</option>
@@ -181,14 +185,14 @@
                 @enderror
             </div>
             <div class="col">
-                <label for="project_name">Project Name *</label>
+                <label for="project_name">Project Name </label>
                 <input id="project_name" name="project_name" type="text" class="form-control" maxlength="70" value="">
                 @error('project_name')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="col">
-                <label for="ad_title">Ad Title *</label>
+                <label for="ad_title">Ad Title </label>
                 <input id="ad_title" name="ad_title" type="text" class="form-control" maxlength="70" value="">
                 @error('ad_title')
                     <div class="text-danger">{{ $message }}</div>

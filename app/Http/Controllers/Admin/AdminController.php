@@ -46,8 +46,9 @@ class AdminController extends Controller
       }
     }
     public function editcity($id){
-        $city= City::find($id);
-        return view('Admin.CityFlat.EditCity',compact('city'));
+        $currentcity= City::where('id',$id)->first();
+        // dd($city);
+        return view('Admin.CityFlat.EditCity',compact('currentcity'));
     }
     public function updatecity(Request $request, $id){
         $validatedData = $request->validate([
@@ -196,11 +197,11 @@ class AdminController extends Controller
         $validated = $request->validate([
             'category'=>'required',
             'type' => 'required|exists:property_types,id',
-            'bedrooms' => 'required|',
+            'bedrooms' => '',
             'bathrooms' => 'required|',
-            'furnishing' => 'required|string',
+            'furnishing' => '',
             'construction_status' => 'required|string',
-            'listed_by' => 'required|string',
+            'listed_by' => '',
             'super_builtup_area' => 'required|numeric',
             'carpet_area' => 'required|numeric',
             'maintenance' => 'nullable|numeric',
@@ -208,8 +209,8 @@ class AdminController extends Controller
             'floor_no' => 'required|integer',
             'car_parking' => 'required|string',
             'facing' => 'nullable|string',
-            'project_name' => 'required|string|max:70',
-            'ad_title' => 'required|string|max:70',
+            'project_name' => '',
+            'ad_title' => '',
             'price' => 'required|numeric',
             'address' => 'required|string|max:255',
             'description' => 'required|string|max:4096',
@@ -252,7 +253,7 @@ class AdminController extends Controller
         $property->airport_distance = $request->input('airport_distance');
         $property->bank_distance = $request->input('bank_distance');
         $property->description = $request->input('description');
-        $property->save();
+       
         // Handle image uploads if any
         if ($request->hasFile('images')) {
             // Store uploaded images
@@ -264,7 +265,7 @@ class AdminController extends Controller
             // Store image paths as JSON array
             $property->images = $images;
         }
-
+        $property->save();
         return redirect()->route('newproperty.all')->with('success', 'Property updated successfully.');
     }
     public function addnewproject(){
