@@ -5,8 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Inquiry;
 use App\Models\Contact;
+use App\Mail\Toadmin;
+use App\Models\Setting;
+use Illuminate\Support\Facades\Mail;
 class InquiryController extends Controller
 {
+    protected $adminEmail;
+
+    public function __construct()
+    {
+        // Initialize admin email from settings
+        $this->adminEmail = Setting::where('id', 1)->value('email');
+    }
     public function store(Request $request)
     {
         
@@ -58,7 +68,15 @@ class InquiryController extends Controller
             'inquiry_type' => $validatedData['dynFrm_i_want_to'],
             'details' => $validatedData['dynFrm_detail'],
         ];
+        $Data = [
+        'name' => $validatedData['dynFrm_name'],
+        'email' => $validatedData['dynFrm_e_mail'],
+        'phone' => $validatedData['dynFrm_cell_ph'],
+        'message' => $validatedData['dynFrm_detail'],
+    ];
 
+    // Send an email with the form data
+    Mail::to($this->adminEmail)->send(new Toadmin($Data));
         // Create a new contact with the mapped data
         Contact::create($mappedData);
 

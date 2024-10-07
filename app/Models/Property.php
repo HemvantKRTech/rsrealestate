@@ -40,9 +40,9 @@ class Property extends Model
         'sector_id',
         'ad_title',
         'images',
-        'your_name',
-        'your_email_id',
-        'your_address'
+        'user_name',
+        'user_email',
+        'user_address'
     ];
     public function propertyType()
     {

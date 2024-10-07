@@ -69,7 +69,7 @@
 			<div class="aj">Maximize the exposure of your property for rent or for sale or lease to an elite clientele. Please Go ahead and fill the form to give us a chance to serve you:-</div>
 		<p class="cb"></p>
 		<br> @if (session('success'))
-        <p class="message-color">{{ session('success') }}</p>
+        <p class="message-color" style="color: green">{{ session('success') }}</p>
     @endif
 			<br>
             <form  method="post" action="{{route('frontendproperty.store')}}"  enctype="multipart/form-data" class="inputs-p7px inputs-br5px inputs-bs10px">
@@ -82,7 +82,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Property Category &nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Property Category <b class="star">*</b> &nbsp;</td>
                             <td class="w70 data p5px">
                                 @foreach ($categories as $category)
                                 <input type="radio" value="{{$category->id}}" name="category_id" >{{$category->name}} &nbsp;
@@ -116,7 +116,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Bedrooms <b class="star">*</b> &nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Bedrooms &nbsp;</td>
                             <td class="w70 data p5px">
                             <select id="bedrooms" name="bedrooms" class="form-control">
                             <option value="1">1</option>
@@ -131,7 +131,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Bathrooms <b class="star">*</b> &nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Bathrooms  &nbsp;</td>
                             <td class="w70 data p5px">
                             <select id="bedrooms" name="bathrooms" class="form-control">
                             <option value="1">1</option>
@@ -146,7 +146,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Furnishing <b class="star">*</b>&nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Furnishing&nbsp;</td>
                             <td class="w70 data p5px">
                                 <select name="furnishing" class="w65">
                                     <option value="" selected="selected">Select</option>
@@ -186,7 +186,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td for="super_builtup_area" class="w30 headVr p5px ar b">Super Builtup Area (ft²) <b class="star">*</b>&nbsp;</td>
+                            <td for="super_builtup_area" class="w30 headVr p5px ar b">Super Builtup Area (ft²)&nbsp;</td>
                             <td class="w70 data p5px">
                             <input id="super_builtup_area" name="super_builtup_area" type="number" class="form-control input" min="0" step="1" value="">
                             @error('super_builtup_area')
@@ -195,7 +195,7 @@
                         </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Carpet Area (ft²) <b class="star">*</b>&nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Carpet Area (ft²) &nbsp;</td>
                             <td class="w70 data p5px">
                             <input id="carpet_area" name="carpet_area" type="number" class="form-control input" min="0" step="1" value="">
                             @error('carpet_area')
@@ -213,7 +213,7 @@
                         </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Totle Floor <b class="star">*</b>&nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Totle Floor &nbsp;</td>
                             <td class="w70 data p5px">
                             <input id="total_floors" name="total_floors" type="number" class="form-control input" min="0" step="1" value="">
                             @error('total_floors')
@@ -221,7 +221,7 @@
                         @enderror</td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Floor No <b class="star">*</b>&nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Floor No &nbsp;</td>
                             <td class="w70 data p5px">
                             <input id="floor_no" name="floor_no" type="number" class="form-control input" min="0" step="1" value="">
                             @error('floor_no')
@@ -229,7 +229,7 @@
                         @enderror</td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Car Parking <b class="star">*</b>&nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Car Parking &nbsp;</td>
                             <td class="w70 data p5px">
                             <select id="car_parking" name="car_parking" class="form-control">
                             <option value="0">0</option>
@@ -243,7 +243,7 @@
                         @enderror  </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Facing <b class="star">*</b>&nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Facing &nbsp;</td>
                             <td class="w70 data p5px">
                             <select id="facing" name="facing" class="form-control">
                             <option value="">Select</option>
@@ -269,7 +269,7 @@
                         @enderror </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Negotiable <b class="star">*</b>&nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Negotiable &nbsp;</td>
                             <td class="w70 data p5px">
                             <select id="negotiable" name="negotiable" class="form-control">
                             <option value="yes">Yes</option>
@@ -278,14 +278,19 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Property Image <b class="star">*</b>&nbsp;</td>
-                            <td class="w70 data p5px">
-                                <!-- <input type="file" name="dynFrm_property_image_file"> -->
-                                <input id="images" name="images[]" type="file" class="form-control input" multiple>
-                                @error('images')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror</td>
-                        </tr>
+    <td class="w30 headVr p5px ar b">Property Images & Videos <b class="star">*</b>&nbsp;</td>
+    <td class="w70 data p5px">
+        <input id="media" name="images[]" type="file" class="form-control input" multiple accept="image/*,video/*" onchange="previewFiles(event)">
+        @error('images')
+        <div class="text-danger">{{ $message }}</div>
+        @enderror
+    </td>
+    <div class="row mt-3">
+        <div class="col" id="imagePreview"></div>
+    </div>
+    
+</tr>
+
                         <tr>
                             <td class="w30 headVr p5px ar b">Property Description &nbsp;</td>
                             <td class="w70 data p5px">
@@ -299,37 +304,37 @@
                             <td colspan="2" class="post-property-form p5px b">Near Property Location</td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Hospital (km) <b class="star">*</b>&nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Hospital (km) &nbsp;</td>
                             <td class="w70 data p5px">
                             <input id="hospital_distance" name="hospital_distance" type="number" class="form-control input" min="0" step="0.01" value="">
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">ATM (km) <b class="star">*</b>&nbsp;</td>
+                            <td class="w30 headVr p5px ar b">ATM (km) &nbsp;</td>
                             <td class="w70 data p5px">
                             <input id="atm_distance" name="atm_distance" type="number" class="form-control input" min="0" step="0.01" value="">
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Bank (km) <b class="star">*</b>&nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Bank (km) &nbsp;</td>
                             <td class="w70 data p5px">
                             <input id="bank_distance" name="bank_distance" type="number" class="form-control input" min="0" step="0.01" value="">
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Railway Station (km) <b class="star">*</b>&nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Railway Station (km) &nbsp;</td>
                             <td class="w70 data p5px">
                             <input id="railway_distance" name="railway_distance" type="number" class="form-control input" min="0" step="0.01" value="">
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">School (km) <b class="star">*</b>&nbsp;</td>
+                            <td class="w30 headVr p5px ar b">School (km) &nbsp;</td>
                             <td class="w70 data p5px">
                             <input id="school_distance" name="school_distance" type="number" class="form-control input" min="0" step="0.01" value="">
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Airport (km) <b class="star">*</b>&nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Airport (km) &nbsp;</td>
                             <td class="w70 data p5px">
                             <input id="airport_distance" name="airport_distance" type="number" class="form-control input" min="0" step="0.01" value="">
                             </td>
@@ -339,7 +344,7 @@
                             <td colspan="2" class="post-property-form p5px b">Property Location</td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Address <b class="star">*</b> &nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Address  &nbsp;</td>
                             <td class="w70 data p5px">
                                 <textarea id="address" name="address" cols="50" rows="4" class="form-control input"></textarea>
                                 @error('address')
@@ -385,7 +390,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Address <b class="star">*</b> &nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Address  &nbsp;</td>
                             <td class="w70 data p5px">
                                 <textarea id="address" name="user_address" cols="50" rows="4" class="form-control input"></textarea>
                             </td>
@@ -437,4 +442,134 @@
         });
     });
 </script>
+<script>
+    let selectedFiles = [];
+
+    function previewFiles(event) {
+        const files = event.target.files;
+        const previewContainer = document.getElementById('imagePreview');
+        previewContainer.innerHTML = ''; // Clear existing previews
+        selectedFiles = Array.from(files); // Store selected files
+
+        if (files) {
+            selectedFiles.forEach((file, index) => {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const fileType = file.type;
+                    const fileWrapper = document.createElement('div');
+                    fileWrapper.style.position = 'relative';
+                    fileWrapper.style.display = 'inline-block';
+                    fileWrapper.style.margin = '5px';
+
+                    if (fileType.startsWith('image/')) {
+                        // Create the image element
+                        const imgElement = document.createElement('img');
+                        imgElement.src = e.target.result;
+                        imgElement.style.width = '100px';
+                        imgElement.style.height = '100px';
+                        fileWrapper.appendChild(imgElement);
+                    } else if (fileType.startsWith('video/')) {
+                        // Create the video element
+                        const videoElement = document.createElement('video');
+                        videoElement.src = e.target.result;
+                        videoElement.controls = true; // Show controls for the video
+                        videoElement.style.width = '100px';
+                        videoElement.style.height = '100px';
+                        fileWrapper.appendChild(videoElement);
+                    }
+
+                    // Create the delete button (X)
+                    const deleteButton = document.createElement('span');
+                    deleteButton.innerHTML = '&times;';
+                    deleteButton.style.position = 'absolute';
+                    deleteButton.style.top = '0px';
+                    deleteButton.style.right = '0px';
+                    deleteButton.style.background = 'red';
+                    deleteButton.style.color = 'white';
+                    deleteButton.style.width = '20px';
+                    deleteButton.style.height = '20px';
+                    deleteButton.style.display = 'flex';
+                    deleteButton.style.justifyContent = 'center';
+                    deleteButton.style.alignItems = 'center';
+                    deleteButton.style.cursor = 'pointer';
+                    deleteButton.style.borderRadius = '50%';
+                    deleteButton.onclick = function() {
+                        removeFile(index);
+                    };
+                    fileWrapper.appendChild(deleteButton);
+
+                    previewContainer.appendChild(fileWrapper);
+                }
+
+                reader.readAsDataURL(file); // Convert file to base64 string
+            });
+        }
+    }
+
+    function removeFile(index) {
+        selectedFiles.splice(index, 1); // Remove the file from selectedFiles array
+        updateFilePreview(); // Update the preview without the removed file
+    }
+
+    function updateFilePreview() {
+        const previewContainer = document.getElementById('imagePreview');
+        previewContainer.innerHTML = ''; // Clear existing previews
+
+        selectedFiles.forEach((file, index) => {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const fileType = file.type;
+                const fileWrapper = document.createElement('div');
+                fileWrapper.style.position = 'relative';
+                fileWrapper.style.display = 'inline-block';
+                fileWrapper.style.margin = '5px';
+
+                if (fileType.startsWith('image/')) {
+                    // Create the image element
+                    const imgElement = document.createElement('img');
+                    imgElement.src = e.target.result;
+                    imgElement.style.width = '100px';
+                    imgElement.style.height = '100px';
+                    fileWrapper.appendChild(imgElement);
+                } else if (fileType.startsWith('video/')) {
+                    // Create the video element
+                    const videoElement = document.createElement('video');
+                    videoElement.src = e.target.result;
+                    videoElement.controls = true; // Show controls for the video
+                    videoElement.style.width = '100px';
+                    videoElement.style.height = '100px';
+                    fileWrapper.appendChild(videoElement);
+                }
+
+                // Create the delete button (X)
+                const deleteButton = document.createElement('span');
+                deleteButton.innerHTML = '&times;';
+                deleteButton.style.position = 'absolute';
+                deleteButton.style.top = '0px';
+                deleteButton.style.right = '0px';
+                deleteButton.style.background = 'red';
+                deleteButton.style.color = 'white';
+                deleteButton.style.width = '20px';
+                deleteButton.style.height = '20px';
+                deleteButton.style.display = 'flex';
+                deleteButton.style.justifyContent = 'center';
+                deleteButton.style.alignItems = 'center';
+                deleteButton.style.cursor = 'pointer';
+                deleteButton.style.borderRadius = '50%';
+                deleteButton.onclick = function() {
+                    removeFile(index);
+                };
+                fileWrapper.appendChild(deleteButton);
+
+                previewContainer.appendChild(fileWrapper);
+            }
+
+            reader.readAsDataURL(file); // Convert file to base64 string
+        });
+    }
+</script>
+
+
 @endsection

@@ -68,7 +68,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('propertytype/{id}/edit', [AdminController::class, 'propertyedit'])->name('propertytype.edit');
         Route::put('propertytype/{id}', [AdminController::class, 'propertyupdate'])->name('propertytype.update');
         Route::get('newpropertylist', [AdminController::class, 'newpropertylist'])->name('newproperty.create');
-        Route::get('/get-sectors-by-city', [PropertyController::class, 'getSectorsByCity'])->name('getSectorsByCity');
+       // Route::get('/get-sectors-by-city', [PropertyController::class, 'getSectorsByCity'])->name('getSectorsByCity');
         Route::get('allpropertylist', [AdminController::class, 'allpropertylist'])->name('newproperty.all');
         Route::get('/properties/{id}/show', [AdminController::class, 'show'])->name('property.show');
         Route::get('/properties/{id}/edit', [AdminController::class, 'edit'])->name('property.edit');
@@ -93,5 +93,5 @@ Route::middleware('auth:admin')->group(function () {
 
     });
 });
-
+Route::get('/get-sectors-by-city', [PropertyController::class, 'getSectorsByCity'])->name('getSectorsByCity');
 require __DIR__ . '/fontend.php';

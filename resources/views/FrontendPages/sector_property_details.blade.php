@@ -162,16 +162,30 @@
                         <div class="cf_4img">
                            <ul class="lsn m0px p0px fo idv_eqheight cols_similar">
                               @foreach ($properties as $item)
-    @php
-        // Decode the images JSON and get the first image or use a default image if none exists
-        $images = json_decode($item->images);
-        $image = !empty($images) && count($images) > 0 ? asset('storage/' . $images[0]) : 'https://rei.wlimg.com/prop_images/88260/1273604_2-350x350.jpeg';
-    @endphp
+                              @php
+                              // Decode the images JSON and get the first image or use a default image if none exists
+                              $images = json_decode($item->images);
+                              $defaultImage = 'https://rei.wlimg.com/prop_images/88260/1273604_2-350x350.jpeg';
+                              $video = !empty($images) && isset($images[0]) && strpos($images[0], '.mp4') !== false;
+                          
+                              if (!empty($images) && count($images) > 0) {
+                                  $firstImage = asset('storage/' . $images[0]);
+                              } else {
+                                  $firstImage = $defaultImage;
+                              }
+                          @endphp
     <li>
-        <div class="bdr btmBtnSpace pr cp table-link box-sector-property" data-url="{{ route('property.show', $item->id) }}">
+        <div class="bdr btmBtnSpace pr cp table-link box-sector-property" data-url="{{ route('propertydetail', $item->id) }}">
             <div class="pr ofh lh0">
                 <div class="clsifd_img picBg lh0 pr">
-                    <img loading="lazy" src="{{ $image }}" width="350" height="261" alt="{{ $item->ad_title }}">
+                  @if($video)
+                  <video loading="lazy" controls width="350" height="261">
+                      <source src="{{ $firstImage }}" type="video/mp4">
+                      
+                  </video>
+              @else
+                  <img loading="lazy" src="{{ $firstImage }}" width="350" height="261" alt="{{ $item->ad_title }}">
+              @endif
                 </div>
                 <div class="abs-cont pa lh15em al p10px15px large">
                     <h2>

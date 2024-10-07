@@ -36,6 +36,10 @@
     .content.collapsed {
         margin-left: 0;
     }
+.add_project{
+display: none;
+}
+
 </style>
 <div class="sidebar bg-dark">
     <ul class="nav flex-column">
@@ -101,7 +105,7 @@
                 
             </ul>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown add_project">
             <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-folder"></i> Projects
             </a>

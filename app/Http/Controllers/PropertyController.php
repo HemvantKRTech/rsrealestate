@@ -25,33 +25,32 @@ class PropertyController extends Controller
         $validatedData = $request->validate([
             'category'=>'required',
             'type' => 'required',
-            'bedrooms' => 'required',
-            'bathrooms' => 'required',
-            'furnishing' => 'required',
-            'construction_status' => 'required',
-            'listed_by' => 'required',
-            'super_builtup_area' => 'required|numeric|min:0',
-            'carpet_area' => 'required|numeric|min:0',
-            'maintenance' => 'required|numeric|min:0',
-            'total_floors' => 'required|numeric|min:0',
-            'floor_no' => 'required|numeric|min:0',
-            'car_parking' => 'required',
-            'facing' => 'required',
-            'project_name' => 'required|max:70',
-            'ad_title' => 'required|max:70',
+            'bedrooms' => '',
+            'bathrooms' => '',
+            'furnishing' => '',
+            'construction_status' => '',
+            'listed_by' => '',
+            'super_builtup_area' => '',
+            'carpet_area' => '',
+            'maintenance' => '',
+            'total_floors' => '',
+            'floor_no' => '',
+            'car_parking' => '',
+            'facing' => '',
+            'project_name' => '',
+            'ad_title' => '',
             'price' => 'required|numeric|min:0',
-            'address' => 'required|max:255',
+            'address' => '',
             'city' => 'required',
             'sector' => 'required',
-            'hospital_distance' => 'required',
-            'atm_distance' => 'required',
-            'railway_distance' => 'required',
-            'school_distance' => 'required',
-            'airport_distance' => 'required',
-            'bank_distance' => 'required',
-            'description' => 'required|max:4096',
-            'images' => 'required',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // Validate each image
+            'hospital_distance' => '',
+            'atm_distance' => '',
+            'railway_distance' => '',
+            'school_distance' => '',
+            'airport_distance' => '',
+            'bank_distance' => '',
+            'description' => '',
+            'images.*' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,avi,mkv',
         ]);
     
         // Store the form data into the database
@@ -236,62 +235,108 @@ class PropertyController extends Controller
         return response()->json($sectors);
     }
     public function frontendstore(Request $request)
-    {
-        // dd($request->all());
-        $validated = $request->validate([
-            'category_id' => 'required|exists:categories,id',
-            'type' => 'required|exists:property_types,id',
-            'ad_title' => 'required',
-            'bedrooms' => 'required|',
-            'bathrooms' => 'required|',
-            'furnishing' => 'required|',
-            'construction_status' => 'required|string',
-            'listed_by' => 'required|string',
-            'super_builtup_area' => 'required|numeric|min:0',
-            'carpet_area' => 'required|numeric|min:0',
-            'maintenance' => 'nullable|numeric|min:0',
-            'total_floors' => 'required|min:0',
-            'floor_no' => 'required|integer|min:0',
-            'car_parking' => 'required|string',
-            'facing' => 'required|string',
-            'price' => 'required|numeric|min:0',
-            'negotiable' => 'required|string',
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'description' => 'nullable|string',
-            'hospital_distance' => 'required|numeric|min:0',
-            'atm_distance' => 'required|numeric|min:0',
-            'bank_distance' => 'required|numeric|min:0',
-            'railway_distance' => 'required|numeric|min:0',
-            'school_distance' => 'required|numeric|min:0',
-            'airport_distance' => 'required|numeric|min:0',
-            'address' => 'required|string',
-            'city_id' => 'required|exists:cities,id',
-            'sector_id' => 'required|exists:sectors,id',
-            'user_name' => 'required|string|max:90',
-            'user_email' => 'required|email|max:90',
-            'user_address' => 'required|string',
-        ]);
-       
-    
-        // Handle file uploads
-        if ($request->hasFile('images')) {
-            $images = $request->file('images');
-            $imagePaths = [];
-            foreach ($images as $image) {
-                $path = $image->store('property_images', 'public');
-                $imagePaths[] = $path;
-            }
-            $validated['images'] = json_encode($imagePaths); // Store paths as JSON
-        }
+{
+    \Log::info('Request Data: ', $request->all());
 
-        // Create a new property record
-       $n= Property::create($validated);
-        if ($n) {
-            return redirect()->back()->with('success', 'Property listed successfully.');
+    $validated = $request->validate([
+        'category_id' => 'required|exists:categories,id',
+        'type' => 'required|exists:property_types,id',
+        'ad_title' => 'nullable|string',
+        'bedrooms' => 'nullable|integer',
+        'bathrooms' => 'nullable|integer',
+        'furnishing' => 'nullable|string',
+        'construction_status' => 'nullable|string',
+        'listed_by' => 'nullable|string',
+        'super_builtup_area' => 'nullable|numeric',
+        'carpet_area' => 'nullable|numeric',
+        'maintenance' => 'nullable|numeric',
+        'total_floors' => 'nullable|integer',
+        'floor_no' => 'nullable|integer',
+        'car_parking' => 'nullable|integer',
+        'facing' => 'nullable|string',
+        'price' => 'required|numeric|min:0',
+        'negotiable' => 'nullable|string',
+        'images.*' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,avi,mkv',
+        'description' => 'nullable|string',
+        'hospital_distance' => 'nullable|numeric',
+        'atm_distance' => 'nullable|numeric',
+        'bank_distance' => 'nullable|numeric',
+        'railway_distance' => 'nullable|numeric',
+        'school_distance' => 'nullable|numeric',
+        'airport_distance' => 'nullable|numeric',
+        'address' => 'nullable',
+        'city_id' => 'required|exists:cities,id',
+        'sector_id' => 'required|exists:sectors,id',
+        'user_name' => 'required|string|max:90',
+        'user_email' => 'required|email|max:90',
+        'user_address' => 'required|string',
+    ]);
+
+    // Handle file uploads
+    if ($request->hasFile('images')) {
+        $images = $request->file('images');
+        $imagePaths = [];
+        foreach ($images as $image) {
+            $path = $image->store('property_images', 'public');
+            $imagePaths[] = $path;
         }
-        // Redirect or return a response
-        
+        $validated['images'] = json_encode($imagePaths); // Store paths as JSON
     }
+
+    try {
+        // Use object-oriented approach to create a new Property instance
+        $property = new Property();
+        $property->category_id = $validated['category_id'];
+        $property->type = $validated['type'];
+        $property->ad_title = $validated['ad_title'];
+        $property->bedrooms = $validated['bedrooms'];
+        $property->bathrooms = $validated['bathrooms'];
+        $property->furnishing = $validated['furnishing'];
+        $property->construction_status = $validated['construction_status'];
+        $property->listed_by = $validated['listed_by'];
+        $property->super_builtup_area = $validated['super_builtup_area'];
+        $property->carpet_area = $validated['carpet_area'];
+        $property->maintenance = $validated['maintenance'];
+        $property->total_floors = $validated['total_floors'];
+        $property->floor_no = $validated['floor_no'];
+        $property->car_parking = $validated['car_parking'];
+        $property->facing = $validated['facing'];
+        $property->price = $validated['price'];
+        $property->negotiable = $validated['negotiable'];
+        $property->images = isset($validated['images']) ? $validated['images'] : null; // Set images if available
+        $property->description = $validated['description'];
+        $property->hospital_distance = $validated['hospital_distance'];
+        $property->atm_distance = $validated['atm_distance'];
+        $property->bank_distance = $validated['bank_distance'];
+        $property->railway_distance = $validated['railway_distance'];
+        $property->school_distance = $validated['school_distance'];
+        $property->airport_distance = $validated['airport_distance'];
+        $property->address = $validated['address'];
+        $property->city_id = $validated['city_id'];
+        $property->sector_id = $validated['sector_id'];
+        $property->user_name = $validated['user_name'];
+        $property->user_email = $validated['user_email'];
+        $property->user_address = $validated['user_address'];
+        $property->added_by = 'user';
+        $fillable = $property->getFillable();
+        // dd($fillable);
+        // Set only fillable properties
+        foreach ($fillable as $field) {
+            if (array_key_exists($field, $validated)) {
+                $property->$field = $validated[$field];
+            }
+        }
+        // Save the property
+        $property->save();
+
+        return redirect()->back()->with('success', 'Property listed successfully.');
+    } catch (\Exception $e) {
+        \Log::error('Error creating property: ' . $e->getMessage());
+        return redirect()->back()->with('error', 'Could not save property. Please try again.')->withInput();
+    }
+}
+
+
     public function search(Request $request)
 {
     // Get all input data from the search form

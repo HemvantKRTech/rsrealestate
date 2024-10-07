@@ -176,21 +176,31 @@
                               <div class="mb10px" style="z-index:99;">
                                  <div class="bxslider2">
                                     @foreach (json_decode($property->images) as $item)
-    <div class="pr ofh" style="padding:0px;">
-        <div class="lh0 pa blur-bg" style="background-image:url({{ asset('storage/' . $item) }});"></div>
-        <div class="pr ac">
-            <a data-fancybox="showZoomImage" 
-               title="{{ $property->name }}" 
-               href="{{ asset('storage/' . $item) }}">
-               <img loading="lazy" 
-                    src="{{ asset('storage/' . $item) }}" 
-                    width="800" 
-                    height="600" 
-                    alt="{{ $property->name }}">
-            </a>
-        </div>
-    </div>
-@endforeach
+                                    <div class="pr ofh" style="padding:0px;">
+                                        <div class="lh0 pa blur-bg">
+                                            @if (strpos($item, '.mp4') !== false || strpos($item, '.webm') !== false) <!-- Check if it's a video -->
+                                                <video autoplay muted loop style="width: 100%; height: auto;">
+                                                    <source src="{{ asset('storage/' . $item) }}" type="video/mp4">
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                            @else <!-- It's an image -->
+                                                <div style="background-image:url({{ asset('storage/' . $item) }}); height: 100%; width: 100%; background-size: cover;"></div>
+                                            @endif
+                                        </div>
+                                        <div class="pr ac">
+                                            <a data-fancybox="showZoomImage" 
+                                               title="{{ $property->name }}" 
+                                               href="{{ asset('storage/' . $item) }}">
+                                               <img loading="lazy" 
+                                                    src="{{ asset('storage/' . $item) }}" 
+                                                    width="800" 
+                                                    height="600" 
+                                                    alt="{{ $property->name }}">
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                
 
                                     
                                     
@@ -230,7 +240,7 @@
                            </script>
                            <div class="vat ffos db p15px pt5px">
                               <div class="fo mb25px bdrB bdreee pb7px" style="border-color:#eee;">
-                                 <div class="dib xxlarge alpha75 mt10px"><span class="xlarge"><i class="fa fa-inr small red mr2px"></i> <span class="fw6">{{$property->price}}</span></span>
+                                 <div class="dib xxlarge alpha75 mt10px"><span class="xlarge"><i class="fa fa-inr small red mr2px"></i> <span class="fw6">{{number_format($property->price, 0, '.', ',')}}</span></span>
                                     {{-- <span class="xsmall ml5px dib">@ Rs per Sq. Yards</span> --}}
                                  </div>
                               </div>
@@ -373,14 +383,14 @@
                                        });
                                     </script>
                                  </li>
-                                 <li>
+                                 {{-- <li>
                                     <span class="alpha75">Super Area </span>
                                     <script type="text/javascript">
                                        function convert2(basetext,baseindex,baseunit){
                                             if(401 > 0 )  updateArea(basetext,baseindex,401,'superArea','Y',baseunit,'DrpDownTab2');   }
                                     </script> 
                                     <span class="db">
-                                       <span id="superArea_span" class="large dib mb17px">401</span>
+                                       <span id="superArea_span" class="large dib mb17px">{{$property->super_builtup_area}}</span>
                                        <span class="pr">
                                           <a onClick="jQuery('#superArea').show();event.stopPropagation();" class="headVr pl5px pr5px small dib vam ml5px" id="DrpDownTab2">Sq. Yards &#9660;</a>
                                           <div id="superArea" style="width:120px;display:none;top:-1px;left:0px;" class="pa">
@@ -408,7 +418,7 @@
                                        	})
                                        });
                                     </script>
-                                 </li>
+                                 </li> --}}
                                  <li><span class="alpha75">Property Type</span><span class="large db mb7px">Individual Houses </span></li>
                               </ul>
                            </div>
@@ -502,20 +512,42 @@
                   <div class="cf_3img mt30px">
                      <ul class="lsn m0px p0px fo idv_eqheight">
                         @foreach ($relatedProperty as $item)
+                        @php
+                            $images = json_decode($item->images); // Decode the JSON string into an array
+                            $firstMedia = !empty($images) ? $images[0] : null; // Get the first media item
+                            $isVideo = $firstMedia && preg_match('/\.(mp4|webm|ogg)$/i', $firstMedia); // Check if the first media item is a video
+                        @endphp
                         <li>
-                           <div class="data db bdr0 p10px bs3px3px cp" onclick="location.href='6-bhk-individual-houses-villas-sector-79-mohali_1217394.html'">
-                              <div class="df-dt w100">
-                                 <div class="df-dtc w110px h110px vam ac lh0"><a href="6-bhk-individual-houses-villas-sector-79-mohali_1217394.html" title="6 BHK Individual Houses / Villas for Sale in Sector 79, Mohali (500 Sq. Yards)" class="dib lh0"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1217394_1-350x350.jpeg"  width="350" height="262" alt="6 BHK Individual Houses / Villas for Sale in Sector 79, Mohali (500 Sq. Yards)"  style="width:109px;height:109px;"  ></a></div>
-                                 <div class="df-dtc pl15px al">
-                                    <p class="large mb5px fw6 lh12em"><a href="{{route('propertydetail',$item->id)}}" title="6 BHK Individual Houses / Villas for Sale in Sector 79, Mohali (500 Sq. Yards)">{{$item->ad_title}}</a></p>
-                                    <p class="mb2px lh15em alpha75"></p>
-                                    <p class="lh15em">{{$item->super_builtup_area}} Sq. Yards</p>
-                                    <p class="large mt5px fw7"><i class="fa fa-inr mr2px"></i> {{$item->price}} RS. </p>
-                                 </div>
-                              </div>
-                           </div>
+                            <div class="data db bdr0 p10px bs3px3px cp" onclick="location.href='{{ route('propertydetail', $item->id) }}'">
+                                <div class="df-dt w100">
+                                    <div class="df-dtc w110px h110px vam ac lh0">
+                                        <a href="{{ route('propertydetail', $item->id) }}" title="{{ $item->ad_title }}" class="dib lh0">
+                                            @if ($isVideo)
+                                                <video width="109" height="109" controls>
+                                                    <source src="{{ asset('storage/' . $firstMedia) }}" type="video/mp4">
+                                                    <source src="{{ asset('storage/' . $firstMedia) }}" type="video/webm">
+                                                    <source src="{{ asset('storage/' . $firstMedia) }}" type="video/ogg">
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                            @else
+                                                <img loading="lazy" src="{{ asset('storage/' . $firstMedia) }}" width="350" height="262" alt="{{ $item->ad_title }}" style="width:109px;height:109px;">
+                                            @endif
+                                        </a>
+                                    </div>
+                                    <div class="df-dtc pl15px al">
+                                        <p class="large mb5px fw6 lh12em">
+                                            <a href="{{ route('propertydetail', $item->id) }}" title="{{ $item->ad_title }}">{{ $item->ad_title }}</a>
+                                        </p>
+                                        <p class="mb2px lh15em alpha75"></p>
+                                        <p class="lh15em">{{ $item->super_builtup_area }} Sq. Yards</p>
+                                        <p class="large mt5px fw7"><i class="fa fa-inr mr2px"></i> {{ number_format($item->price) }} RS.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </li>
-                        @endforeach
+                    @endforeach
+                    
+                    
                         
                         
                      </ul>

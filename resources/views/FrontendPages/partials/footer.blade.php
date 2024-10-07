@@ -46,15 +46,9 @@
                      <div class="w">
                         <p class="l"><b class="b"></b><a href="{{route('property.create')}}" title="Post Property" >Post Property</a></p>
                      </div>
-                     <div class="w">
-                        <p class="l"><b class="b"></b><a href="#" title="What clients say" >What clients say</a></p>
-                     </div>
-                     <div class="w">
-                        <p class="l"><b class="b"></b><a href="#" title="Post Requirement" >Post Requirement</a></p>
-                     </div>
-                     <div class="w">
-                        <p class="l"><b class="b"></b><a href="#" title="Career" >Career</a></p>
-                     </div>
+                    
+                     
+                    
                      <div class="w">
                         <p class="l"><b class="b"></b><a href="{{route('contact.us')}}" title="Contact Us" >Contact Us</a></p>
                      </div>
@@ -74,7 +68,7 @@
                </div>
             </div>
             <div class="col-3">
-               <div class="mc column_Box newsLetter_f2">
+               {{-- <div class="mc column_Box newsLetter_f2">
                   <div class="h h2">
                      <b class="plusMinus"></b> 
                      <h3 class="rHead">News Letter</h3>
@@ -85,7 +79,7 @@
                         <input type="hidden" name="web_address" value="index.html"><input type="hidden" name="member_id" value="88260"><input type="hidden" name="redirected_url" value="thanks.html">
                      </form>
                   </div>
-               </div>
+               </div> --}}
                <br style="content:'';display:inline-block;width:100%;height:7px;" />
                <p class="visitorCounter b large ma3px">
                   <span class="addOptSpc db">
@@ -103,7 +97,7 @@
             </div>
          </div>
          <div class="row1 dt bdrT bdreee columns12 mt12px">
-            <div class="col-1"> <span class="copyright">All Rights Reserved. <a href="index.html"><b>{{$sitesetting->site_title}}</b></a></span><br><span class="memberOf">Developed &amp; Managed By <a href="https://www.weblink.in/" rel="nofollow" target="_blank">Weblink.In Pvt. Ltd.</a></span><br> </div>
+            <div class="col-1"> <span class="copyright">All Rights Reserved. <a href="index.html"><b>{{$sitesetting->site_title}}</b></a></span><br><span class="memberOf">Developed &amp; Managed By <a href="https://www.krtechnology.in/" rel="nofollow" target="_blank">KR Technology Pvt. Ltd.</a></span><br> </div>
             <div class="col-2">
                <div class="dib ml30px vab">
                   <script> var tlJsHost = ((window.location.protocol == "index.html") ? "https://secure.trust-provider.com/" : "https://www.trustlogo.com/"); document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));</script>

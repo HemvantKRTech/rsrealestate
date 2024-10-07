@@ -46,8 +46,9 @@ class AdminController extends Controller
       }
     }
     public function editcity($id){
-        $city= City::find($id);
-        return view('Admin.CityFlat.EditCity',compact('city'));
+        $currentcity= City::where('id',$id)->first();
+        // dd($city);
+        return view('Admin.CityFlat.EditCity',compact('currentcity'));
     }
     public function updatecity(Request $request, $id){
         $validatedData = $request->validate([
@@ -62,7 +63,7 @@ class AdminController extends Controller
     }
     public function sectorform(){
         $city=City::where('status','active')->orderBy('name','ASC')->get();
-        return view('Admin.CityFlat.Sectorcreate',compact('city'));
+        return view('Admin.CityFlat.sectorcreate',compact('city'));
     }
     public function sectorstore(Request $request){
         $validatedData = $request->validate([
@@ -166,7 +167,7 @@ class AdminController extends Controller
         $categories=Category::where('status',1)->get();
         $cities=City::where('status','active')->get();
        
-        return view('Admin.PropertyList.create',compact('types','categories','cities'));
+        return view('Admin.PropertyList.Create',compact('types','categories','cities'));
     }
     public function allpropertylist(){
         $properties=Property::with('propertyType')->paginate(10);
@@ -196,11 +197,11 @@ class AdminController extends Controller
         $validated = $request->validate([
             'category'=>'required',
             'type' => 'required|exists:property_types,id',
-            'bedrooms' => 'required|',
+            'bedrooms' => '',
             'bathrooms' => 'required|',
-            'furnishing' => 'required|string',
+            'furnishing' => '',
             'construction_status' => 'required|string',
-            'listed_by' => 'required|string',
+            'listed_by' => '',
             'super_builtup_area' => 'required|numeric',
             'carpet_area' => 'required|numeric',
             'maintenance' => 'nullable|numeric',
@@ -208,8 +209,8 @@ class AdminController extends Controller
             'floor_no' => 'required|integer',
             'car_parking' => 'required|string',
             'facing' => 'nullable|string',
-            'project_name' => 'required|string|max:70',
-            'ad_title' => 'required|string|max:70',
+            'project_name' => '',
+            'ad_title' => '',
             'price' => 'required|numeric',
             'address' => 'required|string|max:255',
             'description' => 'required|string|max:4096',
@@ -252,7 +253,7 @@ class AdminController extends Controller
         $property->airport_distance = $request->input('airport_distance');
         $property->bank_distance = $request->input('bank_distance');
         $property->description = $request->input('description');
-        $property->save();
+       
         // Handle image uploads if any
         if ($request->hasFile('images')) {
             // Store uploaded images
@@ -264,7 +265,7 @@ class AdminController extends Controller
             // Store image paths as JSON array
             $property->images = $images;
         }
-
+        $property->save();
         return redirect()->route('newproperty.all')->with('success', 'Property updated successfully.');
     }
     public function addnewproject(){
@@ -279,18 +280,16 @@ class AdminController extends Controller
 {
     // Retrieve the banner that is being updated
     $banner = Banner::findOrFail($id);
-    
+    Banner::where('status', 'active')->update(['status' => 'inactive']);
     // Check if the banner is currently inactive
-    if (!$banner->status) {
-        // If inactive, set all other banners to inactive
-        Banner::where('status', 'active')->update(['status' => 'inactive']);
+           // If inactive, set all other banners to inactive
+        
         
         // Set the selected banner to active
         $banner->status = 'active';
         $banner->save();
 
-        return redirect()->back()->with('success', 'Banner is now active. All other banners are inactive.');
-    }
+     
 
     return redirect()->back()->with('info', 'This banner is already active.');
 }
