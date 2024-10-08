@@ -56,12 +56,12 @@
                         <p class="l"><b class="b"></b><a href="javascript:;" data-fancybox="sendEmail" data-src="#sendEmail" title="Enquiry" >Enquiry</a></p>
                         
                      </div>
-                     <div class="w">
+                     {{-- <div class="w">
                         <p class="l"><b class="b"></b><a href="/sitemap.xml" title="Sitemap" >Site Map</a></p>
-                     </div>
-                     <div class="w">
+                     </div> --}}
+                     {{-- <div class="w">
                         <p class="l"><b class="b"></b><a href="property.rss" target="_blank" title="RSS"><img src="https://catalog.wlimg.com/templates-images/12569/common/rss_icon.png" alt="RSS" class="vam" width="36" height="14" loading="lazy"></a></p>
-                     </div>
+                     </div> --}}
                      <p class="cb"></p>
                   </div>
                   <p class="cb"></p>

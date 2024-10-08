@@ -6,7 +6,7 @@
 
          <section id="middle" class="propDtls headVr">
             <div class="searchFilter data bdr0 pr mb10px">
-               <div class="wrap">
+               {{-- <div class="wrap">
                   <div class="fo w100">
                      <div class="fl filterS-box mr10px">
                         <form name="key_search" method="get" action="https://www.chandigarhhouse.com/rei-search.php">
@@ -136,7 +136,7 @@
                         </form>
                      </div>
                   </div>
-               </div>
+               </div> --}}
             </div>
             <div class="wrap" id="bodyFormatNT">
                <p class="breadcrumb ar uu small db"><span class="pl15px pr15px db"><a href="/">Home</a><b class="ffv p2px">&rsaquo;</b> {{$property->ad_title}}</span></p>
@@ -249,230 +249,209 @@
                                  <li><span class="alpha75">Bathrooms </span><span class="large db mb7px"> {{$property->bathrooms}} </span></li>
                                  <li><span class="alpha75">Transaction Type </span><span class="large db mb7px"> Resale Property </span></li>
                                  <li><span class="alpha75">Total Floor </span><span class="large db mb7px"> {{$property->total_floors}} </span></li>
-                                 <script type="text/javascript">
-                                    area_conversion=function(b,f,e){var c=createAreaArr();if(e==1){if(b<20&&b!=18){var a=f/c[b];return a}else{return 0}}else{if(e==2){if(b<20&&b!=18){var d=f*c[b];return d}else{return 0}}}};
-                                    
-                                    function createAreaArr(){
-                                    	var a={
-                                    		1:1,
-                                    		2:0.1111111111111,
-                                    		3:0.093,
-                                    		4:0.00041666667,
-                                    		5:0.013890889,
-                                    		6:0.000091810503,
-                                    		7:0.002222222222222223,
-                                    		8:0.0036724201,
-                                    		9:0.0009182736455464,
-                                    		10:0.00092936802973,
-                                    		11:0.0000028696051,
-                                    		12:0.00002295663,
-                                    		13:0.000057392103,
-                                    		14:0.0013888889,
-                                    		15:0.0000092904166,
-                                    		16:0.003673095,
-                                    		17:0.0000092605969,
-                                    		19:0.002295684
-                                    	};
-                                    	return a;
-                                    }
-                                    
-                                    function updateArea(a,c,d,h,b,w,z){
-                                    	var g=createAreaArr();
-                                    	 
-                                    	var bu = {
-                                        'Sq.ft.':'1',
-                                        'Sq. Yards':'2',
-                                        'Sq. Meter':'3',
-                                        'Guntha':'9',
-                                        'Ares':'10',
-                                        'Acre':'12',
-                                        'Bigha':'13',
-                                        'Hectares':'15',
-                                        'Marla':'16',
-                                        'Cent':'19',
-                                        };
-                                    	if(w=='Sq. Feet'){
-                                    		var e=d*(parseFloat(g[c]));
-                                    	}
-                                    	else{
-                                    		var e=parseFloat(g[c])*(d/ parseFloat(g[bu[w]]));
-                                    	} 
-                                    	
-                                    	if(b=="Y"){
-                                    		jQuery("#"+h+"_span").html(e.toFixed(2));
-                                    	}else{
-                                    		if(b=="N"){
-                                    			jQuery("#"+h).html(jQuery("#"+h).html+e.toFixed(2));
-                                    			console.log("#"+h);
-                                    		}
-                                    	}
-                                    	jQuery("#"+h+"Label").html(" "+a);
-                                    	jQuery("#"+z).html(a+" &#9660;")
-                                    }
-                                    
-                                 </script>						
-                                 <li>
-                                    <span class="alpha75">Built Up Area </span>
-                                    <script type="text/javascript">
-                                       function convert(basetext,baseindex,baseunit){
-                                            if(400 > 0 )  updateArea(basetext,baseindex,400,'builtupArea','Y',baseunit,'DrpDownTab');   }
-                                    </script>  
-                                    <span class="db">
-                                       <span id="builtupArea_span" class="large dib mb17px">{{$property->super_builtup_area}}</span>
-                                       <span class="pr">
-                                          <a onClick="jQuery('#builtUp').show();event.stopPropagation();" class="headVr pl5px pr5px small dib vam ml5px" id="DrpDownTab">Sq. Yards &#9660;</a>
-                                          <div id="builtUp" style="width:120px;display:none;top:-1px;left:0px;" class="pa">
-                                             <span class="data p5px15px pb10px dib xlarge b pr" style="border-bottom:none;z-index:101;" id="builtupAreaLabel">Sq. Yards</span>
-                                             <ul class="lsn m0px p0px data small bdrB0 pr uo" style="top:-1px;z-index:100;">
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert('Sq.%20Feet',1,'Sq. Yards');">Sq. Feet</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert('Cent',19,'Sq. Yards');">Cent</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert('Sq.%20Yards',2,'Sq. Yards');">Sq. Yards</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert('Ares',10,'Sq. Yards');">Ares</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert('Acre',12,'Sq. Yards');">Acres</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert('Sq.%20Meter',3,'Sq. Yards');">Sq. Meter</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert('Bigha',13,'Sq. Yards');">Bigha</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert('Hectares',15,'Sq. Yards');">Hectares</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert('Guntha',9,'Sq. Yards');">Guntha</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert('Marla',16,'Sq. Yards');">Marla</a></li>
-                                             </ul>
-                                          </div>
-                                       </span>
-                                    </span>
-                                    <script>
-                                       jQuery(document).ready(function(e) {
-                                       	jQuery('body').click(function(){
-                                       		jQuery('#builtUp').hide();
-                                       		
-                                       	})
-                                       });
-                                    </script>
-                                 </li>
-                                 <li>
-                                    <span class="alpha75">Carpet Area </span>
-                                    <script type="text/javascript">
-                                       function convert2(basetext,baseindex,baseunit){
-                                            if(300 > 0 )  updateArea(basetext,baseindex,300,'catpetArea','Y',baseunit,'DrpDownTab2');   }
-                                    </script> 
-                                    <span class="db">
-                                       <span id="catpetArea_span" class="large dib mb17px">{{$property->carpet_area}}</span>
-                                       <span class="pr">
-                                          <a onClick="jQuery('#catpetArea').show();event.stopPropagation();" class="headVr pl5px pr5px small dib vam ml5px" id="DrpDownTab2">Sq. Yards &#9660;</a>
-                                          <div id="catpetArea" style="width:120px;display:none;top:-1px;left:0px;" class="pa">
-                                             <span class="data p5px15px pb10px dib xlarge b pr" style="border-bottom:none;z-index:101;" id="catpetAreaLabel">Sq. Yards</span>
-                                             <ul class="lsn m0px p0px data small bdrB0 pr uo" style="top:-1px;z-index:100;">
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Sq.%20Feet',1,'Sq. Yards');">Sq.Feet</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Cent',19,'Sq. Yards');">Cent</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Sq.%20Yards',2,'Sq. Yards');">Sq. Yards</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Ares',10,'Sq. Yards');">Ares</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Acre',12,'Sq. Yards');">Acres</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Sq.%20Meter',3,'Sq. Yards');">Sq. Meter</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Bigha',13,'Sq. Yards');">Bigha</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Hectares',15,'Sq. Yards');">Hectares</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Guntha',9,'Sq. Yards');">Guntha</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Marla',16,'Sq. Yards');">Marla</a></li>
-                                             </ul>
-                                          </div>
-                                       </span>
-                                    </span>
-                                    <script>
-                                       jQuery(document).ready(function(e) {
-                                       	jQuery('body').click(function(){
-                                       		jQuery('#catpetArea').hide();
-                                       		
-                                       	})
-                                       });
-                                    </script>
-                                 </li>
-                                 {{-- <li>
-                                    <span class="alpha75">Super Area </span>
-                                    <script type="text/javascript">
-                                       function convert2(basetext,baseindex,baseunit){
-                                            if(401 > 0 )  updateArea(basetext,baseindex,401,'superArea','Y',baseunit,'DrpDownTab2');   }
-                                    </script> 
-                                    <span class="db">
-                                       <span id="superArea_span" class="large dib mb17px">{{$property->super_builtup_area}}</span>
-                                       <span class="pr">
-                                          <a onClick="jQuery('#superArea').show();event.stopPropagation();" class="headVr pl5px pr5px small dib vam ml5px" id="DrpDownTab2">Sq. Yards &#9660;</a>
-                                          <div id="superArea" style="width:120px;display:none;top:-1px;left:0px;" class="pa">
-                                             <span class="data p5px15px pb10px dib xlarge b pr" style="border-bottom:none;z-index:101;" id="superAreaLabel">Sq. Yards</span>
-                                             <ul class="lsn m0px p0px data small bdrB0 pr uo" style="top:-1px;z-index:100;">
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Sq.%20Feet',1,'Sq. Yards');">Sq.Feet</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Cent',19,'Sq. Yards');">Cent</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Sq.%20Yards',2,'Sq. Yards');">Sq. Yards</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Ares',10,'Sq. Yards');">Ares</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Acre',12,'Sq. Yards');">Acres</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Sq.%20Meter',3,'Sq. Yards');">Sq. Meter</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Bigha',13,'Sq. Yards');">Bigha</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Hectares',15,'Sq. Yards');">Hectares</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Guntha',9,'Sq. Yards');">Guntha</a></li>
-                                                <li style="width:100%;" class="vat"><a class="bdrB db p2px10px" href="javascript:convert2('Marla',16,'Sq. Yards');">Marla</a></li>
-                                             </ul>
-                                          </div>
-                                       </span>
-                                    </span>
-                                    <script>
-                                       jQuery(document).ready(function(e) {
-                                       	jQuery('body').click(function(){
-                                       		jQuery('#superArea').hide();
-                                       		
-                                       	})
-                                       });
-                                    </script>
-                                 </li> --}}
+                                 <!-- Built Up Area Section -->
+<li>
+   <span class="alpha75">Built Up Area</span>
+   <span class="db">
+       <span id="builtupArea_span" class="large dib mb17px"></span> <!-- Initially empty, filled by JS -->
+       <span class="pr">
+           <a onClick="document.getElementById('builtUp').style.display='block'; event.stopPropagation();" id="builtUpConvertedValue" class="headVr pl5px pr5px small dib vam ml5px">Sq. Yards &#9660;</a>
+           <div id="builtUp" style="width:120px; display:none; top:-1px; left:0px;" class="pa">
+               <span class="data p5px15px pb10px dib xlarge b pr" id="builtupAreaLabel">Sq. Yards</span>
+               <ul class="lsn m0px p0px data small bdrB0 pr uo">
+                   <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Sq.Ft.">Sq. Feet</a></li>
+                   {{-- <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Cent">Cent</a></li> --}}
+                   <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Sq.Yards">Sq. Yards</a></li>
+                   <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Ares">Ares</a></li>
+                   <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Acres">Acres</a></li>
+                   <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Sq.Meter">Sq. Meter</a></li>
+                   <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Bigha">Bigha</a></li>
+                   <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Hectares">Hectares</a></li>
+                   <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Guntha">Guntha</a></li>
+                   <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Marla">Marla</a></li>
+               </ul>
+           </div>
+       </span>
+   </span>
+</li>
+
+<!-- Carpet Area Section -->
+<li>
+   <span class="alpha75">Carpet Area</span>
+   <span class="db">
+       <span id="catpetArea_span" class="large dib mb17px">{{$property->carpet_area}}</span> <!-- Initially filled by JS -->
+       <span class="pr">
+           <a onClick="document.getElementById('catpetArea').style.display='block'; event.stopPropagation();" id="catpetAreaConvertedValue" class="headVr pl5px pr5px small dib vam ml5px">Sq. Yards &#9660;</a>
+           <div id="catpetArea" style="width:120px; display:none; top:-1px; left:0px;" class="pa">
+               <span class="data p5px15px pb10px dib xlarge b pr" id="catpetAreaLabel">Sq. Yards</span>
+               <ul class="lsn m0px p0px data small bdrB0 pr uo">
+                   <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Sq.Ft.">Sq. Feet</a></li>
+                   <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Sq.Yards">Sq. Yards</a></li>
+                   <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Ares">Ares</a></li>
+                   <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Acres">Acres</a></li>
+                   <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Sq.Meter">Sq. Meter</a></li>
+                   <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Bigha">Bigha</a></li>
+                   <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Hectares">Hectares</a></li>
+                   <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Guntha">Guntha</a></li>
+                   <li style="width:100%;" class="vat"><a class="bdrB db p2px10px unit-selector" data-unit="Marla">Marla</a></li>
+               </ul>
+           </div>
+       </span>
+   </span>
+</li>
+
+<script type="text/javascript">
+   // Function to create an area conversion map with updated values
+   function createAreaArr() {
+       return {
+           'Sq.Ft.': 9.000000878,
+           'Sq.Yards': 1,
+           'Sq.Meter': 0.8361274413,
+           'Guntha': 0.008264463616,
+           'Ares': 0.00008361274413,
+           'Acres': 0.0002066115903,
+           'Bigha': 0.0003305785446,
+           'Hectares': 0.00008361274413,
+           'Marla': 0.03305785446
+       };
+   }
+
+   // Function to convert area from square yards to selected unit
+   function convertArea(selectedUnit, areaInSqYards) {
+       const conversionMap = createAreaArr();
+       return (areaInSqYards * conversionMap[selectedUnit]).toFixed(2);
+   }
+
+   // Function to update displayed area value and unit label
+   function updateDisplayedArea(areaId, labelId, convertedValueId, areaInSqYards, selectedUnit) {
+       const convertedValue = convertArea(selectedUnit, areaInSqYards);
+       document.getElementById(areaId).innerHTML = convertedValue;
+       document.getElementById(labelId).innerHTML = selectedUnit;
+       document.getElementById(convertedValueId).innerHTML = selectedUnit + ' &#9660;';
+   }
+
+   // Initialization on document ready
+   document.addEventListener('DOMContentLoaded', function () {
+       const builtUpBaseValue = {{$property->super_builtup_area}}; // Assuming this is in Sq. Yards
+       const carpetBaseValue = {{$property->carpet_area}}; // Assuming this is in Sq. Yards
+       const defaultUnit = 'Sq.Yards';
+
+       // Set initial displayed values
+       updateDisplayedArea('builtupArea_span', 'builtupAreaLabel', 'builtUpConvertedValue', builtUpBaseValue, defaultUnit);
+       updateDisplayedArea('catpetArea_span', 'catpetAreaLabel', 'catpetAreaConvertedValue', carpetBaseValue, defaultUnit);
+
+       // Event listeners for dropdown selection
+       const unitLinks = document.querySelectorAll('.unit-selector');
+       unitLinks.forEach(link => {
+           link.addEventListener('click', function (event) {
+               const selectedUnit = this.getAttribute('data-unit');
+
+               // Check which dropdown is clicked and update accordingly
+               if (this.closest('#builtUp')) {
+                   updateDisplayedArea('builtupArea_span', 'builtupAreaLabel', 'builtUpConvertedValue', builtUpBaseValue, selectedUnit);
+                   document.getElementById('builtUp').style.display = 'none'; // Hide dropdown
+               } else if (this.closest('#catpetArea')) {
+                   updateDisplayedArea('catpetArea_span', 'catpetAreaLabel', 'catpetAreaConvertedValue', carpetBaseValue, selectedUnit);
+                   document.getElementById('catpetArea').style.display = 'none'; // Hide dropdown
+               }
+
+               event.stopPropagation(); // Prevent body click event
+           });
+       });
+
+       // Hide dropdown when clicking outside
+       document.body.addEventListener('click', function () {
+           document.getElementById('builtUp').style.display = 'none';
+           document.getElementById('catpetArea').style.display = 'none';
+       });
+   });
+</script>
+
+
+                                
                                  <li><span class="alpha75">Property Type</span><span class="large db mb7px">Individual Houses </span></li>
                               </ul>
                            </div>
                            <div class="exp_property">
-                              <ul>
-                                 <li><span class="data"><i class="fa fa-check dif mr2px"></i> Servant Room</span></li>
-                              </ul>
+                              {{-- <ul> --}}
+                                 {{-- <li><span class="data"><i class="fa fa-check dif mr2px"></i> Servant Room</span></li> --}}
+                                 {{-- <section class="data p15px"> --}}
+                                    <div class="xxlarge hdBrbb pb12px mt10px mb15px">Property Description </div>
+                                    <div class="lh18em aj alpha75">
+                                       {{$property->description}}.							
+                                    </div>
+                                 {{-- </section> --}}
+                              {{-- </ul> --}}
                            </div>
                         </div>
                      </section>
                      <br>
-                     <section class="data p15px">
+                     <section class="data p15px" id="landmarkSection">
                         <div class="xxlarge hdBrbb pb12px mt10px mb20px">Land Mark</div>
                         <div class="cf_3img propLandMark">
-                           <ul class="lsn fo ac-fl m0px p0px ac-mb10px ac ac-p10px">
-                              <li>
-                                 <div class="df-dt vam mb5px">
-                                    <div class="df-dtc w30px"><i class="si w20px icon-hospital mr5px"></i></div>
-                                    <div class="df-dtc vam al"> Hospital <span class="db fw6 mt1px"> {{$property->hospital_distance}} kms</span></div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="df-dt vam mb5px">
-                                    <div class="df-dtc w30px"><i class="si w20px icon-airport mr5px"></i></div>
-                                    <div class="df-dtc vam al"> Airport <span class="db fw6 mt1px"> {{$property->airport_distance}} kms</span></div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="df-dt vam mb5px">
-                                    <div class="df-dtc w30px"><i class="si w20px icon-railway-station mr5px"></i></div>
-                                    <div class="df-dtc vam al"> Railway <span class="db fw6 mt1px"> {{$property->railway_distance}} kms</span></div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="df-dt vam mb5px">
-                                    <div class="df-dtc w30px"><i class="si w20px icon-school mr5px"></i></div>
-                                    <div class="df-dtc vam al"> School <span class="db fw6 mt1px"> {{$property->school_distance}} kms</span></div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="df-dt vam mb5px">
-                                    <div class="df-dtc w30px"><i class="si w20px icon-atm-card mr5px"></i></div>
-                                    <div class="df-dtc vam al"> Atm <span class="db fw6 mt1px"> {{$property->atm_distance}} kms</span></div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="df-dt vam mb5px">
-                                    <div class="df-dtc w30px"><i class="si w20px icon-bank mr5px"></i></div>
-                                    <div class="df-dtc vam al"> Bank <span class="db fw6 mt1px"> {{$property->bank_distance}} kms</span></div>
-                                 </div>
-                              </li>
-                           </ul>
+                            <ul class="lsn fo ac-fl m0px p0px ac-mb10px ac ac-p10px" id="amenitiesList">
+                                <li class="amenity" data-distance="{{$property->hospital_distance}}">
+                                    <div class="df-dt vam mb5px">
+                                        <div class="df-dtc w30px"><i class="si w20px icon-hospital mr5px"></i></div>
+                                        <div class="df-dtc vam al"> Hospital <span class="db fw6 mt1px"> {{$property->hospital_distance}} kms</span></div>
+                                    </div>
+                                </li>
+                                <li class="amenity" data-distance="{{$property->airport_distance}}">
+                                    <div class="df-dt vam mb5px">
+                                        <div class="df-dtc w30px"><i class="si w20px icon-airport mr5px"></i></div>
+                                        <div class="df-dtc vam al"> Airport <span class="db fw6 mt1px"> {{$property->airport_distance}} kms</span></div>
+                                    </div>
+                                </li>
+                                <li class="amenity" data-distance="{{$property->railway_distance}}">
+                                    <div class="df-dt vam mb5px">
+                                        <div class="df-dtc w30px"><i class="si w20px icon-railway-station mr5px"></i></div>
+                                        <div class="df-dtc vam al"> Railway <span class="db fw6 mt1px"> {{$property->railway_distance}} kms</span></div>
+                                    </div>
+                                </li>
+                                <li class="amenity" data-distance="{{$property->school_distance}}">
+                                    <div class="df-dt vam mb5px">
+                                        <div class="df-dtc w30px"><i class="si w20px icon-school mr5px"></i></div>
+                                        <div class="df-dtc vam al"> School <span class="db fw6 mt1px"> {{$property->school_distance}} kms</span></div>
+                                    </div>
+                                </li>
+                                <li class="amenity" data-distance="{{$property->atm_distance}}">
+                                    <div class="df-dt vam mb5px">
+                                        <div class="df-dtc w30px"><i class="si w20px icon-atm-card mr5px"></i></div>
+                                        <div class="df-dtc vam al"> Atm <span class="db fw6 mt1px"> {{$property->atm_distance}} kms</span></div>
+                                    </div>
+                                </li>
+                                <li class="amenity" data-distance="{{$property->bank_distance}}">
+                                    <div class="df-dt vam mb5px">
+                                        <div class="df-dtc w30px"><i class="si w20px icon-bank mr5px"></i></div>
+                                        <div class="df-dtc vam al"> Bank <span class="db fw6 mt1px"> {{$property->bank_distance}} kms</span></div>
+                                    </div>
+                                </li>
+                            </ul>
+                            
+                            <script type="text/javascript">
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    const amenities = document.querySelectorAll('#amenitiesList .amenity');
+                                    let hasVisibleAmenities = false; // Flag to track if any amenity is visible
+                    
+                                    amenities.forEach(function(item) {
+                                        const distance = item.getAttribute('data-distance');
+                                        if (!distance || distance <= 0) {
+                                            item.style.display = 'none'; // Hide the item if no distance is provided
+                                        } else {
+                                            hasVisibleAmenities = true; // Set flag to true if there's at least one visible amenity
+                                        }
+                                    });
+                    
+                                    // Hide the section if no amenities are visible
+                                    if (!hasVisibleAmenities) {
+                                        document.getElementById('landmarkSection').style.display = 'none';
+                                    }
+                                });
+                            </script>
+                            
                         </div>
-                     </section>
+                    </section>
+                    
                      <br>
                      <section class="data p15px amentMb">
                         <div class="xxlarge hdBrbb pb12px mt10px mb20px">Amenities</div>
@@ -483,12 +462,12 @@
                         </div>
                      </section>
                      <br>
-                     <section class="data p15px">
+                     {{-- <section class="data p15px">
                         <div class="xxlarge hdBrbb pb12px mt10px mb15px">Property Description </div>
                         <div class="lh18em aj alpha75">
                            {{$property->description}}.							
                         </div>
-                     </section>
+                     </section> --}}
                      <br />
                      <!-- InstanceEndEditable -->
                      <!--MIDDLE ROW1 COL-2 ENDS-->

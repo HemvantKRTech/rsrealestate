@@ -119,6 +119,8 @@
                             <td class="w30 headVr p5px ar b">Bedrooms &nbsp;</td>
                             <td class="w70 data p5px">
                             <select id="bedrooms" name="bedrooms" class="form-control">
+                                <option value="">select</option>
+
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -134,6 +136,8 @@
                             <td class="w30 headVr p5px ar b">Bathrooms  &nbsp;</td>
                             <td class="w70 data p5px">
                             <select id="bedrooms" name="bathrooms" class="form-control">
+                                <option value="">select</option>
+
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -163,6 +167,8 @@
                             <td class="w30 headVr p5px ar b">Construction Status <b class="star">*</b>&nbsp;</td>
                             <td class="w70 data p5px">
                             <select id="construction_status" name="construction_status" class="form-control">
+                                <option value="">select</option>
+
                             <option value="new_launch">New Launch</option>
                             <option value="ready_to_move">Ready to Move</option>
                             <option value="under_construction">Under Construction</option>
@@ -176,6 +182,8 @@
                             <td class="w30 headVr p5px ar b">Listed by <b class="star">*</b>&nbsp;</td>
                             <td class="w70 data p5px">
                             <select id="listed_by" name="listed_by" class="form-control">
+                                <option value="">select</option>
+
                             <option value="builder">Builder</option>
                             <option value="dealer">Dealer</option>
                             <option value="owner">Owner</option>
@@ -186,7 +194,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td for="super_builtup_area" class="w30 headVr p5px ar b">Super Builtup Area (ft²)&nbsp;</td>
+                            <td for="super_builtup_area" class="w30 headVr p5px ar b">Super Builtup Area (Sq. Yard)&nbsp;</td>
                             <td class="w70 data p5px">
                             <input id="super_builtup_area" name="super_builtup_area" type="number" class="form-control input" min="0" step="1" value="">
                             @error('super_builtup_area')
@@ -195,7 +203,7 @@
                         </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Carpet Area (ft²) &nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Carpet Area (Sq. Yard) &nbsp;</td>
                             <td class="w70 data p5px">
                             <input id="carpet_area" name="carpet_area" type="number" class="form-control input" min="0" step="1" value="">
                             @error('carpet_area')
@@ -232,6 +240,8 @@
                             <td class="w30 headVr p5px ar b">Car Parking &nbsp;</td>
                             <td class="w70 data p5px">
                             <select id="car_parking" name="car_parking" class="form-control">
+                                <option value="">select</option>
+
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -272,13 +282,14 @@
                             <td class="w30 headVr p5px ar b">Negotiable &nbsp;</td>
                             <td class="w70 data p5px">
                             <select id="negotiable" name="negotiable" class="form-control">
+                                <option value="">select</option>
                             <option value="yes">Yes</option>
                             <option value="no">No</option>
                             </select>
                             </td>
                         </tr>
                         <tr>
-    <td class="w30 headVr p5px ar b">Property Images & Videos <b class="star">*</b>&nbsp;</td>
+    <td class="w30 headVr p5px ar b">Property Images & Videos &nbsp;</td>
     <td class="w70 data p5px">
         <input id="media" name="images[]" type="file" class="form-control input" multiple accept="image/*,video/*" onchange="previewFiles(event)">
         @error('images')

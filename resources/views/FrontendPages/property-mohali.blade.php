@@ -114,9 +114,13 @@
                   <!-- Second Row -->
                   <div class="row">
                       @foreach ($properties->skip(3) as $item) <!-- Assuming you want to skip the first 3 properties -->
-                          @php
-                              $image = $item->images->isNotEmpty() ? asset('storage/' . $item->images->first()->path) : 'https://rei.wlimg.com/prop_images/88260/1290327_1-350x350.jpg';
-                          @endphp
+                      @php
+                      // Check if images is a collection or an array before calling first()
+                      $image = (is_array($item->images) || $item->images instanceof \Illuminate\Support\Collection) 
+                               ? asset('storage/' . $item->images->first()->path) 
+                               : 'https://rei.wlimg.com/prop_images/88260/1290327_1-350x350.jpg';
+                  @endphp
+                  
                           <div class="box">
                               <div class="imgWidth" style="background-image:url({{ $image }});background-size:cover;background-position:center;width:100%;height:260px;overflow:hidden;border-radius: 10px;">
                                   <img loading="lazy" src="{{ $image }}" width="350" height="262" alt="{{ $item->ad_title }}" style="max-height:150px;max-width:150px;z-index: -1;margin-left: -1000px;">

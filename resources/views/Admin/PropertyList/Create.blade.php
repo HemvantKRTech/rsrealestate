@@ -18,10 +18,8 @@
                 <select id="category" name="category" class="form-control">
                     <option value="">Select Category</option>
                     @foreach ($categories as $category)
-                    <option value="{{ $category->id }}" {{ old('category') == $category->id ? 'selected' : '' }}>
-                        {{ $category->name }}
-                    </option>
-                @endforeach
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
                 </select>
                 @error('category')
                     <div class="text-danger">{{ $message }}</div>
@@ -30,15 +28,12 @@
         </div>
 
         <div class="row mt-3">
-
             <div class="col">
                 <label for="type">Property Type *</label>
                 <select id="type" name="type" class="form-control">
                     <option value="">Select Property Type</option>
                     @foreach ($types as $item)
-                        <option value="{{ $item->id }}" {{ old('type') == $item->id ? 'selected' : '' }}>
-                            {{ $item->name }}
-                        </option>
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
                 </select>
                 @error('type')
@@ -48,8 +43,8 @@
             <div class="col">
                 <label for="bedrooms">Bedrooms</label>
                 <select id="bedrooms" name="bedrooms" class="form-control">
-                <option value="1">Select</option>
-                    <option value="1">0</option>
+                <option value="">Select</option>
+                    <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -61,7 +56,7 @@
                 @enderror
             </div>
             <div class="col">
-                <label for="bathrooms">Bathrooms *</label>
+                <label for="bathrooms">Bathrooms </label>
                 <select id="bathrooms" name="bathrooms" class="form-control">
                     <option value="1">Select</option>
                     <option value="1">1</option>
@@ -74,56 +69,26 @@
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
-
         </div>
-        <div class="col">
-            <label for="bedrooms">Bedrooms</label>
-            <select id="bedrooms" name="bedrooms" class="form-control">
-                <option value="">Select</option>
-                <option value="0" {{ old('bedrooms') == '0' ? 'selected' : '' }}>0</option>
-                <option value="1" {{ old('bedrooms') == '1' ? 'selected' : '' }}>1</option>
-                <option value="2" {{ old('bedrooms') == '2' ? 'selected' : '' }}>2</option>
-                <option value="3" {{ old('bedrooms') == '3' ? 'selected' : '' }}>3</option>
-                <option value="4" {{ old('bedrooms') == '4' ? 'selected' : '' }}>4</option>
-                <option value="4+" {{ old('bedrooms') == '4+' ? 'selected' : '' }}>4+</option>
-            </select>
-            @error('bedrooms')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
-        </div>
-        <div class="col">
-            <label for="bathrooms">Bathrooms</label>
-            <select id="bathrooms" name="bathrooms" class="form-control">
-                <option value="">Select</option>
-                <option value="1" {{ old('bathrooms') == '1' ? 'selected' : '' }}>1</option>
-                <option value="2" {{ old('bathrooms') == '2' ? 'selected' : '' }}>2</option>
-                <option value="3" {{ old('bathrooms') == '3' ? 'selected' : '' }}>3</option>
-                <option value="4" {{ old('bathrooms') == '4' ? 'selected' : '' }}>4</option>
-                <option value="4+" {{ old('bathrooms') == '4+' ? 'selected' : '' }}>4+</option>
-            </select>
-            @error('bathrooms')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
-        </div>
-    </div>
 
         <!-- Furnishing, Construction Status, Listed by -->
         <div class="row mt-3">
             <div class="col">
                 <label for="furnishing">Furnishing</label>
                 <select id="furnishing" name="furnishing" class="form-control">
-                <option value="">Select</option>
-                    <option value="furnished" {{ old('furnishing') == 'furnished' ? 'selected' : '' }}>Furnished</option>
-                    <option value="semi_furnished" {{ old('furnishing') == 'semi_furnished' ? 'selected' : '' }}>Semi-Furnished</option>
-                    <option value="unfurnished" {{ old('furnishing') == 'unfurnished' ? 'selected' : '' }}>Unfurnished</option>
+                    <option value="">Select</option>
+                    <option value="furnished">Furnished</option>
+                    <option value="semi_furnished">Semi-Furnished</option>
+                    <option value="unfurnished">Unfurnished</option>
                 </select>
                 @error('furnishing')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="col">
-                <label for="construction_status">Construction Status *</label>
+                <label for="construction_status">Construction Status </label>
                 <select id="construction_status" name="construction_status" class="form-control">
+                    <option value="">Select</option>
                     <option value="new_launch">New Launch</option>
                     <option value="ready_to_move">Ready to Move</option>
                     <option value="under_construction">Under Construction</option>
@@ -145,77 +110,52 @@
                 @enderror
             </div>
         </div>
-        <div class="col">
-            <label for="construction_status">Construction Status</label>
-            <select id="construction_status" name="construction_status" class="form-control">
-            <option value="">Select</option>
-                <option value="new_launch" {{ old('construction_status') == 'new_launch' ? 'selected' : '' }}>New Launch</option>
-                <option value="ready_to_move" {{ old('construction_status') == 'ready_to_move' ? 'selected' : '' }}>Ready to Move</option>
-                <option value="under_construction" {{ old('construction_status') == 'under_construction' ? 'selected' : '' }}>Under Construction</option>
-            </select>
-            @error('construction_status')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
-        </div>
-        <div class="col">
-            <label for="listed_by">Listed by</label>
-            <select id="listed_by" name="listed_by" class="form-control">
-                <option value="">Select</option>
-                <option value="builder" {{ old('listed_by') == 'builder' ? 'selected' : '' }}>Builder</option>
-                <option value="dealer" {{ old('listed_by') == 'dealer' ? 'selected' : '' }}>Dealer</option>
-                <option value="owner" {{ old('listed_by') == 'owner' ? 'selected' : '' }}>Owner</option>
-            </select>
-            @error('listed_by')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
-        </div>
-    </div>
 
-    <!-- Continue applying old() for the rest of the inputs -->
-
-    <div class="row mt-3">
-        <div class="col">
-            <label for="super_builtup_area">Super Builtup Area (ft²)</label>
-            <input id="super_builtup_area" name="super_builtup_area" type="number" class="form-control" min="0" step="1" value="{{ old('super_builtup_area') }}">
-            @error('super_builtup_area')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
+        <!-- Super Builtup Area, Carpet Area, Maintenance -->
+        <div class="row mt-3">
+            <div class="col">
+                <label for="super_builtup_area">Super Builtup Area (Sq. Yard) </label>
+                <input id="super_builtup_area" name="super_builtup_area" type="number" class="form-control" min="0" step="1" value="">
+                @error('super_builtup_area')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col">
+                <label for="carpet_area">Carpet Area (Sq. Yard) </label>
+                <input id="carpet_area" name="carpet_area" type="number" class="form-control" min="0" step="1" value="">
+                @error('carpet_area')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col">
+                <label for="maintenance">Maintenance (Monthly)</label>
+                <input id="maintenance" name="maintenance" type="number" class="form-control" min="0" step="1" value="">
+                @error('maintenance')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
         </div>
-        <div class="col">
-            <label for="carpet_area">Carpet Area (ft²)</label>
-            <input id="carpet_area" name="carpet_area" type="number" class="form-control" min="0" step="1" value="{{ old('carpet_area') }}">
-            @error('carpet_area')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
-        </div>
-        <div class="col">
-            <label for="maintenance">Maintenance (Monthly)</label>
-            <input id="maintenance" name="maintenance" type="number" class="form-control" min="0" step="1" value="{{ old('maintenance') }}">
-            @error('maintenance')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
-        </div>
-    </div>
 
         <!-- Total Floors, Floor No, Car Parking -->
         <div class="row mt-3">
             <div class="col">
-                <label for="total_floors">Total Floors</label>
-                <input id="total_floors" name="total_floors" type="number" class="form-control" min="0" step="1" value="{{ old('total_floors') }}">
+                <label for="total_floors">Total Floors </label>
+                <input id="total_floors" name="total_floors" type="number" class="form-control" min="0" step="1" value="">
                 @error('total_floors')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="col">
-                <label for="floor_no">Floor No</label>
-                <input id="floor_no" name="floor_no" type="number" class="form-control" min="0" step="1" value="{{ old('floor_no') }}">
+                <label for="floor_no">Floor No </label>
+                <input id="floor_no" name="floor_no" type="number" class="form-control" min="0" step="1" value="">
                 @error('floor_no')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="col">
-                <label for="car_parking">Car Parking</label>
+                <label for="car_parking">Car Parking </label>
                 <select id="car_parking" name="car_parking" class="form-control">
+                    <option value="">Select</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -231,7 +171,7 @@
         <!-- Facing, Project Name, Ad Title -->
         <div class="row mt-3">
             <div class="col">
-                <label for="facing">Facing</label>
+                <label for="facing">Facing </label>
                 <select id="facing" name="facing" class="form-control">
                     <option value="">Select</option>
                     <option value="east">East</option>
@@ -294,7 +234,7 @@
         <!-- Address Field -->
         <div class="row mt-3">
             <div class="col">
-                <label for="address">Address</label>
+                <label for="address">Address </label>
                 <textarea id="address" name="address" class="form-control" maxlength="255" rows="1"></textarea>
                 @error('address')
                     <div class="text-danger">{{ $message }}</div>
@@ -305,7 +245,7 @@
         <!-- Description, Price, Negotiable -->
         <div class="row mt-3">
             <div class="col">
-                <label for="description">Description</label>
+                <label for="description">Description </label>
                 <textarea id="description" name="description" class="form-control" maxlength="4000" rows="3"></textarea>
                 @error('description')
                     <div class="text-danger">{{ $message }}</div>
@@ -321,8 +261,9 @@
                 @enderror
             </div>
             <div class="col">
-                <label for="negotiable">Negotiable</label>
+                <label for="negotiable">Negotiable </label>
                 <select id="negotiable" name="negotiable" class="form-control">
+                    <option value="">Select</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
@@ -334,20 +275,18 @@
 
         <!-- Images Upload -->
         <div class="row mt-3">
-    <div class="col">
-        <label for="images">Images</label>
-
-        <input id="images" name="images[]" type="file" class="form-control-file" multiple  accept="image/*,video/*" onchange="previewFiles(event)">
-        @error('images')
-            <div class="text-danger">{{ $message }}</div>
-        @enderror
-    </div>
-</div>
-
-<!-- Preview Container -->
-<div class="row mt-3">
-    <div class="col" id="imagePreview"></div>
-</div>
+            <div class="col">
+                <label for="images">Images </label>
+                <input id="images" name="images[]" type="file" class="form-control-file" multiple accept="image/*,video/*" onchange="previewFiles(event)">
+                @error('images')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+                <div class="row mt-3">
+                    <div class="col" id="imagePreview"></div>
+                </div>
+            
+            </div>
+        </div>
 
         <!-- Amenities Distances -->
         <div class="row mt-3">
@@ -406,6 +345,31 @@
     </form>
 </div>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#city').on('change', function() {
+            var cityId = $(this).val();
+            if(cityId) {
+                $.ajax({
+                    url: '{{ route("getSectorsByCity") }}',
+                    type: 'GET',
+                    data: {city_id: cityId},
+                    dataType: 'json',
+                    success: function(data) {
+                        $('#sector').empty();
+                        $('#sector').append('<option value="">Select Sector</option>');
+                        $.each(data, function(key, value) {
+                            $('#sector').append('<option value="'+ key +'">'+ value +'</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#sector').empty();
+                $('#sector').append('<option value="">Select Sector</option>');
+            }
+        });
+    });
+</script>
 <script>
     let selectedFiles = [];
 
@@ -533,30 +497,5 @@
             reader.readAsDataURL(file); // Convert file to base64 string
         });
     }
-</script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#city').on('change', function() {
-            var cityId = $(this).val();
-            if(cityId) {
-                $.ajax({
-                    url: '{{ route("getSectorsByCity") }}',
-                    type: 'GET',
-                    data: {city_id: cityId},
-                    dataType: 'json',
-                    success: function(data) {
-                        $('#sector').empty();
-                        $('#sector').append('<option value="">Select Sector</option>');
-                        $.each(data, function(key, value) {
-                            $('#sector').append('<option value="'+ key +'">'+ value +'</option>');
-                        });
-                    }
-                });
-            } else {
-                $('#sector').empty();
-                $('#sector').append('<option value="">Select Sector</option>');
-            }
-        });
-    });
 </script>
 @endsection

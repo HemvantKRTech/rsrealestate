@@ -533,7 +533,10 @@
                               <div class="ic showHide_rp">
                                  <div class="mt10px">
                                     @foreach ($city as $item)
-                                    <span class="dib p5px10px c2px headVr mr7px mb7px "><a href="{{route('city.details',$item->name)}}" class="dif " title="Properties in {{$item->name}}">{{$item->name}}</a> <b class="alpha50 bn small">({{$item->property_count}})</b></span>
+                                    <span class="dib p5px10px c2px headVr mr7px mb7px ">
+                                       <a href="{{route('city.details',$item->name)}}" class="dif " title="Properties in {{$item->name}}">{{$item->name}}</a> 
+                                       {{-- <b class="alpha50 bn small">({{$item->property_count}})</b> --}}
+                                    </span>
                                         
                                     @endforeach
                                     

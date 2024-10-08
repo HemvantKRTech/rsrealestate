@@ -8,10 +8,10 @@
 
     <div class="h h2 fw6"><b class="plusMinus"></b> Send an enquiry for this property?</div>
     <div class="showHide_rp mt7px">
-        <p><span class="alpha75">Contact Person</span> : Mr. Satinder Singh Chadha </p>
+        <p><span class="alpha75">Contact Person</span> : {{$sitesetting->site_title}} </p>
         <div class="fo mt15px">
             <span class="db bdr p12px pl20px pr20px xxlarge">
-                <i class="fa fa-phone mr5px"></i> <span class="dif"> 9872023591 </span>
+                <i class="fa fa-phone mr5px"></i> <span class="dif"> {{$sitesetting->calling_mobile}} </span>
             </span>
         </div>
         <!-- Update form action to Laravel route -->
