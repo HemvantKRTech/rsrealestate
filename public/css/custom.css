@@ -311,6 +311,7 @@ footer{
 }
 .resetbtn{
     background-color: #000;
+    color: #fff;
 }
 .post-property-form{
     background-color: #fb6a19;
@@ -372,4 +373,9 @@ a.testbtn:hover{
 }
 .dimension a:hover{
     color: #fb6a19 !important;
+}
+.btn-color{
+    background-color: #fb6a19;
+    color: #fff;
+    border-style: none;
 }

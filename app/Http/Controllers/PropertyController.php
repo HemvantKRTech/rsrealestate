@@ -50,7 +50,7 @@ class PropertyController extends Controller
             'airport_distance' => '',
             'bank_distance' => '',
             'description' => '',
-            'images.*' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,avi,mkv',
+            'images.*' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,avi,mkv|max:5120',
         ]);
     
         // Store the form data into the database
@@ -257,7 +257,7 @@ class PropertyController extends Controller
         'facing' => 'nullable|string',
         'price' => 'required|numeric|min:0',
         'negotiable' => 'nullable|string',
-        'images.*' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,avi,mkv',
+        'images.*' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,avi,mkv|max:5120',
         'description' => 'nullable|string',
         'hospital_distance' => 'nullable|numeric',
         'atm_distance' => 'nullable|numeric',

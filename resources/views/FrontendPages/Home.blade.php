@@ -23,7 +23,7 @@
          </div>
        
          <script>jQuery(window).load(function() {
-            jQuery('#fluid_dg_slider').fluid_dg({thumbnails: false,height:'40%',navigationHover:true,loader:'none',minHeight:'100',hover:'false',playPause:'false',pagination:false,time:4000});});
+            jQuery('#fluid_dg_slider').fluid_dg({thumbnails: false,height:'28%',navigationHover:true,loader:'none',minHeight:'100',hover:'false',playPause:'false',pagination:false,time:4000});});
          </script> 
          @include('component.search_form')
       </div>
@@ -31,7 +31,7 @@
 
       <div id="middle">
       <div id="bodyFormatNT" class="evenOdd">
-         <section class="pt20px pb20px horizontal3">
+         <section class="pb20px horizontal3">
             <br> 
             <div class="wrap">
                <div class="mc horizontal180291 hot bdr0">
@@ -39,12 +39,12 @@
                   <div class="saleRent">
                      <div class="row1 dt">
                         <div class="large">
-                           <div class="pt15px property-selle-rent">
+                           <div class="property-selle-rent">
                               <div class="">
-                                 <span class="db mb10px">Featured Property</span>
+                                 {{-- <span class="db mb10px">Featured Property</span> --}}
                                  <h2 class="xxxlarge b dif" style="font-size:32px">For Sale</h2>
                               </div>
-                              <div class="mt10px lh15em">Our Latest listed properties and check out the facilities on them.</div>
+                              <div class="lh15em">Our Latest listed properties and check out the facilities on them.</div>
                            </div>
                         </div>
                         </div>
@@ -92,12 +92,12 @@
                   <div class="saleRent">
                      <div class="row1 dt">
                         <div class="large">
-                           <div class="pt15px property-selle-rent">
+                           <div class="property-selle-rent">
                               <div class="">
-                                 <span class="db mb10px">Featured Property</span>
+                                 {{-- <span class="db mb10px">Featured Property</span> --}}
                                  <h2 class="xxxlarge b dif" style="font-size:32px">For Rent</h2>
                               </div>
-                              <div class="mt10px lh15em">Our Latest listed properties and check out the facilities on them.</div>
+                              <div class="lh15em">Our Latest listed properties and check out the facilities on them.</div>
                            </div>
                         </div>
                         </div>

@@ -164,7 +164,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Construction Status <b class="star">*</b>&nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Construction Status &nbsp;</td>
                             <td class="w70 data p5px">
                             <select id="construction_status" name="construction_status" class="form-control">
                                 <option value="">select</option>
@@ -179,7 +179,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="w30 headVr p5px ar b">Listed by <b class="star">*</b>&nbsp;</td>
+                            <td class="w30 headVr p5px ar b">Listed by &nbsp;</td>
                             <td class="w70 data p5px">
                             <select id="listed_by" name="listed_by" class="form-control">
                                 <option value="">select</option>
@@ -295,10 +295,12 @@
         @error('images')
         <div class="text-danger">{{ $message }}</div>
         @enderror
+        <br>
+        <div class="row mt-3">
+            <div class="col" id="imagePreview" style="display: inline-block"></div>
+        </div>
     </td>
-    <div class="row mt-3">
-        <div class="col" id="imagePreview"></div>
-    </div>
+   
     
 </tr>
 
@@ -410,9 +412,10 @@
                         
                         <tr>
                             <td colspan="2" class="p10px ac">
-                                <button type="submit"  class="button p10px pl15px pr15px b">Submit</button>
+                                <button type="submit"  class="button p10px pl15px pr15px b btn-color">Submit</button>
                             {{-- <input type="submit" name="submit" value="Submit" class="button p10px pl15px pr15px b"> --}}
-                            <input type="reset" name="reset" value="Reset" class="resetbtn p10px pl15px pr15px b">
+                            <button type="reset"  class="button p10px pl15px pr15px b btn-color">Reset</button>
+
                             </td>
                             
                         </tr>
