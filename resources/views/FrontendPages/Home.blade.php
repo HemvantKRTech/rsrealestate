@@ -128,6 +128,7 @@
                                     
                                  </ul>
                               </div>
+                              <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum dolore, soluta eligendi excepturi officiis ut porro quae laborum ab eos culpa, corporis, corrupti possimus delectus voluptates modi optio earum exercitationem!</p> -->
                            </div>
                         </div>
                      
@@ -612,7 +613,7 @@
                   <h1 class="hd_NT ttu">About R.S Real Estate</h1>
                </div>
                <div class="welcome aj ls large lh17em">
-                  <p style="text-align: justify;">R S REAL ESTATE deemed as a highly venerated real estate agent serving the clients in Mohali and Chandigarh worthwhile services. We are headquartered in Mohali, Punjab and which is also the reveled work station of many highly qualified and experienced professionals associated with us. <b class="dif ml7px"><a href="about-us.html">Read more...</a></b></p>
+                  <p style="text-align: justify;">R S REAL ESTATE deemed as a highly venerated real estate agent serving the clients in Mohali and Chandigarh worthwhile services. We are headquartered in Mohali, Punjab and which is also the reveled work station of many highly qualified and experienced professionals associated with us. <b class="dif ml7px"><a href="{{route('about-us')}}">Read more...</a></b></p>
                </div>
             </div>
             <br>

@@ -11,13 +11,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h3 class="mb-4">Edit the City</h3>
-            <form action="{{ route('cities.update', $city->id) }}" method="POST">
+            <form action="{{ route('cities.update', $currentcity->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <!-- City Name -->
                 <div class="form-group">
                     <label for="cityName">City Name</label>
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="cityName" name="name" value="{{$city->name }}" required>
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="cityName" name="name" value="{{$currentcity->name }}" required>
                     @error('name')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -28,8 +28,8 @@
                     <label for="status">Status</label>
                     <select class="form-control @error('status') is-invalid @enderror" id="status" name="status" required>
                         <option value="">Select Status</option>
-                        <option value="active" {{ $city->status == 'active' ? 'selected' : '' }}>Active</option>
-                        <option value="inactive" {{ $city->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                        <option value="active" {{ $currentcity->status == 'active' ? 'selected' : '' }}>Active</option>
+                        <option value="inactive" {{ $currentcity->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
                     </select>
                     @error('status')
                         <div class="invalid-feedback">{{ $message }}</div>

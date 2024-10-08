@@ -25,6 +25,7 @@ class PropertyController extends Controller
         $validatedData = $request->validate([
             'category'=>'required',
             'type' => 'required',
+<<<<<<< HEAD
             'bedrooms' => '',
             'bathrooms' => '',
             'furnishing' => '',
@@ -37,6 +38,20 @@ class PropertyController extends Controller
             'floor_no' => '',
             'car_parking' => '',
             'facing' => '',
+=======
+            'bedrooms' => 'required',
+            'bathrooms' => 'required',
+            'furnishing' => 'required',
+            'construction_status' => 'required',
+            'listed_by' => 'required',
+            'super_builtup_area' => 'required|numeric|min:0',
+            'carpet_area' => 'required|numeric|min:0',
+            'maintenance' => 'required|numeric|min:0',
+            'total_floors' => 'required|numeric|min:0',
+            'floor_no' => 'required|numeric|min:0',
+            'car_parking' => 'required',
+            'facing' => 'required',
+>>>>>>> b1b89b767dd5fe8db63ebefa27a58bfb7f2f4bcc
             'project_name' => '',
             'ad_title' => '',
             'price' => 'required|numeric|min:0',

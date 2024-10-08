@@ -30,19 +30,51 @@
         </div>
 
         <div class="row mt-3">
-        <div class="col">
-            <label for="type">Property Type *</label>
-            <select id="type" name="type" class="form-control">
-                <option value="">Select Property Type</option>
-                @foreach ($types as $item)
-                    <option value="{{ $item->id }}" {{ old('type') == $item->id ? 'selected' : '' }}>
-                        {{ $item->name }}
-                    </option>
-                @endforeach
-            </select>
-            @error('type')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
+
+            <div class="col">
+                <label for="type">Property Type *</label>
+                <select id="type" name="type" class="form-control">
+                    <option value="">Select Property Type</option>
+                    @foreach ($types as $item)
+                        <option value="{{ $item->id }}" {{ old('type') == $item->id ? 'selected' : '' }}>
+                            {{ $item->name }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('type')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col">
+                <label for="bedrooms">Bedrooms</label>
+                <select id="bedrooms" name="bedrooms" class="form-control">
+                <option value="1">Select</option>
+                    <option value="1">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="4+">4+</option>
+                </select>
+                @error('bedrooms')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col">
+                <label for="bathrooms">Bathrooms *</label>
+                <select id="bathrooms" name="bathrooms" class="form-control">
+                    <option value="1">Select</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="4+">4+</option>
+                </select>
+                @error('bathrooms')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
         </div>
         <div class="col">
             <label for="bedrooms">Bedrooms</label>
@@ -75,19 +107,43 @@
         </div>
     </div>
 
-    <!-- Continue for other fields with similar modifications using old() -->
-    <div class="row mt-3">
-        <div class="col">
-            <label for="furnishing">Furnishing</label>
-            <select id="furnishing" name="furnishing" class="form-control">
-            <option value="">Select</option>
-                <option value="furnished" {{ old('furnishing') == 'furnished' ? 'selected' : '' }}>Furnished</option>
-                <option value="semi_furnished" {{ old('furnishing') == 'semi_furnished' ? 'selected' : '' }}>Semi-Furnished</option>
-                <option value="unfurnished" {{ old('furnishing') == 'unfurnished' ? 'selected' : '' }}>Unfurnished</option>
-            </select>
-            @error('furnishing')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
+        <!-- Furnishing, Construction Status, Listed by -->
+        <div class="row mt-3">
+            <div class="col">
+                <label for="furnishing">Furnishing</label>
+                <select id="furnishing" name="furnishing" class="form-control">
+                <option value="">Select</option>
+                    <option value="furnished" {{ old('furnishing') == 'furnished' ? 'selected' : '' }}>Furnished</option>
+                    <option value="semi_furnished" {{ old('furnishing') == 'semi_furnished' ? 'selected' : '' }}>Semi-Furnished</option>
+                    <option value="unfurnished" {{ old('furnishing') == 'unfurnished' ? 'selected' : '' }}>Unfurnished</option>
+                </select>
+                @error('furnishing')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col">
+                <label for="construction_status">Construction Status *</label>
+                <select id="construction_status" name="construction_status" class="form-control">
+                    <option value="new_launch">New Launch</option>
+                    <option value="ready_to_move">Ready to Move</option>
+                    <option value="under_construction">Under Construction</option>
+                </select>
+                @error('construction_status')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col">
+                <label for="listed_by">Listed by</label>
+                <select id="listed_by" name="listed_by" class="form-control">
+                <option value="builder">Select</option>
+                    <option value="builder">Builder</option>
+                    <option value="dealer">Dealer</option>
+                    <option value="owner">Owner</option>
+                </select>
+                @error('listed_by')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
         </div>
         <div class="col">
             <label for="construction_status">Construction Status</label>

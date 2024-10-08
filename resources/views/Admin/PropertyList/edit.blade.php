@@ -45,8 +45,9 @@
                 @enderror
             </div>
             <div class="col">
-                <label for="bedrooms">Bedrooms *</label>
+                <label for="bedrooms">Bedrooms </label>
                 <select id="bedrooms" name="bedrooms" class="form-control">
+                    <option value="0" {{ $property->bedrooms == '0' ? 'selected' : '' }}>0</option>
                     <option value="1" {{ $property->bedrooms == '1' ? 'selected' : '' }}>1</option>
                     <option value="2" {{ $property->bedrooms == '2' ? 'selected' : '' }}>2</option>
                     <option value="3" {{ $property->bedrooms == '3' ? 'selected' : '' }}>3</option>
@@ -74,7 +75,7 @@
 
         <div class="row">
             <div class="col">
-                <label for="furnishing">Furnishing *</label>
+                <label for="furnishing">Furnishing </label>
                 <select id="furnishing" name="furnishing" class="form-control">
                     <option value="furnished" {{ $property->furnishing == 'furnished' ? 'selected' : '' }}>Furnished</option>
                     <option value="semi_furnished" {{ $property->furnishing == 'semi_furnished' ? 'selected' : '' }}>Semi-Furnished</option>
@@ -96,7 +97,7 @@
                 @enderror
             </div>
             <div class="col">
-                <label for="listed_by">Listed by *</label>
+                <label for="listed_by">Listed by </label>
                 <select id="listed_by" name="listed_by" class="form-control">
                     <option value="builder" {{ $property->listed_by == 'builder' ? 'selected' : '' }}>Builder</option>
                     <option value="dealer" {{ $property->listed_by == 'dealer' ? 'selected' : '' }}>Dealer</option>
@@ -181,14 +182,14 @@
                 @enderror
             </div>
             <div class="col">
-                <label for="project_name">Project Name *</label>
+                <label for="project_name">Project Name </label>
                 <input id="project_name" name="project_name" type="text" class="form-control" maxlength="70" value="{{ $property->project_name }}">
                 @error('project_name')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
             <div class="col">
-                <label for="ad_title">Ad Title *</label>
+                <label for="ad_title">Ad Title </label>
                 <input id="ad_title" name="ad_title" type="text" class="form-control" maxlength="70" value="{{ $property->ad_title }}">
                 @error('ad_title')
                     <div class="text-danger">{{ $message }}</div>

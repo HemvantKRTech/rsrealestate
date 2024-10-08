@@ -189,7 +189,7 @@
                 </div>
                 <div class="abs-cont pa lh15em al p10px15px large">
                     <h2>
-                        <a href="{{ route('property.show', $item->id) }}" title="{{ $item->ad_title }}">
+                        <a href="{{ route('propertydetail', $item->id) }}" title="{{ $item->ad_title }}">
                             {{ Str::limit($item->ad_title, 50) }}
                         </a>
                     </h2>
@@ -210,11 +210,11 @@
                 </p>
             </div>
             <div class="mb10px small alpha75 absBtmBtn ac">
-                <form class="inquiry-form" name="prop_{{ $item->id }}" id="prop_{{ $item->id }}" method="post" action="{{ route('inquiries.store', $item->id) }}">
+                <!-- <form class="inquiry-form" name="prop_{{ $item->id }}" id="prop_{{ $item->id }}" method="post" action="{{ route('propertydetail', $item->id) }}">
                     <input type="hidden" name="enqtype" value="property" />
                     <input type="hidden" name="subject" value="Inquiry For Property - {{ $item->ad_title }} - REI{{ $item->id }}" />
                     <input type="hidden" name="property_id" value="{{ $item->id }}" />
-                </form>
+                </form> -->
                 <a href="{{ route('propertydetail', $item->id) }}" class="large data c5px dib p17px pt7px pb7px view-details">View Details</a>
                 <a href="javascript:void(0);" class="submit-inquiry large buttonBig ts0 c5px dib p17px pt7px pb7px">Send Enquiry</a>
             </div>

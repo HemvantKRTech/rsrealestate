@@ -400,7 +400,7 @@
                                     <li><a href="{{route('home')}}" title="Home" >Home</a></li>
                                     <li ><a href="{{route('about-us')}}" title="About Us" >About Us</a></li>
                                     <li >
-                                       <a href="find-property.html" title="Find Property" >Find Property</a>
+                                       <a href="#" title="Find Property" >Find Property</a>
                                        <ul class="menu_style">
                                           <li class="menu-arrow menu-arrow-top ac cp bdr0"></li>
                                           @foreach($cities as $city)
@@ -423,14 +423,14 @@
                                           <li class="menu-arrow menu-arrow-down ac cp bdr0"></li>
                                        </ul>
                                     </li>
-                                    <li >
+                                    <!-- <li >
                                        <a href="our-projects.html" title="Our Projects" >Our Projects</a>
                                        <ul class="menu_style">
                                           <li class="menu-arrow menu-arrow-top ac cp bdr0"></li>
                                           <li class="liH" ><a href="hero-homes-in-sector-88-mohali/index.html" title="Hero Homes" >Hero Homes</a></li>
                                           <li class="menu-arrow menu-arrow-down ac cp bdr0"></li>
                                        </ul>
-                                    </li>
+                                    </li> -->
                                     <li >
                                        <a href="javascript:;" title="Our Services" >Our Services</a>
                                        <ul class="menu_style">
