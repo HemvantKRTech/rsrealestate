@@ -91,13 +91,12 @@
                 <br style="content:'';display:inline-block;width:100%;height:15px;" />
                 <!-- header ends -->
 
-                <div class="aj">R S REAL ESTATE deemed as a highly venerated real estate agent serving the clients in Mohali and Chandigarh worthwhile services. We are headquartered in Mohali, Punjab and which is also the reveled work station of many highly qualified
-                    and experienced professionals associated with us. Do you want to invest in some property? Do you need any assistance related to buying, selling, renting and leasing? We provide services for all these and our gamut of services also
-                    include building construction services and property legal advisory services. We deal in all type of property verticals such as residential, commercial, industrial and agricultural. R S REAL ESTATE was established in 2009 and the company
-                    is being run and owned by Mr. Satinder Singh Chadha. the CEO of the company, he has ingrained the values like honesty and perseverance deeply in the employees of the company. Today the company is swinging in the winds of success due
-                    to the hard efforts of the team that leave no stone unturned to give the clients one big wow every time they attain services from us. We are philosophical and believe giving something to others is also a need and we satiate this human
-                    need of ours by offering honest and an impressive value of money to those who purchase our services.
+                <div class="aj">Welcome to Arora Estates, your trusted partner in real estate solutions. With a deep understanding of the property market, we specialize in offering a comprehensive range of services, including buying, selling, and renting properties. Whether you're looking for your dream home, a commercial space, or an investment opportunity, we bring you tailored solutions that meet your needs.
 
+                    At Arora Estate, we pride ourselves on our professionalism, market expertise, and commitment to providing exceptional customer service. Our dedicated team is here to guide you through every step of your real estate journey, ensuring a smooth and stress-free experience.
+                    
+                    Let Arora Estate be the bridge to your perfect property solution.
+                    <br>
                     <b>Services:-</b>
                     <ul>
                         <li>We offer services related to buying, selling, renting and leasing of residential, commercial, industrial and agricultural properties.</li>
