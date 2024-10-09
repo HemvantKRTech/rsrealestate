@@ -127,6 +127,7 @@ display: none;
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <li><a class="dropdown-item" href="{{route('site_title')}}">Site Title</a></li>
                 <li><a class="dropdown-item" href="{{route('meta-tags')}}">Meta Tags</a></li>
+                <li><a class="dropdown-item" href="{{route('news')}}">News</a></li>
                 
             </ul>
         </li>

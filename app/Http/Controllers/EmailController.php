@@ -47,4 +47,20 @@ class EmailController extends Controller
 
         return redirect()->back()->with('mailsuccess', 'Your message has been sent successfully.');
     }
+    public function submitEnquirypop(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:15',
+            'message' => 'required|string|max:4096',
+        ]);
+
+       
+        Mail::to([ $this->adminEmail])->send(new Toadmin($validated));
+        
+
+        return response()->json(['mailsuccess' => 'Your message has been sent successfully.']);
+
+    }
 }

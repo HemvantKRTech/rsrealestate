@@ -13,11 +13,12 @@ Route::get('/', function () {
     $images = json_decode($banners->images, true); 
     $saleproperty=Property::where('category_id',5)->get();
     $rentproperty=Property::where('category_id',3)->get();
+    $upcomingproperty=Property::where('category_id',7)->get();
     $leaseproperty=Property::where('category_id',4)->get();
     $category=Category::where('status','active')->get();
     $salesectors = Sector::withCount('properties')->get();
     // dd($sectors);
-    return view('FrontendPages.Home',compact('services','images','saleproperty','rentproperty','leaseproperty','category','salesectors'));
+    return view('FrontendPages.Home',compact('upcomingproperty','services','images','saleproperty','rentproperty','leaseproperty','category','salesectors'));
 })->name('home');
 
 

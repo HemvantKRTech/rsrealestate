@@ -1,3 +1,11 @@
+<div class="marquee">
+   <marquee class="specing" behavior="scroll" direction="left" scrollamount="5">
+       @foreach($newss as $item)
+           <span style="margin-right: 50px;">{{ $item->news }}</span>
+       @endforeach
+   </marquee>
+</div>
+
 <header class="navF1_format">
       <!-- <div class="headFormat f6 hd_new smsEmailTop"> -->
          <div class="wrap">

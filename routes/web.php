@@ -28,6 +28,7 @@ Route::get('category/{category}',[PropertyController::class,'catproshow'])->name
 Route::get('/api/sectors/{cityId}', [PropertyController::class, 'getSectorsByCitys']);
 Route::get('/send-email', [EmailController::class, 'sendEmail'])->name('send.email');
 Route::post('/property-enquiry', [EmailController::class, 'submitEnquiry'])->name('property.enquiry.submit');
+Route::post('/property-enquirypop', [EmailController::class, 'submitEnquirypop'])->name('property.enquiry.submitpop');
 Route::post('post-property', [PropertyController::class, 'frontendstore'])->name('frontendproperty.store');
 // In your web.php file
 Route::get('/search', [PropertyController::class, 'search'])->name('search_property');
@@ -63,6 +64,16 @@ Route::middleware('auth:admin')->group(function () {
         Route::put('sector/{id}', [AdminController::class, 'updatesector'])->name('sector.update');
         Route::get('propertytype/create', [AdminController::class, 'propertytypecreate'])->name('propertytype.create');
         Route::post('propertytype', [AdminController::class, 'propertystore'])->name('propertytype.store');
+
+
+        // Route::post('/propertytype/store', [AdminController::class, 'substore'])->name('propertytype.store');
+        Route::post('/subpropertytype/store', [AdminController::class, 'subpropertystore'])->name('subpropertytype.store');
+        Route::post('subpropertytype/{id}/toggle-status', [AdminController::class, 'toggleStatus'])->name('subpropertytype.toggleStatus');
+Route::delete('subpropertytype/{id}', [AdminController::class, 'subdestroy'])->name('subpropertytype.destroy');
+
+    
+
+
         Route::get('allpropertytype', [AdminController::class, 'allpropertytype'])->name('propertytype.all');
         Route::delete('/destroyproperty/{id}', [AdminController::class, 'destroyproperty'])->name('property.destroy');
         Route::get('propertytype/{id}/edit', [AdminController::class, 'propertyedit'])->name('propertytype.edit');
@@ -88,10 +99,16 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('settings/site-title', [SettingController::class,'index'])->name('site_title');
         Route::post('settings/site-title', [SettingController::class, 'storeSiteTitle'])->name('admin.settings.siteTitle.store');
         Route::get('settings/meta-tags', [SettingController::class,'meta'])->name('meta-tags');
+        Route::get('settings/news', [SettingController::class,'news'])->name('news');
+        Route::post('settings/storenews', [SettingController::class,'storenews'])->name('storenews');
         Route::post('settings/site-meta', [SettingController::class, 'storeSiteMeta'])->name('meta-tags.store');
-        
+        // Route::post('storenews', [SettingController::class, 'store'])->name('storenews');
+Route::patch('toggle-status/{id}', [SettingController::class, 'toggleStatus'])->name('toggle.status');
+Route::delete('delete-news/{id}', [SettingController::class, 'deleteNews'])->name('delete.news');
+
 
     });
 });
+Route::get('/subproperties/{id}', [AdminController::class, 'getSubproperties']);
 Route::get('/get-sectors-by-city', [PropertyController::class, 'getSectorsByCity'])->name('getSectorsByCity');
 require __DIR__ . '/fontend.php';

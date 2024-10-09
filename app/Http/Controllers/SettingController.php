@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Setting;
 use App\Models\Metatag;
+use App\Models\SiteNews; 
 class SettingController extends Controller
 {
     public function index(){
@@ -66,5 +67,41 @@ class SettingController extends Controller
 
         return redirect()->back()->with('success', 'Meta tags saved successfully.');
     }
+
+    public function news(){
+        $newsItems = SiteNews::all(); 
+        return view("Admin.setting.news", compact('newsItems'));
+    }
+    public function storenews(Request $request){
+        $request->validate([
+            'news' => 'required|string',
+            'status' => 'required|in:active,inactive',
+        ]);
+
+        // Create a new record in the sitenews table
+        SiteNews::create([
+            'news' => $request->input('news'),
+            'status' => $request->input('status') === 'active' ? 'active' : 'inactive', // Convert to enum value
+        ]);
+
+        // Redirect back with a success message
+        return redirect()->back()->with('message', 'News saved successfully!');
+    }
+    public function toggleStatus($id)
+{
+    $news = SiteNews::findOrFail($id);
+    $news->status = $news->status === 'active' ? 'inactive' : 'active';
+    $news->save();
+
+    return redirect()->back()->with('message', 'News status updated successfully!');
+}
+
+public function deleteNews($id)
+{
+    $news = SiteNews::findOrFail($id);
+    $news->delete();
+
+    return redirect()->back()->with('message', 'News deleted successfully!');
+}
     
 }

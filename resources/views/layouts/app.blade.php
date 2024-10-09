@@ -53,6 +53,186 @@
       <script type="application/ld+json">{ "@context": "https://schema.org", "@type": "RealEstateAgent", "name": "R S Real Estate", "priceRange": "$$", "image": "https://catalog.wlimg.com/3/88260/other-images/12569-comp-image.png", "logo": "https://catalog.wlimg.com/3/88260/other-images/12569-comp-image.png", "description": "R S Real Estate is a highly venerated Real Estate Agent Serving the Clients in Mohali and Chandigarh Services related to Buy, Sell, Rent &amp; Lease of Properties,Real Estate Agent in Mohali,Flats for Sale in S.A.S. Nagar Mohali.", "url" : "https://www.chandigarhhouse.com", "sameAs" : [ ""],	"address": {	"@type": "PostalAddress",	"streetAddress": "SCF-19 , 2nd Floor",	"addressLocality": "Phase 7, Mohali",	"addressRegion": "Punjab",	"postalCode": "",	"addressCountry": "India",	"telephone" : "+91-9872023591",	"email": "chadha_in@yahoo.com" }, "contactPoint" : [	{ "@type" : "ContactPoint",	"telephone" : "+91-9872023591",	"contactType" : "Customer Support",	"contactOption" : "TollFree",	"areaServed" : "India"	} ] }</script><script type="application/ld+json" >[	{ "@context": "www.schema.org",	"@type": "LocalBusiness",	"name": "R S Real Estate",	"url": "https://www.chandigarhhouse.com",	"image": "https://catalog.wlimg.com/3/88260/other-images/12569-comp-image.png",	"description": "R S Real Estate is a highly venerated Real Estate Agent Serving the Clients in Mohali and Chandigarh Services related to Buy, Sell, Rent &amp; Lease of Properties,Real Estate Agent in Mohali,Flats for Sale in S.A.S. Nagar Mohali.",	"telephone": "+91-9872023591",	"address": {	"@type": "PostalAddress",	"streetAddress": "SCF-19 , 2nd Floor",	"addressLocality": "Phase 7, Mohali",	"addressRegion": "Punjab",	"postalCode": "",	"addressCountry": "India"	},	"geo": {	"@type": "GeoCoordinates",	"latitude": "30.704",	"longitude": "76.7296"	}	}	]</script><script src="https://catalog.wlimg.com/main-common/jquery.ui.totop.js"></script><script>jQuery(document).ready(function(e){	jQuery().UItoTop({ easingType:'easeOutQuart' });	});</script>
    </head>
    <body>
+      <div class="popup-container" id="popup-container">
+         <div class="popup">
+             <!-- Close Button -->
+             <span class="close-popup" id="close-popup" aria-label="Close Popup">&times;</span>
+             
+             <!-- Popup Content -->
+             <div class="ac fancy-popup darkBdr" style="max-width:700px;padding:0px;">
+                 <div class="ffos large pr lh17em">
+                     <!-- Inquiry Form -->
+                     <form id="inquiryForm" name="form1" method="post" action="{{ route('property.enquiry.submitpop') }}" onsubmit="return frmvalidation();">
+                         @csrf 
+                         <div class="p25px pb15px db headVr bdr0 enq-form">
+                             <div class="ffrc xxxlarge mb20px db ac">Instant Inquiry to <span class="dif">{{ $sitesetting->site_title }}</span></div>
+                             <div id="form-message" style="display: none; color: green; margin-bottom: 15px;"></div>
+                             <ul class="fo">
+                                 <li class="input-3-33">
+                                     <div>
+                                         <input type="text" name="name" id="your_name" placeholder="* Your Name" required>
+                                     </div>
+                                 </li>
+                                 <li class="input-3-33">
+                                     <div>
+                                         <input type="text" name="phone" id="mobile" onkeyup="return NotIsNumeric(this.value);" placeholder="* Your Mobile No" required>
+                                     </div>
+                                 </li>
+                                 <li class="input-3-33">
+                                     <div>
+                                         <input type="email" name="email" id="email" placeholder="* Your Email Id" required>
+                                     </div>
+                                 </li>
+                             </ul>
+                             <div class="input-3-100 lh0">
+                                 <div>
+                                     <textarea rows="3" placeholder="Your Query" name="message" required></textarea>
+                                 </div>
+                             </div>
+                             <div class="ac">
+                                 <input class="button p10px20px dib c3px large w200px" name="submit_frm" type="submit" value="Send Inquiry">
+                             </div>
+                         </div>
+                     </form>
+     
+                     <!-- Contact Details -->
+                     <div class="p25px pb0px db data bdr0 bdrT bdreee tableStr">
+                         <div class="dt w100 ac-dtr acac-dtc al">
+                             <ul>
+                                 <li class="w120px alpha75">Contact Person</li>
+                                 <li class="w15px ac">:</li>
+                                 <li><span class="mb7px db">{{ $sitesetting->site_title }}</span></li>
+                             </ul>
+                             <ul>
+                                 <li class="alpha75">Address</li>
+                                 <li class="w5px ac">:</li>
+                                 <li><span class="black mb7px db">{{ $sitesetting->address }}</span></li>
+                             </ul>
+                             <ul>
+                                 <li class="alpha75">Mobile No.</li>
+                                 <li class="w5px ac">:</li>
+                                 <li><span class="mb7px db">{{ $sitesetting->mobile }}</span></li>
+                             </ul>
+                             <ul>
+                                 <li class="alpha75">Email ID</li>
+                                 <li class="w5px ac">:</li>
+                                 <li><span class="mb7px db"><a href="mailto:{{ $sitesetting->email }}" class="dif">{{ $sitesetting->email }}</a></span></li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+     
+     <!-- JavaScript for handling the form submission and popup -->
+     <script>
+         document.addEventListener('DOMContentLoaded', function () {
+             // Handle form submission
+             const form = document.getElementById('inquiryForm');
+             const messageDiv = document.getElementById('form-message');
+             const popupContainer = document.getElementById('popup-container');
+     
+             form.addEventListener('submit', function (event) {
+                 event.preventDefault(); // Prevent the default form submission
+                 
+                 // Clear previous messages
+                 messageDiv.style.display = 'none';
+                 messageDiv.textContent = '';
+     
+                 // Prepare form data
+                 const formData = new FormData(form);
+     
+                 fetch(form.action, {
+                     method: 'POST',
+                     body: formData,
+                     headers: {
+                         'X-Requested-With': 'XMLHttpRequest'
+                     }
+                 })
+                 .then(response => response.json())
+                 .then(response => {
+                     // Check if the response contains a success message
+                     if (response.mailsuccess) {
+                        form.reset();
+                         messageDiv.textContent = response.mailsuccess; // Show success message
+                     } else {
+                         messageDiv.textContent = 'There was an error sending your message. Please try again.'; // Show error message
+                     }
+     
+                     messageDiv.style.display = 'block'; // Show the message
+     
+                     // Close the form after 3 seconds
+                     setTimeout(function () {
+                         popupContainer.style.display = 'none'; // Close the popup
+                     }, 3000);
+                 })
+                 .catch(error => {
+                     messageDiv.textContent = 'An error occurred. Please try again later.'; // Show error message
+                     messageDiv.style.display = 'block'; // Show the message
+                     console.error(error);
+                 });
+             });
+     
+             // Close popup
+             const closePopupBtn = document.getElementById('close-popup');
+             closePopupBtn.addEventListener('click', function () {
+                 popupContainer.style.display = 'none'; // Hide the popup
+             });
+     
+             // Close popup when clicking outside of it
+             window.addEventListener('click', function (event) {
+                 if (event.target === popupContainer) {
+                     popupContainer.style.display = 'none'; // Hide the popup
+                 }
+             });
+         });
+     
+           // Check if popup has been shown before using localStorage
+    if (!localStorage.getItem('popupShown')) {
+        // Function to show the popup after a specific time
+        setTimeout(function () {
+            document.getElementById('popup-container').style.display = 'flex'; // Show the popup
+            localStorage.setItem('popupShown', 'true'); // Mark the popup as shown
+        }, 5000); // Show popup after 5 seconds
+    }
+     </script>
+     
+     <!-- Add CSS for the popup styling if needed -->
+     <style>
+         /* Basic styling for the popup */
+         .popup-container {
+             position: fixed;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+             display: none; /* Hidden by default */
+             justify-content: center;
+             align-items: center;
+             z-index: 1000;
+         }
+     
+         .popup {
+             background-color: white;
+             padding: 20px;
+             border-radius: 10px;
+             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+             max-width: 700px;
+             width: 100%;
+         }
+     
+         .close-popup {
+             position: absolute;
+             top: 10px;
+             right: 20px;
+             font-size: 24px;
+             cursor: pointer;
+             color: #fff;
+         }
+     </style>
+     
     @yield('content')
    </body>
    <!-- Mirrored from www.chandigarhhouse.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Aug 2024 08:50:01 GMT -->

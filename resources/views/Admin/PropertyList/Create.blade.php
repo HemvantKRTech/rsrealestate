@@ -29,17 +29,59 @@
 
         <div class="row mt-3">
             <div class="col">
-                <label for="type">Property Type *</label>
-                <select id="type" name="type" class="form-control">
+                <label for="property_type">Property Type *</label>
+                <select id="property_type" name="type" class="form-control">
                     <option value="">Select Property Type</option>
                     @foreach ($types as $item)
                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
                 </select>
-                @error('type')
+                @error('property_type')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
+            
+            <div class="col">
+                <label for="subproperty_type">Sub Property Type *</label>
+                <select id="subproperty_type" name="subproperty_type" class="form-control">
+                    <option value="">Select Sub Property Type</option>
+                </select>
+                @error('subproperty_type')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const propertyTypeSelect = document.getElementById('property_type');
+                    const subPropertyTypeSelect = document.getElementById('subproperty_type');
+            
+                    propertyTypeSelect.addEventListener('change', function() {
+                        const propertyTypeId = this.value;
+            
+                        // Clear previous subproperty options
+                        subPropertyTypeSelect.innerHTML = '<option value="">Select Sub Property Type</option>';
+            
+                        if (propertyTypeId) {
+                            // Fetch subproperties based on the selected property type
+                            fetch(`/subproperties/${propertyTypeId}`)
+                                .then(response => response.json())
+                                .then(data => {
+                                    data.subproperties.forEach(subproperty => {
+                                        const option = document.createElement('option');
+                                        option.value = subproperty.id;
+                                        option.textContent = subproperty.name;
+                                        subPropertyTypeSelect.appendChild(option);
+                                    });
+                                })
+                                .catch(error => {
+                                    console.error('Error fetching subproperties:', error);
+                                });
+                        }
+                    });
+                });
+            </script>
+            
             <div class="col">
                 <label for="bedrooms">Bedrooms</label>
                 <select id="bedrooms" name="bedrooms" class="form-control">
@@ -254,7 +296,7 @@
         </div>
         <div class="row mt-3">
             <div class="col">
-                <label for="price">Price *</label>
+                <label for="price">Price </label>
                 <input id="price" name="price" type="number" class="form-control" min="0" step="0.01" value="">
                 @error('price')
                     <div class="text-danger">{{ $message }}</div>

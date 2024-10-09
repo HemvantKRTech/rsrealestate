@@ -22,12 +22,19 @@
                        <div class="fl w175px">
                            <p class="mb2px b">Property Type</p>
                            <div class="mb10px">
-                               <select class="w90" name="property_type" aria-label="property_type">
-                                   <option value="">Any</option>
-                                   @foreach ($type as $item)
-                                       <option class="b" value="{{ $item->id }}">{{ $item->name }}</option>
-                                   @endforeach
-                               </select>
+                            <select class="w90" name="property_type" aria-label="property_type">
+                                <option value="">Any</option>
+                                @foreach ($type as $types)
+                                    <option value="{{ $types->id }}">{{ $types->name }}</option> <!-- Main Property Type -->
+                                    
+                                    @if ($types->subpropertyType->isNotEmpty()) <!-- Check if subproperties exist -->
+                                        @foreach ($types->subpropertyType as $subproperty)
+                                            <option value="{{ $subproperty->id }}">&nbsp;&nbsp;&nbsp;{{ $subproperty->name }}</option> <!-- Indent subproperty -->
+                                        @endforeach
+                                    @endif
+                                @endforeach
+                            </select>
+                            
                            </div>
                        </div>
                        <div class="fl w175px">

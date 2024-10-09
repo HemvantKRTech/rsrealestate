@@ -8,6 +8,13 @@ use App\Models\Category;
 use App\Models\City;
 use App\Models\Sector;
 use App\Models\PropertyType;
+use Illuminate\Support\Facades\Log;
+
+
+
+
+
+
 class PropertyController extends Controller
 {
     public function create()
@@ -21,87 +28,105 @@ class PropertyController extends Controller
 
     public function store(Request $request)
     {
-        // Validate the form inputs
-        $validatedData = $request->validate([
-            'category'=>'required',
-            'type' => 'required',
-            'bedrooms' => '',
-            'bathrooms' => '',
-            'furnishing' => '',
-            'construction_status' => '',
-            'listed_by' => '',
-            'super_builtup_area' => '',
-            'carpet_area' => '',
-            'maintenance' => '',
-            'total_floors' => '',
-            'floor_no' => '',
-            'car_parking' => '',
-            'facing' => '',
-            'project_name' => '',
-            'ad_title' => '',
-            'price' => 'required|numeric|min:0',
-            'address' => '',
-            'city' => 'required',
-            'sector' => 'required',
-            'hospital_distance' => '',
-            'atm_distance' => '',
-            'railway_distance' => '',
-            'school_distance' => '',
-            'airport_distance' => '',
-            'bank_distance' => '',
-            'description' => '',
-            'images.*' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,avi,mkv|max:5120',
-        ]);
+        try {
+            // Validate the form inputs
+            $validatedData = $request->validate([
+                'category' => 'required',
+                'type' => 'required',
+                'subproperty_type' => 'required',
+                'bedrooms' => '',
+                'bathrooms' => '',
+                'furnishing' => '',
+                'construction_status' => '',
+                'listed_by' => '',
+                'super_builtup_area' => '',
+                'carpet_area' => '',
+                'maintenance' => '',
+                'total_floors' => '',
+                'floor_no' => '',
+                'car_parking' => '',
+                'facing' => '',
+                'project_name' => '',
+                'ad_title' => '',
+                'price' => 'numeric|min:0',
+                'address' => '',
+                'city' => 'required',
+                'sector' => 'required',
+                'hospital_distance' => '',
+                'atm_distance' => '',
+                'railway_distance' => '',
+                'school_distance' => '',
+                'airport_distance' => '',
+                'bank_distance' => '',
+                'description' => '',
+                'images.*' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,avi,mkv|max:5120',
+            ]);
     
-        // Store the form data into the database
-        $property = new Property();
-        $property->category_id = $request->input('category');
-        $property->type = $request->input('type');
-        $property->bedrooms = $request->input('bedrooms');
-        $property->bathrooms = $request->input('bathrooms');
-        $property->furnishing = $request->input('furnishing');
-        $property->construction_status = $request->input('construction_status');
-        $property->listed_by = $request->input('listed_by');
-        $property->super_builtup_area = $request->input('super_builtup_area');
-        $property->carpet_area = $request->input('carpet_area');
-        $property->maintenance = $request->input('maintenance');
-        $property->total_floors = $request->input('total_floors');
-        $property->floor_no = $request->input('floor_no');
-        $property->car_parking = $request->input('car_parking');
-        $property->facing = $request->input('facing');
-        $property->project_name = $request->input('project_name');
-        $property->ad_title = $request->input('ad_title');
-        $property->price = $request->input('price');
-        $property->address = $request->input('address');
-        $property->city_id = $request->input('city');
-        $property->sector_id = $request->input('sector');
-        $property->hospital_distance = $request->input('hospital_distance');
-        $property->atm_distance = $request->input('atm_distance');
-        $property->railway_distance = $request->input('railway_distance');
-        $property->school_distance = $request->input('school_distance');
-        $property->airport_distance = $request->input('airport_distance');
-        $property->bank_distance = $request->input('bank_distance');
-        $property->description = $request->input('description');
+            // Store the form data into the database
+            $property = new Property();
+            $property->category_id = $request->input('category');
+            $property->type = $request->input('type');
+            $property->sub_type = $request->input('subproperty_type');
+            $property->bedrooms = $request->input('bedrooms');
+            $property->bathrooms = $request->input('bathrooms');
+            $property->furnishing = $request->input('furnishing');
+            $property->construction_status = $request->input('construction_status');
+            $property->listed_by = $request->input('listed_by');
+            $property->super_builtup_area = $request->input('super_builtup_area');
+            $property->carpet_area = $request->input('carpet_area');
+            $property->maintenance = $request->input('maintenance');
+            $property->total_floors = $request->input('total_floors');
+            $property->floor_no = $request->input('floor_no');
+            $property->car_parking = $request->input('car_parking');
+            $property->facing = $request->input('facing');
+            $property->project_name = $request->input('project_name');
+            $property->ad_title = $request->input('ad_title');
+            $property->price = $request->input('price');
+            $property->address = $request->input('address');
+            $property->city_id = $request->input('city');
+            $property->sector_id = $request->input('sector');
+            $property->hospital_distance = $request->input('hospital_distance');
+            $property->atm_distance = $request->input('atm_distance');
+            $property->railway_distance = $request->input('railway_distance');
+            $property->school_distance = $request->input('school_distance');
+            $property->airport_distance = $request->input('airport_distance');
+            $property->bank_distance = $request->input('bank_distance');
+            $property->description = $request->input('description');
     
-        // Handle image uploads
-        if ($request->hasFile('images')) {
-            $imageFiles = $request->file('images');
-            $imagePaths = [];
+            // Handle image uploads
+            if ($request->hasFile('images')) {
+                $imageFiles = $request->file('images');
+                $imagePaths = [];
     
-            foreach ($imageFiles as $image) {
-                // Store each image in the property_images folder and get its path
-                $imagePath = $image->store('property_images', 'public');
-                $imagePaths[] = $imagePath;
+                foreach ($imageFiles as $image) {
+                    // Store each image in the property_images folder and get its path
+                    $imagePath = $image->store('property_images', 'public');
+                    $imagePaths[] = $imagePath;
+                }
+    
+                // Save the array of image paths as a JSON string in the 'images' column
+                $property->images = json_encode($imagePaths);
             }
+            
+            // Save the property
+            $property->save();
     
-            // Save the array of image paths as a JSON string in the 'images' column
-            $property->images = json_encode($imagePaths);
+            // Redirect or return a response
+            return redirect()->back()->with('success', 'Property listed successfully.');
+    
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // Log validation errors
+            dd( $e->errors());
+            Log::error('Validation error: ', $e->errors());
+    
+            return redirect()->back()->withErrors($e->validator)->withInput();
+        } catch (\Exception $e) {
+            // Log the general error message
+            dd( $e->getMessage());
+            Log::error('Error saving property: ' . $e->getMessage());
+    
+            return redirect()->back()->with('error', 'An error occurred while saving the property.')->withInput();
         }
-    
-        $property->save();
-    
-        // Redirect or return a response
-        return redirect()->back()->with('success', 'Property listed successfully.');
     }
     
     public function categorycreate( Request $request){
@@ -255,7 +280,7 @@ class PropertyController extends Controller
         'floor_no' => 'nullable|integer',
         'car_parking' => 'nullable|integer',
         'facing' => 'nullable|string',
-        'price' => 'required|numeric|min:0',
+        'price' => 'numeric|min:0',
         'negotiable' => 'nullable|string',
         'images.*' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,mp4,mov,avi,mkv|max:5120',
         'description' => 'nullable|string',
@@ -350,7 +375,7 @@ class PropertyController extends Controller
 
     // Filter by property type
     if ($request->filled('property_type')) {
-        $query->where('type_id', $request->input('property_type'));
+        $query->where('type', $request->input('property_type'));
     }
 
     // Filter by city

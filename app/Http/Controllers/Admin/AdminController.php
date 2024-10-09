@@ -11,6 +11,10 @@ use App\Models\PropertyType;
 use App\Models\Banner;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Property;
+use App\Models\SubPropertytypes;
+
+
+
 class AdminController extends Controller
 {
     public function index(){
@@ -117,7 +121,33 @@ class AdminController extends Controller
         return redirect()->back()->with('success','Sector Updated   .');
     }
     public function propertytypecreate(){
-        return view('Admin.PropertyType.create');
+        $propertyTypes=PropertyType::where('status','active')->get();
+        return view('Admin.PropertyType.create',compact('propertyTypes'));
+    }
+    public function subpropertystore(Request $request){
+        $validated = $request->validate([
+            'subproperty_name' => 'required|string|max:255|unique:subproperty_types,name',
+            'property_type_id' => 'required|exists:property_types,id',
+            'substatus' => 'required|in:active,inactive',
+        ]);
+
+        try {
+            // Create the subproperty type
+            SubPropertytypes::create([
+                'name' => $validated['subproperty_name'],
+                'property_type_id' => $validated['property_type_id'],
+                'status' => $validated['substatus'],
+            ]);
+
+            // Return a JSON response with success message
+            return redirect()->back()->with('success','Sub  Property type created.');
+        } catch (\Exception $e) {
+            // Log the error for debugging
+            \Log::error('Error adding Subproperty Type: ' . $e->getMessage());
+
+            // Return a JSON response with error message
+            return redirect()->back()->with('error','Sub  Property type not created.');
+        }
     }
     public function propertystore(Request $request){
         $validatedData = $request->validate([
@@ -134,7 +164,27 @@ class AdminController extends Controller
     }
     public function allpropertytype(){
         $property=PropertyType::all();
-        return view('Admin.PropertyType.all',compact('property'));
+        $subproperties = SubPropertytypes::with('propertyType')->get();
+        return view('Admin.PropertyType.all',compact('property', 'subproperties'));
+    }
+    public function toggleStatus($id)
+    {
+        $subproperty = SubPropertytypes::findOrFail($id);
+
+        // Toggle the status between 'active' and 'inactive'
+        $subproperty->status = $subproperty->status === 'active' ? 'inactive' : 'active';
+        $subproperty->save();
+
+        return redirect()->back()->with('success', 'Subproperty status updated successfully.');
+    }
+
+    // Delete Subproperty
+    public function subdestroy($id)
+    {
+        $subproperty = SubPropertytypes::findOrFail($id);
+        $subproperty->delete();
+
+        return redirect()->back()->with('success', 'Subproperty deleted successfully.');
     }
     public function destroyproperty($id){
         $property=PropertyType::findOrFail($id);
@@ -168,6 +218,13 @@ class AdminController extends Controller
         $cities=City::where('status','active')->get();
        
         return view('Admin.PropertyList.Create',compact('types','categories','cities'));
+    }
+    public function getSubproperties($id){
+        // dd($id);
+        $subproperties = SubPropertytypes::where('property_type_id', $id)->get();
+        // dd($subproperties);
+        return response()->json(['subproperties' => $subproperties]);
+    
     }
     public function allpropertylist(){
         $properties=Property::with('propertyType')->paginate(10);

@@ -379,3 +379,11 @@ a.testbtn:hover{
     color: #fff;
     border-style: none;
 }
+.marquee{
+    height: 35px;
+    background: #fff2e6;
+}
+.specing{
+    margin-top: 7px;
+    color: #000;
+}

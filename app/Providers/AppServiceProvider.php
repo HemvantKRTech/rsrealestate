@@ -9,6 +9,7 @@ use App\Models\PropertyType;
 use Illuminate\Support\Facades\View;
 use App\Models\Service;
 use App\Models\Setting;
+use App\Models\SiteNews;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -38,7 +39,8 @@ class AppServiceProvider extends ServiceProvider
         });
         View::composer('component.search_form', function ($view) {
             $category = Category::where('status',1)->get(); 
-            $type = PropertyType::where('status','active')->get();
+            $type = PropertyType::where('status','active')->with('subpropertyType')->get();
+            // dd($type);
             $city = City::where('status','active')->get();// Fetch all cities
         
             $view->with([
@@ -59,13 +61,17 @@ class AppServiceProvider extends ServiceProvider
             $sitesetting=Setting::find(1);
             $city = City::all(); 
             $metatags=Metatag::all();
+            $newss = SiteNews::where('status','active')->get(); 
         // dd($hotProperties);
             $view->with([
                 'city' => $city,
                 'hotProperties' => $hotProperties,
                 'sitesetting'=>$sitesetting,
-                'metatags'=>$metatags
+                'metatags'=>$metatags,
+                'newss'=>$newss
             ]);
         });
+       
+       
     }
 }

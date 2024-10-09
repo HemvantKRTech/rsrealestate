@@ -198,6 +198,79 @@
                         <input type="hidden" name="form_id" value="10007">
                     </form>
                 </div>
+                <br>
+                <section class="pt20px pb10px topRightArrow bx1">
+                    <div class="fo">
+                        <div class="ac mb7px">
+                            <div>
+                                <h2 class="hd_NT">Explore More Services</h2>
+                            </div>
+                        </div>
+                        <div class="ic" id="1102_3-1">
+                            <div class="slider idv_eqheight">
+                                <div class="bx-wrapper" style="max-width: 1117px;">
+                                    <div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 299px;">
+                                        <ul class="bxslider987" style="width: 715%; position: relative; transition-duration: 1s;">
+                                            @foreach($allservices as $service)
+                                                <li class="ac cp" onclick="location.href='{{ route('service.show', $service->slug) }}';" style="float: left; list-style: none; position: relative; width: 268px; margin-right: 15px; height: 299px;">
+                                                    <div class="data p10px" style="height: 277.4px;">
+                                                        <div class="dib">
+                                                            <div class="imgFrame w250px h200px m0a">
+                                                                <div class="imgFrame w250px h200px picBg dtc ac vam lh0">
+                                                                    <a href="{{ route('service.show', $service->slug) }}" title="">
+                                                                        <img src="{{ asset('storage/' .$service->feature_image) }}" class="m0a" alt="{{ $service->service_name }}" title="{{ $service->service_name }}" style="max-width:100%; max-height:100%">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="dif b h xlarge pl5px pr5px lh12em mt10px">
+                                                                <a href="{{ route('service.show', $service->slug) }}" title="">{{ $service->service_name }}</a>
+                                                            </div>
+                                                            <div class="mt15px">
+                                                                <a class="buttonBig p5px15px ts0 br3px" href="{{ route('service.show', $service->slug) }}" title="">Read More</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    <div class="bx-controls bx-has-pager">
+                                        <div class="bx-pager bx-default-pager">
+                                            @foreach($allservices as $index => $service)
+                                                <div class="bx-pager-item">
+                                                    <a href="" data-slide-index="{{ $index }}" class="bx-pager-link">{{ $index + 1 }}</a>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <script>
+                                $(document).ready(function(){
+                                    $('.bxslider987').bxSlider({
+                                        mode: 'horizontal',
+                                        slideWidth: 268,
+                                        infiniteLoop: false,
+                                        minSlides: 1,
+                                        maxSlides: 4,
+                                        slideMargin: 15,
+                                        auto: true,
+                                        autoDirection: 'next',
+                                        moveSlides: 1,
+                                        pause: 3000,
+                                        pager: true,
+                                        pagerType: 'full',
+                                        autoControls: false,
+                                        controls: false,
+                                        autoHover: true,
+                                        speed: 1000
+                                    });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </section>
+                
                 <!-- footer -->
             </div>
         </div>

@@ -31,6 +31,60 @@
 
       <div id="middle">
       <div id="bodyFormatNT" class="evenOdd">
+         <section class="pt20px pb20px horizontal3">
+            <br> 
+            <div class="wrap">
+               <div class="mc horizontal180291 hot bdr0">
+                  <p class="cb"></p>
+                  <div class="saleRent">
+                     <div class="row1 dt">
+                        <div class="large">
+                           <div class="property-selle-rent">
+                              <div class="">
+                                 {{-- <span class="db mb10px">Featured Property</span> --}}
+                                 <h2 class="xxxlarge b dif" style="font-size:32px">Upcoming Projects</h2>
+                              </div>
+                              <div class="lh15em">Our Latest listed properties and check out the facilities on them.</div>
+                           </div>
+                        </div>
+                        </div>
+                        <div class="large">
+                           <div class="ic" id="1102_1-1">
+                              <div class="slider">
+                                 <ul class=" bxslider180291 rent-slider fo slide-border idv_eqheight">
+                                    @foreach ($upcomingproperty as $item)
+                                    <li>
+                                       <div>
+                                          <div class="imgFrame m0a ">
+                                             <div class="imgFrame picBg dtc ac vam lh0">
+                                                <a href="{{route('propertydetail',['propertyid' => $item->id])}}" title="5 BHK Individual Houses / Villas For Sale In Sector 77, Mohali (420 Sq. Yards)">
+                                                   <div class="imgWidth" style="background-image:url(https://rei.wlimg.com/prop_images/88260/1166797_10-350x350.jpeg);background-size:cover;background-position:center;"><img loading="lazy" src="https://rei.wlimg.com/prop_images/88260/1166797_10-350x350.jpeg"  width="350" height="233" alt="5 BHK Individual Houses / Villas For Sale In Sector 77, Mohali (420 Sq. Yards)"  ></div>
+                                                </a>
+                                             </div>
+                                          </div>
+                                          <div class="large b p10px mt5px"><a href="{{route('propertydetail',['propertyid' => $item->id])}}" title="5 BHK Individual Houses / Villas For Sale In Sector 77, Mohali (420 Sq. Yards)">{{$item->ad_title}}</a></div>
+                                          <div class="fo ac-fl pt5px b pb10px m0px b clfd-dot small">
+                                             <p class="w33 ac"><i class="si sqft w24px vam"></i> {{$item->super_builtup_area}} Sq.</p>
+                                             <p class="w33 ac"><i class="si bath w24px vam"></i> {{$item->bathrooms}}</p>
+                                             <p class="w33 ac"><i class="si bed w24px vam"></i> {{$item->bedrooms}}</p>
+                                          </div>
+                                       </div>
+                                    </li>
+                                    @endforeach
+                                    
+                                    
+                                 </ul>
+                              </div>
+                              <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum dolore, soluta eligendi excepturi officiis ut porro quae laborum ab eos culpa, corporis, corrupti possimus delectus voluptates modi optio earum exercitationem!</p> -->
+                           </div>
+                        </div>
+                     
+                  </div>
+                  <script> $(document).ready(function(){	$('.bxslider180291').bxSlider({	mode:'horizontal',	slideWidth: 252,maxSlides: 4,slideMargin: 10,auto: true,	autoDirection:'next',	moveSlides: 1,	pause:3000,	pager:false,	pagerType:'full',	autoControls: false,	controls:true,	autoHover:true,	speed:2500	}); });</script>
+               </div>
+            </div>
+            <br>
+         </section>
          <section class="pb20px horizontal3">
             <br> 
             <div class="wrap">
@@ -84,6 +138,12 @@
             </div>
             <br>
          </section>
+         
+
+
+
+
+
          <section class="pt20px pb20px horizontal3">
             <br> 
             <div class="wrap">

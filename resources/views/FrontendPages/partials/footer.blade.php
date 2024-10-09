@@ -96,17 +96,55 @@
                </div>
             </div>
          </div>
-         <div class="row1 dt bdrT bdreee columns12 mt12px">
-            <div class="col-1"> <span class="copyright">All Rights Reserved. <b>{{$sitesetting->site_title}}</b></span><br><span class="memberOf">Developed &amp; Managed By <a href="https://www.krtechnology.in/" rel="nofollow" target="_blank">KR Technology Pvt. Ltd.</a></span><br> </div>
-            <div class="col-2">
-               <div class="dib ml30px vab">
-                  <script> var tlJsHost = ((window.location.protocol == "index.html") ? "https://secure.trust-provider.com/" : "https://www.trustlogo.com/"); document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));</script>
-                  <span>
-                     <script> TrustLogo("https://www.positivessl.com/images/seals/positivessl_trust_seal_sm_124x32.png", "POSDV", "none");</script>
-                  </span>
-               </div>
-               <div class="dib vab"><span><a href="https://www.realestateindia.com/" target="_blank"><img src="https://catalog.wlimg.com/main-common/rei.png" width="133" height="44" loading="lazy" alt="RealEstateIndia.Com"></a></span></div>
-            </div>
-         </div>
+         <div class="row1 columns12 dt bdrT mt10px">
+            <div class="col-1"><span class="copyright">All Rights Reserved. <b>{{$sitesetting->site_title}}</b></span><br><span class="memberOf">Developed &amp; Managed By <a href="https://www.weblink.in" rel="nofollow" target="_blank">AR Technology Pvt. Ltd.</a></span></div>
+           
       </div>
    </footer>
+   <div class="whChatSec pf dib c5px">
+		<div class="whHdSec">
+		<div class="whtCls"><img src="https://catalog.wlimg.com/main-common/whs-close.png" alt="" width="16" height="16" loading="lazy"></div>
+		<h4 class="xxlarge mb5px fw6 db lh13em">Raise your Query</h4>
+		<p>Hi! Simply click below and type your query.</p> 
+		</div>
+		<div class="whChatCont"> 
+		<p class="small mb7px">Our experts will reply you very soon.</p> 
+		<div class="whChatList">
+		<a class="pr cp db bsbb" href="https://api.whatsapp.com/send?phone=91{{$sitesetting->mobile}}" target="_blank" rel="nofollow"> 
+		<span class="large db">Click Here to Chat </span> 
+		<span class="small">{{$sitesetting->site_title}}</span>
+		</a>
+		</div>
+		</div> 
+		</div>
+      <div class="whatsapp-sec pf">
+         <div class="whatsappBtn"><i class="fa fa-whatsapp"></i> <span class="whTxt downTooltip">WhatsApp Us</span></div>
+         </div>
+         <script>
+            jQuery(document).ready(function(e){
+              jQuery('.whatsappBtn').on('click',function(event){
+               jQuery('.whChatSec').toggleClass('wh-active');
+               jQuery('.whTxt').toggleClass('downTooltip');
+              });
+              jQuery('.whtCls').on('click',function(){	
+               jQuery('.whChatSec').removeClass('wh-active');	
+              });
+              if ($(window).width() > 993) {
+              $.fn.scrollEnd = function(callback, timeout) {          
+              jQuery(this).scroll(function(){
+                var $this = jQuery(this);
+                if ($this.data('scrollTimeout')) {
+                  clearTimeout($this.data('scrollTimeout'));
+                }
+                 $this.data('scrollTimeout', setTimeout(callback,timeout));
+                });
+               };
+               jQuery(window).scroll(function(){
+                jQuery('.whatsappBtn').addClass('wh-close');
+               });
+               jQuery(window).scrollEnd(function(){
+                jQuery('.whatsappBtn').removeClass('wh-close');
+               }, 1800);
+               };
+            });
+            </script>

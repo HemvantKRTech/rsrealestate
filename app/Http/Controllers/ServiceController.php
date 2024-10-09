@@ -123,7 +123,8 @@ class ServiceController extends Controller
     public function show($slug){
         $service = Service::where('slug', $slug)->firstOrFail();
         $city=City::all();
-        return view('FrontendPages.servicedetail', compact('service','city'));
+        $allservices=Service::all();
+        return view('FrontendPages.servicedetail', compact('service','city','allservices'));
     }
 
    
